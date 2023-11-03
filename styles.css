@@ -120,7 +120,7 @@ header {
 /* menu-icon */
 
 #menu-icon {
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   cursor: pointer;
   z-index: 10001;
   display: none;
@@ -667,7 +667,7 @@ header {
 @media (max-width: 712px) {
   #container img {
     padding: 20px;
-    background-color: #868a92;
+   
   }
 
   .heading h1 {
@@ -699,7 +699,7 @@ header {
   }
 
   #container {
-    background-color: #c0eb7b;
+   
     position: relative;
     display: flex;
     width: 100%;
@@ -718,6 +718,8 @@ header {
    height: 820px;
    object-fit: contain;
   }
+
+
 
 }
 
