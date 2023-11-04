@@ -151,8 +151,8 @@ header {
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  background: #c0eb7b;
-  margin-top: 6rem;
+  /* background: #c0eb7b; */
+  margin-top: 2rem;
   position: relative !important;
   min-height: 740px;
 }
