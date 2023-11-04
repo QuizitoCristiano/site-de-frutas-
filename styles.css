@@ -101,6 +101,7 @@ header {
 .navbar {
   display: flex;
   column-gap: 00.5rem;
+  z-index: 20000;
 }
 
 .navbar a {
@@ -624,6 +625,7 @@ header {
     box-shadow: 4px 4px 0 4px rgb(14 55 54 / 15%);
     transition: 0.2s all linear;
     text-align: left;
+    z-index: 10003;
   }
   .navbar a {
     padding: 1rem;
