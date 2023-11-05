@@ -8,17 +8,31 @@ var swiper = new Swiper(".home", {
 });
 
 
+// const menu = document.querySelector('#menu-icon');
+// const navebar = document.querySelector('.navbar');
+
+// menu.addEventListener('click', function() {
+//   // event.defaultPrevented();
+
+//  menu.classList.toggle('bx-x');
+//  navebar.classList.toggle('active');
+// })
+
+// window.onscroll = () => {
+//   menu.classList.remove('bx-x');
+//   navebar.classList.remove('active');
+// }
+
+
 const menu = document.querySelector('#menu-icon');
-const navebar = document.querySelector('.navbar');
+const navbar = document.querySelector('.navbar');
 
 menu.addEventListener('click', function() {
-  // event.defaultPrevented();
-
- menu.classList.toggle('bx-x');
- navebar.classList.toggle('active');
-})
+  menu.classList.toggle('bx-x');
+  navbar.classList.toggle('active');
+});
 
 window.onscroll = () => {
   menu.classList.remove('bx-x');
-  navebar.classList.remove('active');
+  navbar.classList.remove('active');
 }
