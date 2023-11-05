@@ -11,6 +11,7 @@
   text-decoration: none;
   scroll-padding-top: 2rem;
   scroll-behavior: smooth;
+  /* overflow: hidden; */
 }
 
 :root {
@@ -20,6 +21,7 @@
   --light-orange-color: #f75f1d;
   --text-color: #1a2428;
   --bg-color: #fff;
+  overflow-x: hidden;
 }
 
 /* Custom Scroll Bar */
@@ -60,7 +62,7 @@ header {
   box-shadow: 0 8px 11px rgb(14 55 54 / 15%);
   padding: 20px 100px;
   transition: 0.5s;
-  overflow-x: hidden;
+ 
 }
 
 .profile {
