@@ -102,7 +102,6 @@
   font-weight: bold;
   cursor: pointer;
   position: absolute;
-  
 }
 
 input[type="text"] {
@@ -130,15 +129,15 @@ button:hover {
 
 
 
-/* // */
 
 
 
 
-
-
-
-
+#lista-itens-carrinho {
+ 
+  gap: 2rem !important;
+  padding: 4px;
+}
 
 section {
   padding: 4.5rem 0 1.5rem;
