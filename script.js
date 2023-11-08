@@ -46,157 +46,6 @@ document.getElementById("searchButton").addEventListener("click", function () {
   // Por exemplo, você pode redirecionar para uma página de resultados de pesquisa ou realizar uma solicitação AJAX.
 });
 
-// const produtos = [
-//   {
-//     nome: "Maracujá",
-//     img: './image/Maracuja.png',
-//     preco: 5.99,
-//   },
-//   {
-//     nome: "Pêssego",
-//     img: './image/pessego1.png',
-//     preco: 4.99,
-//   },
-//   {
-//     nome: "Legumes",
-//     img: './image/legumes.jpg',
-//     preco: 3.49,
-//   },
-//   {
-//     nome: "Batata",
-//     img: './image/batata.png',
-//     preco: 3.49,
-//   },
-//   {
-//     nome: "Senoura",
-//     img: './image/senoura.png',
-//     preco: 3.49,
-//   },
-//   {
-//     nome: "Uva",
-//     img: './image/uva.png',
-//     preco: 3.49,
-//   },
-//   {
-//     nome: "Papaia",
-//     img: './image/papaia.png',
-//     preco: 3.49,
-//   },
-//   {
-//     nome: "Cereja",
-//     img: './image/cereja.jpg',
-//     preco: 3.49,
-//   },
-//   {
-//     nome: "Frutas",
-//     img: './image/frutas2.png',
-//     preco: 3.49,
-//   }
-// ];
-
-// const numberOfCards = produtos.length;
-// const container = document.querySelector('.Produtos-container');
-// const carrinho = [];
-
-// for (let i = 0; i < numberOfCards; i++) {
-//   const produto = produtos[i];
-
-//   const productCardHTML = `
-//     <div class="box">
-//       <img src="${produto.img}" alt="" />
-//       <h2>${produto.nome}</h2>
-//       <h3 class="price">R$: ${produto.preco.toFixed(2)} <span>kg</span></h3>
-//       <i class="bx bx-cart-alt addToCartButton" data-product-index="${i}"></i>
-//       <i class="bx bx-heart"></i>
-//       <span class="discount">-25%</span>
-//     </div>
-//   `;
-
-//   container.innerHTML += productCardHTML;
-// }
-
-// const addToCartButtons = document.querySelectorAll(".addToCartButton");
-
-// addToCartButtons.forEach((button) => {
-//   button.addEventListener("click", (event) => {
-//     const productIndex = event.target.getAttribute("data-product-index");
-//     const produto = produtos[productIndex];
-
-//     carrinho.push(produto);
-//     atualizarCarrinho();
-//     atualizarInterfaceUsuario();
-//   });
-// });
-
-// function atualizarInterfaceUsuario() {
-//   // Atualize a interface do usuário, por exemplo, exibindo o número de itens no carrinho.
-//   const numeroItensCarrinho = carrinho.length;
-//   // Faça algo com o número de itens no carrinho, como atualizar um contador na interface.
-//   console.log(`Itens no carrinho: ${numeroItensCarrinho}`);
-//   console.log(carrinho);
-// }
-
-// function atualizarCarrinho() {
-//   const listaItensCarrinho = document.getElementById("lista-itens-carrinho");
-//   listaItensCarrinho.innerHTML = "";
-
-//   for (const produto of carrinho) {
-//     const listItem = document.createElement("li");
-//     listItem.innerHTML = `${produto.nome} - R$ ${produto.preco.toFixed(2)}`;
-//     listaItensCarrinho.appendChild(listItem);
-//   }
-// }
-
-const produtos = [
-  {
-    nome: "Maracujá",
-    img: "./image/Maracuja.png",
-    preco: 5.99,
-  },
-
-  {
-    nome: "Pêssego",
-    img: "./image/pessego1.png",
-    preco: 4.99,
-  },
-  {
-    nome: "Legumes",
-    img: "./image/legumes.jpg",
-    preco: 3.49,
-  },
-  {
-    nome: "Batata",
-    img: "./image/batata.png",
-    preco: 3.49,
-  },
-  {
-    nome: "Senoura",
-    img: "./image/senoura.png",
-    preco: 3.49,
-  },
-  {
-    nome: "Uva",
-    img: "./image/uva.png",
-    preco: 3.49,
-  },
-  {
-    nome: "Papaia",
-    img: "./image/papaia.png",
-    preco: 3.49,
-  },
-  {
-    nome: "Cereja",
-    img: "./image/cereja.jpg",
-    preco: 3.49,
-  },
-  {
-    nome: "Frutas",
-    img: "./image/frutas2.png",
-    preco: 3.49,
-  },
-  // ... Outros produtos ...
-];
-
 const container = document.querySelector(".Produtos-container");
 const carrinho = [];
 
@@ -261,6 +110,60 @@ produtos.forEach((produto, index) => {
 
 // por que os clientes nos amam?
 
+const dadosDosCartoes = [
+  {
+    imagem: "./img/Pimentao.png",
+    titulo: "Pimentão",
+    quantidade: "22 Item",
+    cor: "#fef4ea",
+  },
+  {
+    imagem: "./img/Abobrinha.png",
+    titulo: "Abobrinha ",
+    quantidade: "15 Item",
+    cor: "#eeeef9",
+  },
+  {
+    imagem: "./img/lecumes.png",
+    titulo: "Lecumes ",
+    quantidade: "10 Item",
+    cor: '#faeaea',
+  },
+  {
+    imagem: "./img/batata-doce.png",
+    titulo: "Batata-Doce",
+    quantidade: "8 Item",
+    cor: "#eeeef9",
+  },
+  {
+    imagem: "./img/tomate1.png",
+    titulo: "Tomate",
+    quantidade: "30 Item",
+    cor: "purple",
+  },
+  {
+    imagem: "./img/Cenoura1.png",
+    titulo: "Cenoura",
+    quantidade: "12 Item",
+    cor: "#fef4ea",
+  },
+ 
+];
+
+const cartoesContainer = document.getElementById('categoria-container');
+
+dadosDosCartoes.map((cartao) => {
+  const div = document.createElement("div");
+  div.className = `box box1 ${cartao.cor}`;
+  div.innerHTML = `
+    <img src="${cartao.imagem}" alt="" />
+    <h2>${cartao.titulo}</h2>
+    <span>${cartao.quantidade}</span>
+    <i class="bx bx-right-arrow-alt"></i>
+  `;
+  cartoesContainer.appendChild(div);
+});
+
 const frutas = [
   // Frutas
   "Maçã",
@@ -283,7 +186,7 @@ const frutas = [
   "Caju",
   "Maracujá",
   "Goiaba",
-// Legumes
+  // Legumes
   "Abobrinha",
   "Alface",
   "Batata",
