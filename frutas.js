@@ -1,3 +1,5 @@
+// Frutas
+
 
  const produtos = [
   {
@@ -94,3 +96,84 @@
   // ... Outros produtos ...
 ];
 
+
+// Legumes
+
+const produtoLegumes = [
+  {
+    nome: 'Batata',
+    img: './img/batata.png',
+    preco: 7.99
+  },
+  {
+    nome: 'Abobora',
+    img: './img/Abobora.png',
+    preco: 7.99
+  },
+  {
+    nome: 'Abobrinha',
+    img: './img/Abobrinha.png',
+    preco: 7.99
+  },
+  {
+    nome: 'Alface',
+    img: './img/Alface.png',
+    preco: 7.99
+  },
+  {
+    nome: 'Batata-Doce',
+    img: './img/batata-doce.png',
+    preco: 7.99
+  },
+  {
+    nome: 'Batata-Doce',
+    img: './img/batata-doce1.png',
+    preco: 7.99
+  },
+  {
+    nome: 'Cebola-Braca',
+    img: './img/cebola-braca.png',
+    preco: 7.99
+  },
+  {
+    nome: 'Cebola',
+    img: './img/cebola.png',
+    preco: 7.99
+  },
+  {
+    nome: 'Cenoura',
+    img: './img/Cenoura.png',
+    preco: 7.99
+  },
+  {
+    nome: 'Ervilha',
+    img: './img/Ervilha.png',
+    preco: 7.99
+  },
+  {
+    nome: 'Batata',
+    img: './img/batata.png',
+    preco: 7.99
+  },
+  {
+    nome: 'Batata',
+    img: './img/batata.png',
+    preco: 7.99
+  },
+  {
+    nome: 'Batata',
+    img: './img/batata.png',
+    preco: 7.99
+  },
+  {
+    nome: 'Batata',
+    img: './img/batata.png',
+    preco: 7.99
+  },
+  {
+    nome: 'Batata',
+    img: './img/batata.png',
+    preco: 7.99
+  },
+
+]

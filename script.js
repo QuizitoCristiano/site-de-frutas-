@@ -115,37 +115,38 @@ const dadosDosCartoes = [
     imagem: "./img/Pimentao.png",
     titulo: "Pimentão",
     quantidade: "22 Item",
-    cor: "#fef4ea",
+    backgroundColor: "#fef4ea",
+    
   },
   {
     imagem: "./img/Abobrinha.png",
     titulo: "Abobrinha ",
     quantidade: "15 Item",
-    cor: "#eeeef9",
+    backgroundColor: "#eeeef9",
   },
   {
     imagem: "./img/lecumes.png",
     titulo: "Lecumes ",
     quantidade: "10 Item",
-    cor: '#faeaea',
+    backgroundColor: '#faeaea',
   },
   {
     imagem: "./img/batata-doce.png",
     titulo: "Batata-Doce",
     quantidade: "8 Item",
-    cor: "#eeeef9",
+    backgroundColor: "#eeeef9",
   },
   {
     imagem: "./img/tomate1.png",
     titulo: "Tomate",
     quantidade: "30 Item",
-    cor: "purple",
+    backgroundColor: "purple",
   },
   {
     imagem: "./img/Cenoura1.png",
     titulo: "Cenoura",
     quantidade: "12 Item",
-    cor: "#fef4ea",
+    backgroundColor: "red !important",
   },
  
 ];
@@ -154,7 +155,7 @@ const cartoesContainer = document.getElementById('categoria-container');
 
 dadosDosCartoes.map((cartao) => {
   const div = document.createElement("div");
-  div.className = `box box1 ${cartao.cor}`;
+  div.className = `box box1 ${cartao.backgroundColor}`;
   div.innerHTML = `
     <img src="${cartao.imagem}" alt="" />
     <h2>${cartao.titulo}</h2>
@@ -163,6 +164,24 @@ dadosDosCartoes.map((cartao) => {
   `;
   cartoesContainer.appendChild(div);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const frutas = [
   // Frutas

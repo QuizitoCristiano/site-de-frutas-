@@ -521,7 +521,11 @@ font-weight: 700;
   justify-content: space-between;
   flex-direction: row;
   width: 100%;
-  margin: 3rem;
+  gap: 2rem;
+  padding: 4rem;
+  /* background: #e4fada; */
+  /* background: #e1fed3;  */
+  
 }
 .about img {
   width: 480px;
@@ -533,7 +537,9 @@ font-weight: 700;
   color: var(--green-color);
 }
 .about-text {
-  margin: 2rem;
+  /* margin: 2rem; */
+  /* background: #e1fed3; */
+  width: 100%;
 }
 .about-text p {
   margin: 0.5rem 0 1rem;
@@ -736,7 +742,8 @@ font-weight: 700;
     position: relative;
     border-radius: 10px;
     margin-top: 5rem;
-  
+ 
+   
   }
 
   .home-text p {
@@ -755,10 +762,15 @@ font-weight: 700;
     justify-content: center;
     flex-direction: column;
     width: 100%;
+    
+    padding: 1rem;
+  }
+  .about img {
+    width: 380px;
   }
   .about-text p {
     margin: 0.5rem 0 1rem;
-    margin-right: 2px;
+   padding-right: 1rem;
   }
 }
 
@@ -817,6 +829,10 @@ font-weight: 700;
     margin: 0.5rem 0 1rem;
     margin-right: 2px;
   }
+  .about img {
+    width: 100%;
+  }
+  
 
   .home-text p {
     font-size: 1.2rem;
