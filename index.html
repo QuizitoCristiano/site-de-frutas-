@@ -1,505 +1,470 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Site de Frutas</title>
-    <link rel="stylesheet" href="styles.css" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site de Frutas</title>
+  <link rel="stylesheet" href="styles.css" />
 
-    <!-- Link Swiper's CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-  </head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
 
-  <body>
-    <header>
-      <a href="" class="logo"><i class="bx bxs-basket">Delicacy</i></a>
-      <!--menu icon -->
-      <div class="bx bx-menu" id="menu-icon"></div>
-      <!--Nave likes -->
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
 
-      <ul class="navbar">
-        <li><a href="#Home" class="home-active">Home</a></li>
-        <li><a href="#Categoria">Categoria</a></li>
-        <li><a href="#Produtos">Produtos</a></li>
-        <li><a href="#Pobre">Sobre</a></li>
-        <li><a href="#Clientes">clientes</a></li>
-      </ul>
+<body>
+  <header>
+    <a href="" class="logo"><i class="bx bxs-basket">Delicacy</i></a>
+    <!--menu icon -->
+    <div class="bx bx-menu" id="menu-icon"></div>
+    <!--Nave likes -->
 
-      <!--Profile -->
-      <div class="profile">
-        <img src="./image/Quizito.jpeg" alt="" />
-        <span>Sobre Mim</span>
-        <i class="bx bx-caret-down"></i>
-      </div>
-      <div class="profile">
-        <i class='bx bx-search'  id="openModal"></i>
-       
+    <ul class="navbar">
+      <li><a href="#Home" class="home-active">Home</a></li>
+      <li><a href="#Categoria">Categoria</a></li>
+      <li><a href="#Produtos">Produtos</a></li>
+      <li><a href="#Pobre">Sobre</a></li>
+      <li><a href="#Clientes">clientes</a></li>
+    </ul>
 
-        <div class="profile">
-          
-    
-      <div class="modal" id="searchModal">
-          <div class="modal-content">
-              <span class="close" id="closeModal">X</span>
-              <div class="Box-Modal">
-
-                <input type="text" id="frutaInput" placeholder="Digite sua pesquisa" oninput="sugerirFrutas()">
-               <button id="searchButton">Pesquisar</button>
-              </div>
-
-              <div class="frutis-Box">
-                <ul id="frutaSugestoes"></ul>
-              </div>
-          </div>
-      </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Home -->
-
-    <section class="home swiper" id="Home">
-      <div class="swiper-wrapper">
-        <!-- Slide 1 -->
-        <div class="swiper-slide" id="container">
-          <div class="home-text">
-            <span>🌱 Nossas Promessas para Você 🌱</span>
-
-            <p>
-              Frutas e Legumes Frescos: Selecionamos a dedo as frutas e legumes
-              mais frescos, para garantir que você e sua família desfrutem de
-              sabores autênticos.
-            </p>
-
-            <a href="#" class="btn"
-              >Compre agora <i class="bx bx-right-arrow-alt"></i>
-            </a>
-          </div>
-
-          <img src="./image/tropical-fruits.png" alt="" />
-        </div>
-
-        <div class="swiper-slide" id="container">
-          <div class="home-text">
-            <span>🌱 Qualidade e Frescor 🌱🌿</span>
-
-            <p>
-              Conveniência: Compre de forma rápida e fácil em nosso site, e
-              entregaremos seus produtos diretamente à sua porta.
-            </p>
-            <a href="#" class="btn"
-              >Compre agora <i class="bx bx-right-arrow-alt"></i>
-            </a>
-          </div>
-
-          <img src="./image/tropical-fruits.png" alt="" />
-        </div>
-        <!-- Slide 3 -->
-        <div class="swiper-slide" id="container">
-          <div class="home-text">
-            <span>🍏 Nossa Missão 🍏</span>
-            <p>
-              Variedade: Oferecemos uma ampla variedade de produtos, desde
-              frutas suculentas até vegetais nutritivos, para atender a todos os
-              gostos e preferências.
-            </p>
-            <a href="#" class="btn"
-              >Compre agora <i class="bx bx-right-arrow-alt"></i>
-            </a>
-          </div>
-          <img src="./image/tropical-fruits.png" alt="" />
-        </div>
-      </div>
-
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </section>
-
-    <!-- Categoria frutas -->
-    <section class="categoria" id="Categoria">
-      <div class="heading">
-        <h1>
-          Explorando a Diversidade da Natureza <br />
-          <span>Frutas</span>
-        </h1>
-        <a href="#" class="btn"
-          >Ver tudo <i class="bx bx-right-arrow-alt"></i
-        ></a>
-      </div>
-
-      <!-- container content -->
-      <div class="categoria-container">
-        <!-- Box1 -->
-        <div class="box box1">
-          <img src="./image/manga.jpg" alt="" />
-          <h2>Abacate e Manga</h2>
-          <span>22 Item</span>
-          <i class="bx bx-right-arrow-alt"></i>
-        </div>
-        <!-- Box2 -->
-        <div class="box box2">
-          <img src="./image/morango.jpg" alt="" />
-          <h2>Morango</h2>
-          <span>22 Item</span>
-          <i class="bx bx-right-arrow-alt"></i>
-        </div>
-        <!-- Box3 -->
-        <div class="box box3">
-          <img src="./image/Uva1.png" alt="" />
-          <h2>Uva</h2>
-          <span>22 Item</span>
-          <i class="bx bx-right-arrow-alt"></i>
-        </div>
-        <!-- Box4 -->
-        <div class="box box4">
-          <img src="./image/abacate.jpg" alt="" />
-          <h2>Abacate</h2>
-          <span>22 Item</span>
-          <i class="bx bx-right-arrow-alt"></i>
-        </div>
-        <!-- Box5 -->
-        <div class="box box5">
-          <img src="./image/papaia.png" alt="" />
-          <h2>Mamaõ ou Papaia </h2>
-          <span>22 Item</span>
-          <i class="bx bx-right-arrow-alt"></i>
-        </div>
-      </div>
-    </section>
-
-    <!-- Produtos -->
-    <section class="Produtos" id="Produtos">
-      <div class="heading">
-        <h1>
-          Nossos Produtos Populares<br />
-          <span>Produtos de Frutas</span>
-        </h1>
-        <a href="#" class="btn"
-          >Nova loja<i class="bx bx-right-arrow-alt"></i
-        ></a>
-      </div>
-      <!-- Produtos container -->
-
-      
-      <div class="Produtos-container">
-     
-        
-      </div>
-
-        <div class="heading">
-        <h1>
-          Nossos Produtos Populares<br />
-          <span>Produtos de Legumes</span>
-        </h1>
-        <a href="#" class="btn"
-          >Nova loja<i class="bx bx-right-arrow-alt"></i
-        ></a>
-      </div>
-
-
-      <div class="carrinho">
-        <h2>Itens no Carrinho</h2>
-        <ul id="lista-itens-carrinho">
-          <!-- Aqui serão exibidos os itens do carrinho -->
-        </ul>
-      </div>
-    </section>
-
- <!-- Categoria Legumes -->
-    <section class="categoria" id="Categoria">
-      <div class="heading">
-        <h1>
-          Explorando a Diversidade da Natureza <br />
-          <span>Legumes</span>
-        </h1>
-        <a href="#" class="btn"
-          >Ver tudo <i class="bx bx-right-arrow-alt"></i
-        ></a>
-      </div>
-
-      <!-- container content -->
-      <div class="categoria-container" id="categoria-container">
-  
-        
-      </div>
-    </section>
-
-    <section class="Produtos" id="Produtos">
-      <div class="heading">
-        <h1>
-          Nossos Produtos Populares<br />
-          <span>Produtos de Frutas</span>
-        </h1>
-        <a href="#" class="btn"
-          >Nova loja<i class="bx bx-right-arrow-alt"></i
-        ></a>
-      </div>
-      <!-- Produtos container -->
-
-      
-      <div class="Produtos-container">
-     sdfs
-        
-      </div>
-
-        <div class="heading">
-        <h1>
-          Nossos Produtos Populares<br />
-          <span>Produtos de Legumes</span>
-        </h1>
-        <a href="#" class="btn"
-          >Nova loja<i class="bx bx-right-arrow-alt"></i
-        ></a>
-      </div>
-
-
-      <div class="carrinho">
-        <h2>Itens no Carrinho</h2>
-        <ul id="lista-itens-carrinho">
-          <!-- Aqui serão exibidos os itens do carrinho -->
-        </ul>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section>
-      <div class="about" id="Pobre">
-        <img src="./img/legumes.avif" alt="" />
-
-        <div class="about-text">
-          <span>🌿 Sobre Nós - Delicacty: Nutrição Fresca e Sabor Puro 🌿</span>
-          <p>
-            Na Delicacty, acreditamos que uma vida saudável começa com escolhas
-            alimentares saudáveis. Nossa jornada começou com a paixão por
-            proporcionar a você e sua família acesso a frutas e legumes frescos
-            e de alta qualidade, diretamente à sua porta.
-          </p>
-          <span>🌱 Qualidade e Frescor 🌱 </span>
-          <p>
-            Na Delicacty, a qualidade e o frescor são nossas principais
-            prioridades. Trabalhamos incansavelmente para selecionar os produtos
-            mais frescos e saborosos, diretamente de produtores locais e
-            fornecedores confiáveis. Cada fruta e legume é escolhido a dedo para
-            garantir que apenas o melhor chegue à sua mesa.
-          </p>
-
-          <a href="#" class="btn"
-            >Saber mais<i class="bx bx-right-arrow-alt"></i
-          ></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Clientes -->
-    <section class="Clientes" id="Clientes">
-      <h2>por que os clientes nos amam?</h2>
-
-      <!-- customers contaent -->
-      <div class="customers-container">
-        <!-- Box 1 -->
-        <div class="box">
-          <i class="bx bxs-quote-alt-left"></i>
-
-          <div class="stares">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star-helf"></i>
-          </div>
-          <p>
-            A Delicacty sempre me surpreende com a qualidade impecável dos
-            produtos. Os legumes são frescos e as frutas são deliciosas. Além
-            disso, a entrega rápida é um grande diferencial. Mal posso esperar
-            para fazer meu próximo pedido!
-          </p>
-          <div class="review-profile">
-            <img src="./image/Quizito.jpeg" alt="" />
-            <h3>Quizito Cristiano</h3>
-          </div>
-        </div>
-        <!-- Box 2 -->
-        <div class="box">
-          <i class="bx bxs-quote-alt-left"></i>
-
-          <div class="stares">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star-helf"></i>
-          </div>
-          <p>
-            A Delicacty é a minha salvação quando estou sem tempo para ir ao
-            supermercado. Eles entregam tão rapidamente que nunca fico sem
-            frutas e legumes frescos em casa. E os descontos são uma grande
-            ajuda para o orçamento.
-          </p>
-          <div class="review-profile">
-            <img src="./image/quizito2.jpeg" alt="" />
-            <h3>Rafael T.</h3>
-          </div>
-        </div>
-        <!-- Box 3-->
-        <div class="box">
-          <i class="bx bxs-quote-alt-left"></i>
-
-          <div class="stares">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star-helf"></i>
-          </div>
-          <p>
-            Os produtos da Delicacty são tão frescos que parece que acabei de
-            colhê-los eu mesmo. A entrega rápida é um grande benefício,
-            especialmente quando estou ocupado. Os descontos também são muito
-            apreciados!
-          </p>
-          <div class="review-profile">
-            <img src="./image/mamae.jpeg" alt="" />
-            <h3>Sandro</h3>
-          </div>
-        </div>
-
-        <!-- Box 4-->
-        <div class="box">
-          <i class="bx bxs-quote-alt-left"></i>
-
-          <div class="stares">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star-helf"></i>
-          </div>
-          <p>
-            Nunca encontrei uma loja online que entregasse tão rapidamente
-            quanto a Delicacty. Além disso, os produtos são de alta qualidade, e
-            os descontos regulares são um bônus adicional que economiza meu
-            dinheiro.
-          </p>
-          <div class="review-profile">
-            <img src="./image/quizito.jpeg" alt="" />
-            <h3>Pedro Henrique</h3>
-          </div>
-        </div>
-
-        <!-- Box 5-->
-        <div class="box">
-          <i class="bx bxs-quote-alt-left"></i>
-
-          <div class="stares">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star-helf"></i>
-          </div>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni
-            incidunt excepturi non nulla dignissimos eius, natus deleniti ipsum,
-            repudiandae accusamus mollitia eaque cumque rerum aliquid
-            praesentium placeat dolores provident a!
-          </p>
-          <div class="review-profile">
-            <img src="./image/Quizito.jpeg" alt="" />
-            <h3>Mariana Dos Santos</h3>
-          </div>
-        </div>
-
-        <!-- Box 6-->
-        <div class="box">
-          <i class="bx bxs-quote-alt-left"></i>
-
-          <div class="stares">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star-helf"></i>
-          </div>
-          <p>
-            A Delicacty é a minha opção número um para alimentos frescos. A
-            qualidade é impecável, a entrega é super rápida, e os descontos
-            frequentes me fazem voltar sempre. Uma loja incrível!
-          </p>
-          <div class="review-profile">
-            <img src="./image/temotio.jpeg " alt="" />
-            <h3>Temótio Luiz</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- /* Footer */ -->
-
-    <section class="footer" id="footer">
-      <div class="footer-box">
-        <a href="" class="logo"><i class="bx bxs-basket">Delicacy</i></a>
-        <p>Rua Curupis, 363 - Santa Quiteria, Curitiba</p>
-
-        <div class="social">
-          <i class="bx bxl-facebook"></i>
-          <i class="bx bxl-whatsapp"></i>
-          <i class="bx bxl-twitter"></i>
-          <i class="bx bxl-instagram"></i>
-          <i class="bx bxl-youtube"></i>
-        </div>
-      </div>
-
-      <div class="footer-box">
-        <h2>Categoria</h2>
-        <a href="#">Frutas vegetais</a>
-        <a href="#">PR Curitiba</a>
-        <a href="#">Pacote de comida</a>
-        <a href="#">Bebida</a>
-      </div>
-
-      <div class="footer-box">
-        <h2>Links Úteis</h2>
-        <a href="#">Pagamento e impostos</a>
-        <a href="#">Termos de uso</a>
-        <a href="#">Meu blog</a>
-        <a href="#">Retorne para nos visitar</a>
-      </div>
-
-      <div class="footer-box">
-        <h2>Boletim de Notícias</h2>
-        <p>Obtenha 10% de desconto com <br />boletim informativo por e-mail</p>
-
-        <form action="">
-          <i class="bx bxs-envelope"></i>
-
-          <input type="email" name="email" placeholder="Digite seu e-mail" />
-
-          <i class="bx bx-arrow-back bx-rotate-180"></i>
-        </form>
-      </div>
-    </section>
-
-    <!-- copyright -->
-    <div class="copyright">
-      <p>
-        🍏 🍎🥦🥕🌿🌱 Junte-se a nós na jornada para uma vida mais saudável e
-        saborosa! 🌱🍎🌿🥕🍏🥦
-      </p>
+    <!--Profile -->
+    <div class="profile">
+      <img src="./image/Quizito.jpeg" alt="" />
+      <span>Sobre Mim</span>
+      <i class="bx bx-caret-down"></i>
     </div>
-    <!-- Swiper JS -->
+    <div class="profile">
+      <i class='bx bx-search' id="openModal"></i>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" ></script>
-  </body>
-  <script src="./frutas.js"></script>
-  <script src="./script.js" ></script>
-  
+
+      <div class="profile">
+
+
+        <div class="modal" id="searchModal">
+          <div class="modal-content">
+            <span class="close" id="closeModal">X</span>
+            <div class="Box-Modal">
+
+              <input type="text" id="frutaInput" placeholder="Digite sua pesquisa" oninput="sugerirFrutas()">
+              <button id="searchButton">Pesquisar</button>
+            </div>
+
+            <div class="frutis-Box">
+              <ul id="frutaSugestoes"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Home -->
+
+  <section class="home swiper" id="Home">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div class="swiper-slide" id="container">
+        <div class="home-text">
+          <span>🌱 Nossas Promessas para Você 🌱</span>
+
+          <p>
+            Frutas e Legumes Frescos: Selecionamos a dedo as frutas e legumes
+            mais frescos, para garantir que você e sua família desfrutem de
+            sabores autênticos.
+          </p>
+
+          <a href="#" class="btn">Compre agora <i class="bx bx-right-arrow-alt"></i>
+          </a>
+        </div>
+
+        <img src="./image/tropical-fruits.png" alt="" />
+      </div>
+
+      <div class="swiper-slide" id="container">
+        <div class="home-text">
+          <span>🌱 Qualidade e Frescor 🌱🌿</span>
+
+          <p>
+            Conveniência: Compre de forma rápida e fácil em nosso site, e
+            entregaremos seus produtos diretamente à sua porta.
+          </p>
+          <a href="#" class="btn">Compre agora <i class="bx bx-right-arrow-alt"></i>
+          </a>
+        </div>
+
+        <img src="./image/tropical-fruits.png" alt="" />
+      </div>
+      <!-- Slide 3 -->
+      <div class="swiper-slide" id="container">
+        <div class="home-text">
+          <span>🍏 Nossa Missão 🍏</span>
+          <p>
+            Variedade: Oferecemos uma ampla variedade de produtos, desde
+            frutas suculentas até vegetais nutritivos, para atender a todos os
+            gostos e preferências.
+          </p>
+          <a href="#" class="btn">Compre agora <i class="bx bx-right-arrow-alt"></i>
+          </a>
+        </div>
+        <img src="./image/tropical-fruits.png" alt="" />
+      </div>
+    </div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </section>
+
+  <!-- Categoria frutas -->
+  <section class="categoria" id="Categoria">
+    <div class="heading">
+      <h1>
+        Explorando a Diversidade da Natureza <br />
+        <span>Frutas</span>
+      </h1>
+      <a href="#" class="btn">Ver tudo <i class="bx bx-right-arrow-alt"></i></a>
+    </div>
+
+    <!-- container content -->
+    <div class="categoria-container">
+      <!-- Box1 -->
+      <div class="box box1">
+        <img src="./image/manga.jpg" alt="" />
+        <h2>Abacate e Manga</h2>
+        <span>22 Item</span>
+        <i class="bx bx-right-arrow-alt"></i>
+      </div>
+      <!-- Box2 -->
+      <div class="box box2">
+        <img src="./image/morango.jpg" alt="" />
+        <h2>Morango</h2>
+        <span>22 Item</span>
+        <i class="bx bx-right-arrow-alt"></i>
+      </div>
+      <!-- Box3 -->
+      <div class="box box3">
+        <img src="./image/Uva1.png" alt="" />
+        <h2>Uva</h2>
+        <span>22 Item</span>
+        <i class="bx bx-right-arrow-alt"></i>
+      </div>
+      <!-- Box4 -->
+      <div class="box box4">
+        <img src="./image/abacate.jpg" alt="" />
+        <h2>Abacate</h2>
+        <span>22 Item</span>
+        <i class="bx bx-right-arrow-alt"></i>
+      </div>
+      <!-- Box5 -->
+      <div class="box box5">
+        <img src="./image/papaia.png" alt="" />
+        <h2>Mamaõ ou Papaia </h2>
+        <span>22 Item</span>
+        <i class="bx bx-right-arrow-alt"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- Produtos -->
+  <section class="Produtos" id="Produtos">
+    <div class="heading">
+      <h1>
+        Nossos Produtos Populares<br />
+        <span>Produtos de Frutas</span>
+      </h1>
+      <a href="#" class="btn">Nova loja<i class="bx bx-right-arrow-alt"></i></a>
+    </div>
+    <!-- Produtos container -->
+
+
+    <div class="Produtos-container">
+
+
+    </div>
+
+    <div class="heading">
+      <h1>
+        Nossos Produtos Populares<br />
+        <span>Produtos de Legumes</span>
+      </h1>
+      <a href="#" class="btn">Nova loja<i class="bx bx-right-arrow-alt"></i></a>
+    </div>
+  </section>
+
+  <!-- Categoria Legumes -->
+  <section class="categoria" id="Categoria">
+    <div class="heading">
+      <h1>
+        Explorando a Diversidade da Natureza <br />
+        <span>Legumes</span>
+      </h1>
+      <a href="#" class="btn">Ver tudo <i class="bx bx-right-arrow-alt"></i></a>
+    </div>
+
+    <!-- container content -->
+    <div class="categoria-container" id="categoria-container">
+
+
+    </div>
+  </section>
+
+  <section class="Produtos" id="Produtos">
+    <div class="heading">
+      <h1>
+        Nossos Produtos Populares<br />
+        <span>Produtos de Frutas</span>
+      </h1>
+      <a href="#" class="btn">Nova loja<i class="bx bx-right-arrow-alt"></i></a>
+    </div>
+    <!-- Produtos container de Legumes-->
+
+
+    <div class="Produtos-legumes">
+
+    
+
+    </div>
+
+
+
+
+    <div class="carrinho">
+      <h2>Itens no Carrinho</h2>
+      <ul class="Minha-lista-carrinho">
+        <!-- Aqui serão exibidos os itens do carrinho -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section>
+    <div class="about" id="Pobre">
+      <img src="./img/legumes.avif" alt="" />
+
+      <div class="about-text">
+        <span>🌿 Sobre Nós - Delicacty: Nutrição Fresca e Sabor Puro 🌿</span>
+        <p>
+          Na Delicacty, acreditamos que uma vida saudável começa com escolhas
+          alimentares saudáveis. Nossa jornada começou com a paixão por
+          proporcionar a você e sua família acesso a frutas e legumes frescos
+          e de alta qualidade, diretamente à sua porta.
+        </p>
+        <span>🌱 Qualidade e Frescor 🌱 </span>
+        <p>
+          Na Delicacty, a qualidade e o frescor são nossas principais
+          prioridades. Trabalhamos incansavelmente para selecionar os produtos
+          mais frescos e saborosos, diretamente de produtores locais e
+          fornecedores confiáveis. Cada fruta e legume é escolhido a dedo para
+          garantir que apenas o melhor chegue à sua mesa.
+        </p>
+
+        <a href="#" class="btn">Saber mais<i class="bx bx-right-arrow-alt"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clientes -->
+  <section class="Clientes" id="Clientes">
+    <h2>por que os clientes nos amam?</h2>
+
+    <!-- customers contaent -->
+    <div class="customers-container">
+      <!-- Box 1 -->
+      <div class="box">
+        <i class="bx bxs-quote-alt-left"></i>
+
+        <div class="stares">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star-helf"></i>
+        </div>
+        <p>
+          A Delicacty sempre me surpreende com a qualidade impecável dos
+          produtos. Os legumes são frescos e as frutas são deliciosas. Além
+          disso, a entrega rápida é um grande diferencial. Mal posso esperar
+          para fazer meu próximo pedido!
+        </p>
+        <div class="review-profile">
+          <img src="./image/Quizito.jpeg" alt="" />
+          <h3>Quizito Cristiano</h3>
+        </div>
+      </div>
+      <!-- Box 2 -->
+      <div class="box">
+        <i class="bx bxs-quote-alt-left"></i>
+
+        <div class="stares">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star-helf"></i>
+        </div>
+        <p>
+          A Delicacty é a minha salvação quando estou sem tempo para ir ao
+          supermercado. Eles entregam tão rapidamente que nunca fico sem
+          frutas e legumes frescos em casa. E os descontos são uma grande
+          ajuda para o orçamento.
+        </p>
+        <div class="review-profile">
+          <img src="./image/quizito2.jpeg" alt="" />
+          <h3>Rafael T.</h3>
+        </div>
+      </div>
+      <!-- Box 3-->
+      <div class="box">
+        <i class="bx bxs-quote-alt-left"></i>
+
+        <div class="stares">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star-helf"></i>
+        </div>
+        <p>
+          Os produtos da Delicacty são tão frescos que parece que acabei de
+          colhê-los eu mesmo. A entrega rápida é um grande benefício,
+          especialmente quando estou ocupado. Os descontos também são muito
+          apreciados!
+        </p>
+        <div class="review-profile">
+          <img src="./image/mamae.jpeg" alt="" />
+          <h3>Sandro</h3>
+        </div>
+      </div>
+
+      <!-- Box 4-->
+      <div class="box">
+        <i class="bx bxs-quote-alt-left"></i>
+
+        <div class="stares">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star-helf"></i>
+        </div>
+        <p>
+          Nunca encontrei uma loja online que entregasse tão rapidamente
+          quanto a Delicacty. Além disso, os produtos são de alta qualidade, e
+          os descontos regulares são um bônus adicional que economiza meu
+          dinheiro.
+        </p>
+        <div class="review-profile">
+          <img src="./image/quizito.jpeg" alt="" />
+          <h3>Pedro Henrique</h3>
+        </div>
+      </div>
+
+      <!-- Box 5-->
+      <div class="box">
+        <i class="bx bxs-quote-alt-left"></i>
+
+        <div class="stares">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star-helf"></i>
+        </div>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni
+          incidunt excepturi non nulla dignissimos eius, natus deleniti ipsum,
+          repudiandae accusamus mollitia eaque cumque rerum aliquid
+          praesentium placeat dolores provident a!
+        </p>
+        <div class="review-profile">
+          <img src="./image/Quizito.jpeg" alt="" />
+          <h3>Mariana Dos Santos</h3>
+        </div>
+      </div>
+
+      <!-- Box 6-->
+      <div class="box">
+        <i class="bx bxs-quote-alt-left"></i>
+
+        <div class="stares">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star-helf"></i>
+        </div>
+        <p>
+          A Delicacty é a minha opção número um para alimentos frescos. A
+          qualidade é impecável, a entrega é super rápida, e os descontos
+          frequentes me fazem voltar sempre. Uma loja incrível!
+        </p>
+        <div class="review-profile">
+          <img src="./image/temotio.jpeg " alt="" />
+          <h3>Temótio Luiz</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- /* Footer */ -->
+
+  <section class="footer" id="footer">
+    <div class="footer-box">
+      <a href="" class="logo"><i class="bx bxs-basket">Delicacy</i></a>
+      <p>Rua Curupis, 363 - Santa Quiteria, Curitiba</p>
+
+      <div class="social">
+        <i class="bx bxl-facebook"></i>
+        <i class="bx bxl-whatsapp"></i>
+        <i class="bx bxl-twitter"></i>
+        <i class="bx bxl-instagram"></i>
+        <i class="bx bxl-youtube"></i>
+      </div>
+    </div>
+
+    <div class="footer-box">
+      <h2>Categoria</h2>
+      <a href="#">Frutas vegetais</a>
+      <a href="#">PR Curitiba</a>
+      <a href="#">Pacote de comida</a>
+      <a href="#">Bebida</a>
+    </div>
+
+    <div class="footer-box">
+      <h2>Links Úteis</h2>
+      <a href="#">Pagamento e impostos</a>
+      <a href="#">Termos de uso</a>
+      <a href="#">Meu blog</a>
+      <a href="#">Retorne para nos visitar</a>
+    </div>
+
+    <div class="footer-box">
+      <h2>Boletim de Notícias</h2>
+      <p>Obtenha 10% de desconto com <br />boletim informativo por e-mail</p>
+
+      <form action="">
+        <i class="bx bxs-envelope"></i>
+
+        <input type="email" name="email" placeholder="Digite seu e-mail" />
+
+        <i class="bx bx-arrow-back bx-rotate-180"></i>
+      </form>
+    </div>
+  </section>
+
+  <!-- copyright -->
+  <div class="copyright">
+    <p>
+      🍏 🍎🥦🥕🌿🌱 Junte-se a nós na jornada para uma vida mais saudável e
+      saborosa! 🌱🍎🌿🥕🍏🥦
+    </p>
+  </div>
+  <!-- Swiper JS -->
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+<script src="./frutas.js"></script>
+<script src="./script.js"></script>
+
 </html>

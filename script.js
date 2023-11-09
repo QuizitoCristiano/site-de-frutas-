@@ -46,19 +46,28 @@ document.getElementById("searchButton").addEventListener("click", function () {
   // Por exemplo, você pode redirecionar para uma página de resultados de pesquisa ou realizar uma solicitação AJAX.
 });
 
+
+
+
+
+
+
+
 const container = document.querySelector(".Produtos-container");
+const mayContainer = document.querySelector(".Produtos-legumes");
+const listaItensCarrinho = document.querySelector('.Minha-lista-carrinho');
 const carrinho = [];
 
 // Função para adicionar um produto ao carrinho
-function adicionarAoCarrinho(productIndex) {
-  const produto = produtos[productIndex];
-  carrinho.push({ ...produto, quantidade: 1 });
+function adicionarAoCarrinho(productIndex, isVegetable = false) {
+  const produtosArray = isVegetable ? produtoLegumes : produtos;
+  const produto = produtosArray[productIndex];
+  carrinho.push({ ...produto, quantidade: 1, isVegetable });
   atualizarCarrinho();
   console.log(carrinho);
 }
 
 function atualizarCarrinho() {
-  const listaItensCarrinho = document.getElementById("lista-itens-carrinho");
   listaItensCarrinho.innerHTML = "";
 
   carrinho.forEach((produto, index) => {
@@ -108,6 +117,26 @@ produtos.forEach((produto, index) => {
   container.innerHTML += productCardHTML;
 });
 
+produtoLegumes.forEach((myVegetableProducts, index) => {
+  const productCardHTML = `
+    <div class="wrapper">
+      <img src="${myVegetableProducts.img}" alt="" />
+      <h2>${myVegetableProducts.nome}</h2>
+      <h3 class="price">R$: ${myVegetableProducts.preco.toFixed(2)} <span>kg</span></h3>
+      <i class="bx bx-cart-alt" onclick="adicionarAoCarrinho(${index}, true)"></i>
+      <i class="bx bx-heart"></i>
+    </div>
+  `;
+  mayContainer.innerHTML += productCardHTML;
+});
+
+
+
+
+
+
+
+
 // por que os clientes nos amam?
 
 const dadosDosCartoes = [
@@ -116,7 +145,6 @@ const dadosDosCartoes = [
     titulo: "Pimentão",
     quantidade: "22 Item",
     backgroundColor: "#fef4ea",
-    
   },
   {
     imagem: "./img/Abobrinha.png",
@@ -128,7 +156,7 @@ const dadosDosCartoes = [
     imagem: "./img/lecumes.png",
     titulo: "Lecumes ",
     quantidade: "10 Item",
-    backgroundColor: '#faeaea',
+    backgroundColor: "#faeaea",
   },
   {
     imagem: "./img/batata-doce.png",
@@ -148,10 +176,9 @@ const dadosDosCartoes = [
     quantidade: "12 Item",
     backgroundColor: "red !important",
   },
- 
 ];
 
-const cartoesContainer = document.getElementById('categoria-container');
+const cartoesContainer = document.getElementById("categoria-container");
 
 dadosDosCartoes.map((cartao) => {
   const div = document.createElement("div");
@@ -164,24 +191,6 @@ dadosDosCartoes.map((cartao) => {
   `;
   cartoesContainer.appendChild(div);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const frutas = [
   // Frutas

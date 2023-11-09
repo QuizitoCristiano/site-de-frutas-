@@ -7,7 +7,11 @@
     img: "./image/Maracuja.png",
     preco: 5.99,
   },
-
+  {
+    nome: "Frutas",
+    img: "./image/frutasMia1.png",
+    preco: 3.49,
+  },
   {
     nome: "Pêssego",
     img: "./image/pessego1.png",
@@ -64,6 +68,11 @@
     preco: 3.49,
   },
   {
+    nome: "Maçã",
+    img: "./image/maca.png",
+    preco: 3.49,
+  },
+  {
     nome: "Framboesa",
     img: "./image/Framboesa.png",
     preco: 3.49,
@@ -93,6 +102,11 @@
     img: "./image/Azeitona.png",
     preco: 3.49,
   },
+  {
+    nome: "Frutas",
+    img: "./image/frutasMix.png",
+    preco: 3.49,
+  },
   // ... Outros produtos ...
 ];
 
@@ -103,27 +117,27 @@ const produtoLegumes = [
   {
     nome: 'Batata',
     img: './img/batata.png',
-    preco: 7.99
+    preco: 10
   },
   {
     nome: 'Abobora',
     img: './img/Abobora.png',
-    preco: 7.99
+    preco: 12.99
   },
   {
     nome: 'Abobrinha',
     img: './img/Abobrinha.png',
-    preco: 7.99
+    preco: 6.99
   },
   {
     nome: 'Alface',
     img: './img/Alface.png',
-    preco: 7.99
+    preco: 4.99
   },
   {
     nome: 'Batata-Doce',
     img: './img/batata-doce.png',
-    preco: 7.99
+    preco: 5.99
   },
   {
     nome: 'Batata-Doce',
@@ -133,47 +147,93 @@ const produtoLegumes = [
   {
     nome: 'Cebola-Braca',
     img: './img/cebola-braca.png',
-    preco: 7.99
+    preco: 2.99
   },
   {
     nome: 'Cebola',
     img: './img/cebola.png',
-    preco: 7.99
+    preco: 2.50
   },
   {
     nome: 'Cenoura',
     img: './img/Cenoura.png',
-    preco: 7.99
+    preco: 4.99
   },
   {
     nome: 'Ervilha',
     img: './img/Ervilha.png',
-    preco: 7.99
+    preco: 8.99
   },
   {
-    nome: 'Batata',
-    img: './img/batata.png',
-    preco: 7.99
+    nome: 'Espinafre',
+    img: './img/Espinafre.png',
+    preco: 9.99
   },
   {
-    nome: 'Batata',
-    img: './img/batata.png',
-    preco: 7.99
+    nome: 'Legumes',
+    img: './img/legumes.jpg',
+    preco: 20.99
   },
   {
-    nome: 'Batata',
-    img: './img/batata.png',
-    preco: 7.99
+    nome: 'Feijão Brango',
+    img: './img/feijao-Brango.png',
+    preco: 30
   },
   {
-    nome: 'Batata',
-    img: './img/batata.png',
-    preco: 7.99
+    nome: 'Legumes',
+    img: './img/lecumes.png',
+    preco: 22.99
   },
   {
-    nome: 'Batata',
-    img: './img/batata.png',
-    preco: 7.99
+    nome: 'Legumes',
+    img: './img/frutaselegumes.avif',
+    preco: 15.99
   },
+  {
+    nome: 'Feijão Vermelo',
+    img: './img/feijoa-Vermelo.png',
+    preco: 3.99
+  },
+  {
+    nome: 'Pimentão',
+    img: './img/Pimentao.png',
+    preco: 4.99
+  },
+  {
+    nome: 'Pepino',
+    img: './img/Pepino.png',
+    preco: 5.99
+  },
+  {
+    nome: 'Repolho',
+    img: './img/Repolho.png',
+    preco: 3.99
+  },
+  {
+    nome: 'Rucula',
+    img: './img/Rucula.png',
+    preco: 4.99
+  },
+  {
+    nome: 'Feijão Preto',
+    img: './img/feijao1.png',
+    preco: 5.99
+  },
+  {
+    nome: 'Milho',
+    img: './img/milho1.png',
+    preco: 3.99
+  },
+  {
+    nome: 'Tomate',
+    img: './img/tomate1.png',
+    preco: 4.00
+  },
+  {
+    nome: 'Couve da China',
+    img: './img/couve-da-China.jpeg',
+    preco: 4.00
+  },
+ 
 
 ]
