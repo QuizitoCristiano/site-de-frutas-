@@ -40,27 +40,12 @@ window.addEventListener("click", function (event) {
 });
 
 // // Lógica de pesquisa ao clicar no botão "Pesquisar"
-// document.getElementById("searchButton").addEventListener("click", function () {
-//   var searchValue = document.getElementById("frutaInput").value;
-//   // Execute a ação de pesquisa com o valor inserido no campo de entrada aqui
-//   // Por exemplo, você pode redirecionar para uma página de resultados de pesquisa ou realizar uma solicitação AJAX.
-// });
-
 document.getElementById("searchButton").addEventListener("click", function () {
   var searchValue = document.getElementById("frutaInput").value;
-  // Realizar uma solicitação AJAX para buscar resultados
-  // Certifique-se de ajustar a lógica conforme necessário para a sua aplicação
-  // Aqui está um exemplo básico usando fetch:
-  fetch("/api/pesquisar?query=" + encodeURIComponent(searchValue))
-    .then(response => response.json())
-    .then(data => {
-      // Manipular os resultados da pesquisa aqui
-      console.log(data);
-    })
-    .catch(error => {
-      console.error('Erro na solicitação AJAX:', error);
-    });
+  // Execute a ação de pesquisa com o valor inserido no campo de entrada aqui
+  // Por exemplo, você pode redirecionar para uma página de resultados de pesquisa ou realizar uma solicitação AJAX.
 });
+
 
 
 
@@ -113,31 +98,6 @@ const frutas = [
   "Nabo",
 ];
 
-// function sugerirFrutas() {
-//   const input = document.getElementById("frutaInput").value.toLowerCase();
-//   const sugestoes = document.getElementById("frutaSugestoes");
-//   sugestoes.innerHTML = "";
-
-//   if (input.length === 0) {
-//     sugestoes.style.display = "none";
-//     return;
-//   }
-
-//   const resultados = frutas.filter((fruta) =>
-//     fruta.toLowerCase().includes(input)
-//   );
-//   resultados.forEach((resultado) => {
-//     const li = document.createElement("li");
-//     li.textContent = resultado;
-//     sugestoes.appendChild(li);
-//   });
-
-//   if (resultados.length > 0) {
-//     sugestoes.style.display = "block";
-//   } else {
-//     sugestoes.style.display = "none";
-//   }
-// }
 
 function sugerirFrutas() {
   const input = document.getElementById("frutaInput").value.toLowerCase();
@@ -169,6 +129,8 @@ function sugerirFrutas() {
     sugestoes.style.display = "none";
   }
 }
+
+
 
 
 
