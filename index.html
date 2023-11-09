@@ -41,26 +41,26 @@
         <i class="bx bx-caret-down"></i>
       </div>
       <div class="profile">
-        <i class='bx bx-search'  id="openModal"></i>
-       
+        <i class="bx bx-search" id="openModal"></i>
 
         <div class="profile">
-          
-    
-      <div class="modal" id="searchModal">
-          <div class="modal-content">
+          <div class="modal" id="searchModal">
+            <div class="modal-content">
               <span class="close" id="closeModal">X</span>
               <div class="Box-Modal">
-
-                <input type="text" id="frutaInput" placeholder="Digite sua pesquisa" oninput="sugerirFrutas()">
-               <button id="searchButton">Pesquisar</button>
+                <input
+                  type="text"
+                  id="frutaInput"
+                  placeholder="Digite sua pesquisa"
+                />
+                <button class="searchButton" id="searchButton">Pesquisar</button>
               </div>
 
               <div class="frutis-Box">
                 <ul id="frutaSugestoes"></ul>
               </div>
+            </div>
           </div>
-      </div>
         </div>
       </div>
     </header>
@@ -85,7 +85,7 @@
             </a>
           </div>
 
-          <img src="./image/tropical-fruits.png" alt="" />
+          <!-- <img src="./image/tropical-fruits.png" alt="" /> -->
         </div>
 
         <div class="swiper-slide" id="container">
@@ -101,7 +101,7 @@
             </a>
           </div>
 
-          <img src="./image/tropical-fruits.png" alt="" />
+          <!-- <img src="./image/tropical-fruits.png" alt="" /> -->
         </div>
         <!-- Slide 3 -->
         <div class="swiper-slide" id="container">
@@ -116,7 +116,7 @@
               >Compre agora <i class="bx bx-right-arrow-alt"></i>
             </a>
           </div>
-          <img src="./image/tropical-fruits.png" alt="" />
+          <!-- <img src="./image/tropical-fruits.png" alt="" /> -->
         </div>
       </div>
 
@@ -169,7 +169,7 @@
         <!-- Box5 -->
         <div class="box box5">
           <img src="./image/papaia.png" alt="" />
-          <h2>Mamaõ ou Papaia </h2>
+          <h2>Mamaõ ou Papaia</h2>
           <span>22 Item</span>
           <i class="bx bx-right-arrow-alt"></i>
         </div>
@@ -189,13 +189,9 @@
       </div>
       <!-- Produtos container -->
 
-      
-      <div class="Produtos-container">
-     
-        
-      </div>
+      <div class="Produtos-container"></div>
 
-        <div class="heading">
+      <div class="heading">
         <h1>
           Nossos Produtos Populares<br />
           <span>Produtos de Legumes</span>
@@ -205,7 +201,6 @@
         ></a>
       </div>
 
-
       <div class="carrinho">
         <h2>Itens no Carrinho</h2>
         <ul id="lista-itens-carrinho">
@@ -214,7 +209,7 @@
       </div>
     </section>
 
- <!-- Categoria Legumes -->
+    <!-- Categoria Legumes -->searchResult
     <section class="categoria" id="Categoria">
       <div class="heading">
         <h1>
@@ -227,10 +222,7 @@
       </div>
 
       <!-- container content -->
-      <div class="categoria-container" id="categoria-container">
-  
-        
-      </div>
+      <div class="categoria-container" id="categoria-container"></div>
     </section>
 
     <section class="Produtos" id="Produtos">
@@ -245,13 +237,9 @@
       </div>
       <!-- Produtos container -->
 
-      
-      <div class="Produtos-container">
-     sdfs
-        
-      </div>
+      <div class="Produtos-container">sdfs</div>
 
-        <div class="heading">
+      <div class="heading">
         <h1>
           Nossos Produtos Populares<br />
           <span>Produtos de Legumes</span>
@@ -260,7 +248,6 @@
           >Nova loja<i class="bx bx-right-arrow-alt"></i
         ></a>
       </div>
-
 
       <div class="carrinho">
         <h2>Itens no Carrinho</h2>
@@ -390,7 +377,7 @@
             dinheiro.
           </p>
           <div class="review-profile">
-            <img src="./image/quizito.jpeg" alt="" />
+            <img src="./image/quizito2.jpeg" alt="" />
             <h3>Pedro Henrique</h3>
           </div>
         </div>
@@ -497,9 +484,8 @@
     </div>
     <!-- Swiper JS -->
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </body>
-  <script src="./frutas.js"></script>
-  <script src="./script.js" ></script>
-  
+  <script src="./script.js" type="module"></script>
+
 </html>

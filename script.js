@@ -1,3 +1,6 @@
+import produtos from "./frutas.js";
+import searchResult from "./searchResult.js";
+
 var swiper = new Swiper(".home", {
   spaceBetween: 30,
   centeredSlides: true,
@@ -21,6 +24,7 @@ window.onscroll = () => {
   navbar.classList.remove("active");
 };
 
+
 // Abra o modal ao clicar no ícone de pesquisa
 document.getElementById("openModal").addEventListener("click", function () {
   document.getElementById("searchModal").style.display = "block";
@@ -40,7 +44,7 @@ window.addEventListener("click", function (event) {
 });
 
 // Lógica de pesquisa ao clicar no botão "Pesquisar"
-document.getElementById("searchButton").addEventListener("click", function () {
+document.getElementById("searchButsearchResultton")?.addEventListener("click", function () {
   var searchValue = document.getElementById("frutaInput").value;
   // Execute a ação de pesquisa com o valor inserido no campo de entrada aqui
   // Por exemplo, você pode redirecionar para uma página de resultados de pesquisa ou realizar uma solicitação AJAX.
@@ -66,7 +70,7 @@ function atualizarCarrinho() {
     listItem.innerHTML = `
       ${produto.nome} - R$ ${produto.preco.toFixed(2)}
       <button onclick="aumentarQuantidade(${index})">+</button>
-      <button onclick="diminuirQuantidade(${index})">-</button>
+      <button onclick="diminuirQuantidadsearchResulte(${index})">-</button>
       <button onclick="removerDoCarrinho(${index})">Remover</button>
       Quantidade: ${produto.quantidade}
     `;
@@ -87,7 +91,7 @@ function diminuirQuantidade(index) {
     carrinho.splice(index, 1);
   }
   atualizarCarrinho();
-}
+} searchResult
 
 function removerDoCarrinho(index) {
   carrinho.splice(index, 1);
@@ -116,7 +120,7 @@ const dadosDosCartoes = [
     titulo: "Pimentão",
     quantidade: "22 Item",
     backgroundColor: "#fef4ea",
-    
+
   },
   {
     imagem: "./img/Abobrinha.png",
@@ -148,7 +152,7 @@ const dadosDosCartoes = [
     quantidade: "12 Item",
     backgroundColor: "red !important",
   },
- 
+
 ];
 
 const cartoesContainer = document.getElementById('categoria-container');
@@ -164,22 +168,6 @@ dadosDosCartoes.map((cartao) => {
   `;
   cartoesContainer.appendChild(div);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -226,30 +214,33 @@ const frutas = [
   "Aspargos",
   "Aipo",
   "Nabo",
+
 ];
-
-function sugerirFrutas() {
+function sugerirFrutas(e) {
   const input = document.getElementById("frutaInput").value.toLowerCase();
-  const sugestoes = document.getElementById("frutaSugestoes");
-  sugestoes.innerHTML = "";
+  searchResult(input)
+  // if (input.length === 0) {
+  //   sugestoes.style.display = "none";
+  //   return;
+  // }
 
-  if (input.length === 0) {
-    sugestoes.style.display = "none";
-    return;
-  }
+  // const resultados = frutas.filter((fruta) =>
+  //   fruta.toLowerCase().includes(input)
+  // );
+  // resultados.forEach((resultado) => {
+  //   const li = document.createElement("li");
+  //   li.textContent = resultado;
+  //   sugestoes.appendChild(li);
+  // });
 
-  const resultados = frutas.filter((fruta) =>
-    fruta.toLowerCase().includes(input)
-  );
-  resultados.forEach((resultado) => {
-    const li = document.createElement("li");
-    li.textContent = resultado;
-    sugestoes.appendChild(li);
-  });
-
-  if (resultados.length > 0) {
-    sugestoes.style.display = "block";
-  } else {
-    sugestoes.style.display = "none";
-  }
+  // if (resultados.length > 0) {
+  //   sugestoes.style.display = "block";
+  // } else {
+  //   sugestoes.style.display = "none";
+  // }
 }
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('searchButton')) {
+    sugerirFrutas(e)
+  }
+})

@@ -1,5 +1,5 @@
 /*Goole Fontes*/
-@import url("https://fonts.googleapis.com/css2? family= Poppins:wght@200;300;400;500;600;700;800 & display=swap");
+/* @import url("https://fonts.googleapis.com/css2? family= Poppins:wght@200;300;400;500;600;700;800 & display=swap"); */
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 /*Some Variables */
 
@@ -266,7 +266,7 @@ font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url(img/tropical-fruits.png);
+  /* background: url(img/tropical-fruits.png); */
   flex-direction: column;
   background-repeat: no-repeat;
   background-size: cover;

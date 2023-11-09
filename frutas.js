@@ -95,7 +95,7 @@
   },
   // ... Outros produtos ...
 ];
-
+export default produtos;
 
 // Legumes
 
