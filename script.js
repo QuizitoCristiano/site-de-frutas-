@@ -39,12 +39,142 @@ window.addEventListener("click", function (event) {
   }
 });
 
-// Lógica de pesquisa ao clicar no botão "Pesquisar"
+// // Lógica de pesquisa ao clicar no botão "Pesquisar"
+// document.getElementById("searchButton").addEventListener("click", function () {
+//   var searchValue = document.getElementById("frutaInput").value;
+//   // Execute a ação de pesquisa com o valor inserido no campo de entrada aqui
+//   // Por exemplo, você pode redirecionar para uma página de resultados de pesquisa ou realizar uma solicitação AJAX.
+// });
+
 document.getElementById("searchButton").addEventListener("click", function () {
   var searchValue = document.getElementById("frutaInput").value;
-  // Execute a ação de pesquisa com o valor inserido no campo de entrada aqui
-  // Por exemplo, você pode redirecionar para uma página de resultados de pesquisa ou realizar uma solicitação AJAX.
+  // Realizar uma solicitação AJAX para buscar resultados
+  // Certifique-se de ajustar a lógica conforme necessário para a sua aplicação
+  // Aqui está um exemplo básico usando fetch:
+  fetch("/api/pesquisar?query=" + encodeURIComponent(searchValue))
+    .then(response => response.json())
+    .then(data => {
+      // Manipular os resultados da pesquisa aqui
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Erro na solicitação AJAX:', error);
+    });
 });
+
+
+
+
+
+
+
+const frutas = [
+  // Frutas
+  "Maçã",
+  "Banana",
+  "Laranja",
+  "Uva",
+  "Morango",
+  "Abacaxi",
+  "Pera",
+  "Manga",
+  "Melancia",
+  "Kiwi",
+  "Cereja",
+  "Limão",
+  "Limão-siciliano",
+  "Pêssego",
+  "Framboesa",
+  "Amora",
+  "Mirtilo",
+  "Caju",
+  "Maracujá",
+  "Goiaba",
+  // Legumes
+  "Abobrinha",
+  "Alface",
+  "Batata",
+  "Cenoura",
+  "Cebola",
+  "Espinafre",
+  "Brócolis",
+  "Abóbora",
+  "Pepino",
+  "Tomate",
+  "Pimentão",
+  "Couve",
+  "Repolho",
+  "Beterraba",
+  "Milho",
+  "Ervilha",
+  "Rúcula",
+  "Aspargos",
+  "Aipo",
+  "Nabo",
+];
+
+// function sugerirFrutas() {
+//   const input = document.getElementById("frutaInput").value.toLowerCase();
+//   const sugestoes = document.getElementById("frutaSugestoes");
+//   sugestoes.innerHTML = "";
+
+//   if (input.length === 0) {
+//     sugestoes.style.display = "none";
+//     return;
+//   }
+
+//   const resultados = frutas.filter((fruta) =>
+//     fruta.toLowerCase().includes(input)
+//   );
+//   resultados.forEach((resultado) => {
+//     const li = document.createElement("li");
+//     li.textContent = resultado;
+//     sugestoes.appendChild(li);
+//   });
+
+//   if (resultados.length > 0) {
+//     sugestoes.style.display = "block";
+//   } else {
+//     sugestoes.style.display = "none";
+//   }
+// }
+
+function sugerirFrutas() {
+  const input = document.getElementById("frutaInput").value.toLowerCase();
+  const sugestoes = document.getElementById("frutaSugestoes");
+  sugestoes.innerHTML = "";
+
+  if (input.length === 0) {
+    sugestoes.style.display = "none";
+    return;
+  }
+
+  const resultados = frutas.filter((fruta) =>
+    fruta.toLowerCase().includes(input)
+  );
+  resultados.forEach((resultado) => {
+    const li = document.createElement("li");
+    li.textContent = resultado;
+    li.addEventListener("click", () => {
+      adicionarAoCarrinho(frutas.indexOf(resultado));
+      sugestoes.style.display = "none"; 
+      // Adiciona esta linha para esconder as sugestões ao adicionar ao carrinho
+    });
+    sugestoes.appendChild(li);
+  });
+
+  if (resultados.length > 0) {
+    sugestoes.style.display = "block";
+  } else {
+    sugestoes.style.display = "none";
+  }
+}
+
+
+
+
+
+
 
 
 
@@ -56,6 +186,7 @@ document.getElementById("searchButton").addEventListener("click", function () {
 const container = document.querySelector(".Produtos-container");
 const mayContainer = document.querySelector(".Produtos-legumes");
 const listaItensCarrinho = document.querySelector('.Minha-lista-carrinho');
+const totalCarrinhoElement = document.querySelector('.total-carrinho'); // Adicione um elemento para exibir o total
 const carrinho = [];
 
 // Função para adicionar um produto ao carrinho
@@ -64,6 +195,7 @@ function adicionarAoCarrinho(productIndex, isVegetable = false) {
   const produto = produtosArray[productIndex];
   carrinho.push({ ...produto, quantidade: 1, isVegetable });
   atualizarCarrinho();
+  calcularTotal();
   console.log(carrinho);
 }
 
@@ -73,19 +205,23 @@ function atualizarCarrinho() {
   carrinho.forEach((produto, index) => {
     const listItem = document.createElement("li");
     listItem.innerHTML = `
-      ${produto.nome} - R$ ${produto.preco.toFixed(2)}
+      ${produto.nome} - R$ ${produto.preco ? produto.preco.toFixed(2) : 'N/A'}
       <button onclick="aumentarQuantidade(${index})">+</button>
       <button onclick="diminuirQuantidade(${index})">-</button>
       <button onclick="removerDoCarrinho(${index})">Remover</button>
       Quantidade: ${produto.quantidade}
     `;
     listaItensCarrinho.appendChild(listItem);
-  });
+});
+
+
+
 }
 
 function aumentarQuantidade(index) {
   carrinho[index].quantidade++;
   atualizarCarrinho();
+  calcularTotal();
 }
 
 function diminuirQuantidade(index) {
@@ -96,11 +232,23 @@ function diminuirQuantidade(index) {
     carrinho.splice(index, 1);
   }
   atualizarCarrinho();
+  calcularTotal();
 }
 
 function removerDoCarrinho(index) {
   carrinho.splice(index, 1);
   atualizarCarrinho();
+  calcularTotal();
+}
+
+function calcularTotal() {
+  let total = 0;
+
+  carrinho.forEach(produto => {
+    total += produto.preco * produto.quantidade;
+  });
+
+  totalCarrinhoElement.textContent = `Total: R$ ${total.toFixed(2)}`;
 }
 
 // Inicialização: Adicione produtos à página
@@ -129,9 +277,6 @@ produtoLegumes.forEach((myVegetableProducts, index) => {
   `;
   mayContainer.innerHTML += productCardHTML;
 });
-
-
-
 
 
 
@@ -192,73 +337,3 @@ dadosDosCartoes.map((cartao) => {
   cartoesContainer.appendChild(div);
 });
 
-const frutas = [
-  // Frutas
-  "Maçã",
-  "Banana",
-  "Laranja",
-  "Uva",
-  "Morango",
-  "Abacaxi",
-  "Pera",
-  "Manga",
-  "Melancia",
-  "Kiwi",
-  "Cereja",
-  "Limão",
-  "Limão-siciliano",
-  "Pêssego",
-  "Framboesa",
-  "Amora",
-  "Mirtilo",
-  "Caju",
-  "Maracujá",
-  "Goiaba",
-  // Legumes
-  "Abobrinha",
-  "Alface",
-  "Batata",
-  "Cenoura",
-  "Cebola",
-  "Espinafre",
-  "Brócolis",
-  "Abóbora",
-  "Pepino",
-  "Tomate",
-  "Pimentão",
-  "Couve",
-  "Repolho",
-  "Beterraba",
-  "Milho",
-  "Ervilha",
-  "Rúcula",
-  "Aspargos",
-  "Aipo",
-  "Nabo",
-];
-
-function sugerirFrutas() {
-  const input = document.getElementById("frutaInput").value.toLowerCase();
-  const sugestoes = document.getElementById("frutaSugestoes");
-  sugestoes.innerHTML = "";
-
-  if (input.length === 0) {
-    sugestoes.style.display = "none";
-    return;
-  }
-
-  const resultados = frutas.filter((fruta) =>
-    fruta.toLowerCase().includes(input)
-  );
-  resultados.forEach((resultado) => {
-    const li = document.createElement("li");
-    li.textContent = resultado;
-    sugestoes.appendChild(li);
-  });
-
-  if (resultados.length > 0) {
-    sugestoes.style.display = "block";
-  } else {
-    sugestoes.style.display = "none";
-  }
-}

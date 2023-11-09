@@ -632,8 +632,18 @@ header {
   column-gap: 0.5rem;
 }
 
-.review-profile p {
-  font-weight: 600;
+.total-dosItens {
+
+  width: 358px;
+  gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.review-profile .total-carrinho {
+  color: var(--light-orange-color);
+  font-weight: 500;
 }
 .review-profile img {
   width: 79px;
@@ -745,6 +755,10 @@ header {
   #container img {
     right: 700px;
   }
+  .total-dosItens .total-carrinho{
+    font-weight: 500;
+    color: var(--light-orange-color);
+  }
 }
 
 @media (max-width: 991px) {
@@ -760,7 +774,10 @@ header {
   section {
     padding: 50px 4%;
   }
-
+  .total-dosItens .total-carrinho{
+    font-weight: 500;
+    color: var(--light-orange-color);
+  }
   .modal-content {
     margin: 5% auto;
     padding: 8px;
@@ -866,6 +883,11 @@ header {
   .Produtos-container {
     grid-template-columns: repeat(auto-fit, minmax(244px, auto));
   }
+
+  .total-dosItens {
+    width: 268px;
+    gap: 0.2rem; 
+  }
 }
 
 @media (max-width: 712px) {
@@ -882,7 +904,10 @@ header {
     flex-direction: column;
     width: 100%;
   }
-
+  .total-dosItens .total-carrinho{
+    font-weight: 500;
+    color: var(--light-orange-color);
+  }
   .about-text p {
     margin: 0.5rem 0 1rem;
     margin-right: 0px;
@@ -891,12 +916,31 @@ header {
   .Clientes h2 {
     font-size: 1.2rem;
   }
+  .total-dosItens {
+   
+    width: 268px;
+    gap: 0.2rem; 
+  }
 }
 
 @media (max-width: 642px) {
   #container img {
     width: 100%;
     /* margin-bottom: -10px; */
+  }
+
+  .total-dosItens {
+   
+    width: 100%;
+    gap: 0.2rem; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .total-dosItens .total-carrinho{
+    font-weight: 500;
+    color: var(--light-orange-color);
   }
 
   #container {
@@ -953,6 +997,7 @@ header {
     font-size: 1.1rem;
   }
 
+ 
   .heading {
     display: flex;
     flex-direction: column;
