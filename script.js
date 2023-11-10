@@ -8,19 +8,15 @@ var swiper = new Swiper(".home", {
 });
 
 const menuIcon = document.querySelector("#menu-icon");
-
 const navbar = document.querySelector(".navbar");
-
 menuIcon.addEventListener("click", function () {
   menuIcon.classList.toggle("bx-x");
   navbar.classList.toggle("active");
 });
-
 window.onscroll = () => {
   menuIcon.classList.remove("bx-x");
   navbar.classList.remove("active");
 };
-
 // Abra o modal ao clicar no ícone de pesquisa
 document.getElementById("openModal").addEventListener("click", function () {
   document.getElementById("searchModal").style.display = "block";
@@ -46,13 +42,20 @@ document.getElementById("searchButton").addEventListener("click", function () {
   // Por exemplo, você pode redirecionar para uma página de resultados de pesquisa ou realizar uma solicitação AJAX.
 });
 
-
-
-
-
-
-
-
+let sacola = document.querySelector(".carrinho");
+function motrarSacola(event) {
+  sacola.classList.add("show");
+}
+function fecharSacola(e) {
+  sacola.classList.remove("show");
+}
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("bxs-cart")) {
+    motrarSacola(event);
+  } else if (event.target.classList.contains("bx-x")) {
+    fecharSacola();
+  }
+});
 const frutas = [
   // Frutas
   "Maçã",
@@ -98,7 +101,6 @@ const frutas = [
   "Nabo",
 ];
 
-
 function sugerirFrutas() {
   const input = document.getElementById("frutaInput").value.toLowerCase();
   const sugestoes = document.getElementById("frutaSugestoes");
@@ -117,7 +119,7 @@ function sugerirFrutas() {
     li.textContent = resultado;
     li.addEventListener("click", () => {
       adicionarAoCarrinho(frutas.indexOf(resultado));
-      sugestoes.style.display = "none"; 
+      sugestoes.style.display = "none";
       // Adiciona esta linha para esconder as sugestões ao adicionar ao carrinho
     });
     sugestoes.appendChild(li);
@@ -130,35 +132,21 @@ function sugerirFrutas() {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const container = document.querySelector(".Produtos-container");
 const mayContainer = document.querySelector(".Produtos-legumes");
-const listaItensCarrinho = document.querySelector('.Minha-lista-carrinho');
-const totalCarrinhoElement = document.querySelector('.total-carrinho'); // Adicione um elemento para exibir o total
+const listaItensCarrinho = document.querySelector(".Minha-lista-carrinho");
+const totalCarrinhoElement = document.querySelector(".total-carrinho"); // Adicione um elemento para exibir o total
 const carrinho = [];
-
 // Função para adicionar um produto ao carrinho
 function adicionarAoCarrinho(productIndex, isVegetable = false) {
   const produtosArray = isVegetable ? produtoLegumes : produtos;
+  const tagCarinho = document.querySelector('.counter')
   const produto = produtosArray[productIndex];
   carrinho.push({ ...produto, quantidade: 1, isVegetable });
   atualizarCarrinho();
   calcularTotal();
-  console.log(carrinho);
+  tagCarinho.innerHTML = carrinho.length && 
+  `${carrinho.length}`;
 }
 
 function atualizarCarrinho() {
@@ -167,19 +155,15 @@ function atualizarCarrinho() {
   carrinho.forEach((produto, index) => {
     const listItem = document.createElement("li");
     listItem.innerHTML = `
-      ${produto.nome} - R$ ${produto.preco ? produto.preco.toFixed(2) : 'N/A'}
+      ${produto.nome} - R$ ${produto.preco ? produto.preco.toFixed(2) : "N/A"}
       <button onclick="aumentarQuantidade(${index})">+</button>
       <button onclick="diminuirQuantidade(${index})">-</button>
-      <button onclick="removerDoCarrinho(${index})">Remover</button>
+      <i class='bx bxs-trash-alt' id="trash-alt" onclick="removerDoCarrinho(${index})"></i>
       Quantidade: ${produto.quantidade}
     `;
     listaItensCarrinho.appendChild(listItem);
-});
-
-
-
+  });
 }
-
 function aumentarQuantidade(index) {
   carrinho[index].quantidade++;
   atualizarCarrinho();
@@ -206,10 +190,9 @@ function removerDoCarrinho(index) {
 function calcularTotal() {
   let total = 0;
 
-  carrinho.forEach(produto => {
+  carrinho.forEach((produto) => {
     total += produto.preco * produto.quantidade;
   });
-
   totalCarrinhoElement.textContent = `Total: R$ ${total.toFixed(2)}`;
 }
 
@@ -232,17 +215,15 @@ produtoLegumes.forEach((myVegetableProducts, index) => {
     <div class="wrapper">
       <img src="${myVegetableProducts.img}" alt="" />
       <h2>${myVegetableProducts.nome}</h2>
-      <h3 class="price">R$: ${myVegetableProducts.preco.toFixed(2)} <span>kg</span></h3>
+      <h3 class="price">R$: ${myVegetableProducts.preco.toFixed(
+        2
+      )} <span>kg</span></h3>
       <i class="bx bx-cart-alt" onclick="adicionarAoCarrinho(${index}, true)"></i>
       <i class="bx bx-heart"></i>
     </div>
   `;
   mayContainer.innerHTML += productCardHTML;
 });
-
-
-
-
 
 // por que os clientes nos amam?
 
@@ -298,4 +279,3 @@ dadosDosCartoes.map((cartao) => {
   `;
   cartoesContainer.appendChild(div);
 });
-
