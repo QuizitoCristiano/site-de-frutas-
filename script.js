@@ -279,3 +279,47 @@ dadosDosCartoes.map((cartao) => {
   `;
   cartoesContainer.appendChild(div);
 });
+
+
+
+
+
+// function finalizar(e) {
+//   abrirNovoModal.classList.add("showNewModal");
+// }
+// document.addEventListener('click', (e)=> {
+//   if(e.target.classList.contains('finalizar-compra')){
+//     finalizar(e)
+//   } else if (e.target.classList.contains("bx-x")) {
+//     fecharSacola();
+//   }
+// })
+
+
+
+// Função para abrir o modal
+function finalizar(e) {
+  abrirNovoModal.classList.add("showNewModal");
+}
+
+// Função para fechar o modal
+function fecharModal() {
+  abrirNovoModal.classList.remove("showNewModal");
+}
+
+// Event listener para controlar cliques
+document.addEventListener('click', (e)=> {
+  if (e.target.classList.contains('finalizar-compra')) {
+    finalizar(e); // Abrir o modal
+  } else if (e.target.classList.contains("bx-x")) {
+    fecharModal(); // Fechar o modal
+  } else if (e.target.classList.contains("enviar")) {
+    // Aqui você pode adicionar a lógica para o botão "Enviar" se necessário
+    fecharModal(); // Fechar o modal após enviar
+  }
+});
+
+
+
+
+

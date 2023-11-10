@@ -53,7 +53,7 @@
     preco: 3.49,
   },
   {
-    nome: "Frutas",
+    nome: "Coco",
     img: "./image/coco1.png",
     preco: 3.49,
   },
