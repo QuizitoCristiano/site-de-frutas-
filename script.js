@@ -219,11 +219,23 @@ produtoLegumes.forEach((myVegetableProducts, index) => {
         2
       )} <span>kg</span></h3>
       <i class="bx bx-cart-alt" onclick="adicionarAoCarrinho(${index}, true)"></i>
-      <i class="bx bx-heart"></i>
+      <i class="bx bx-heart" onclick="trocarIcone(this)"></i>
+     
     </div>
   `;
   mayContainer.innerHTML += productCardHTML;
 });
+
+// Função para trocar o ícone do coração
+function trocarIcone(element) {
+  if (element.classList.contains('bx-heart')) {
+    element.classList.remove('bx-heart');
+    element.classList.add('bxs-heart');
+  } else {
+    element.classList.remove('bxs-heart');
+    element.classList.add('bx-heart');
+  }
+}
 
 // por que os clientes nos amam?
 
