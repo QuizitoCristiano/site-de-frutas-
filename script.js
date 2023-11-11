@@ -204,11 +204,26 @@ produtos.forEach((produto, index) => {
       <h2>${produto.nome}</h2>
       <h3 class="price">R$: ${produto.preco.toFixed(2)} <span>kg</span></h3>
       <i class="bx bx-cart-alt" onclick="adicionarAoCarrinho(${index})"></i>
-      <i class="bx bx-heart"></i>
+      <i class="bx bx-heart" onclick="trocarIconDeFrutas(this)"></i>
     </div>
   `;
   container.innerHTML += productCardHTML;
+
+
 });
+
+// Função para trocar o ícone do coração;
+function trocarIconDeFrutas(el){
+  if(el.classList.contains('bx-heart')){
+    el.classList.remove('bx-heart');
+    el.classList.add('bxs-heart');
+  } else {
+    el.classList.remove('bxs-heart');
+    el.classList.add('bx-heart');
+  }
+
+ 
+}
 
 produtoLegumes.forEach((myVegetableProducts, index) => {
   const productCardHTML = `
