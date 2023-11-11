@@ -651,8 +651,7 @@ header {
   width: 100%;
   gap: 2rem;
   padding: 4rem;
-  /* background: #e4fada; */
-  /* background: #e1fed3;  */
+ 
 }
 .about img {
   width: 480px;
@@ -665,7 +664,7 @@ header {
 }
 .about-text {
   /* margin: 2rem; */
-  /* background: #e1fed3; */
+
   width: 100%;
 }
 .about-text p {

@@ -176,7 +176,7 @@ const produtoLegumes = [
   },
   {
     nome: 'Feijão Brango',
-    img: './img/feijao-Brango.png',
+    img: './img/feijao-brango.png',
     preco: 23
   },
   {

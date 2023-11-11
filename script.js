@@ -145,8 +145,8 @@ function adicionarAoCarrinho(productIndex, isVegetable = false) {
   carrinho.push({ ...produto, quantidade: 1, isVegetable });
   atualizarCarrinho();
   calcularTotal();
-  tagCarinho.innerHTML = carrinho.length && 
-  `${carrinho.length}`;
+  tagCarinho.innerHTML = carrinho.length &&
+    `${carrinho.length}`;
 }
 
 function atualizarCarrinho() {
@@ -213,8 +213,8 @@ produtos.forEach((produto, index) => {
 });
 
 // Função para trocar o ícone do coração;
-function trocarIconDeFrutas(el){
-  if(el.classList.contains('bx-heart')){
+function trocarIconDeFrutas(el) {
+  if (el.classList.contains('bx-heart')) {
     el.classList.remove('bx-heart');
     el.classList.add('bxs-heart');
   } else {
@@ -222,7 +222,7 @@ function trocarIconDeFrutas(el){
     el.classList.add('bx-heart');
   }
 
- 
+
 }
 
 produtoLegumes.forEach((myVegetableProducts, index) => {
@@ -231,8 +231,8 @@ produtoLegumes.forEach((myVegetableProducts, index) => {
       <img src="${myVegetableProducts.img}" alt="" />
       <h2>${myVegetableProducts.nome}</h2>
       <h3 class="price">R$: ${myVegetableProducts.preco.toFixed(
-        2
-      )} <span>kg</span></h3>
+    2
+  )} <span>kg</span></h3>
       <i class="bx bx-cart-alt" onclick="adicionarAoCarrinho(${index}, true)"></i>
       <i class="bx bx-heart" onclick="trocarIcone(this)"></i>
      
@@ -254,6 +254,200 @@ function trocarIcone(element) {
 
 // por que os clientes nos amam?
 
+// const dadosDosClintes = [
+//   {
+//     nome: 'Quizito Cristiano',
+//     message: './image/Quizito.jpeg',
+//     customerImage: `A Delicacty sempre me surpreende com a qualidade impecável dos
+//     produtos. Os legumes são frescos e as frutas são deliciosas. Além
+//     disso, a entrega rápida é um grande diferencial. Mal posso esperar
+//     para fazer meu próximo pedido!`
+
+//   }
+// ]
+
+
+// const myCustomers = document.querySelector('.customers-container');
+
+// dadosDosClintes.map((cardDosCliente) => {
+//   const NewDiv = document.createElement("div");
+
+//   NewDiv.innerHTML = `
+//   <div class="box">
+//         <i class="bx bxs-quote-alt-left"></i>
+//         <div class="stares">
+//           <i class="bx bxs-star"></i>
+//           <i class="bx bxs-star"></i>
+//           <i class="bx bxs-star"></i>
+//           <i class="bx bxs-star"></i>
+//           <i class="bx bxs-star-helf"></i>
+//         </div>
+//         <p>${cardDosCliente.message}</p>
+//         <div class="review-profile">
+//           <img src="${cardDosCliente.customerImage}" alt="" />
+//           <h3>${cardDosCliente.nome}</h3>
+//         </div>
+//       </div>
+
+//   `;
+
+//   cardDosCliente.appendChild(NewDiv);
+
+// })
+
+
+
+
+
+
+
+// const cartoesContainer = document.getElementById("categoria-container");
+
+// dadosDosCartoes.map((cartao) => {
+//   const div = document.createElement("div");
+//   div.className = `box box1 ${cartao.backgroundColor}`;
+//   div.innerHTML = `
+//     <img src="${cartao.imagem}" alt="" />
+//     <h2>${cartao.titulo}</h2>
+//     <span>${cartao.quantidade}</span>
+//     <i class="bx bx-right-arrow-alt"></i>
+//   `;
+//   cartoesContainer.appendChild(div);
+// });
+
+
+
+
+
+// function finalizar(e) {
+//   abrirNovoModal.classList.add("showNewModal");
+// }
+// document.addEventListener('click', (e)=> {
+//   if(e.target.classList.contains('finalizar-compra')){
+//     finalizar(e)
+//   } else if (e.target.classList.contains("bx-x")) {
+//     fecharSacola();
+//   }
+// })
+
+
+
+
+
+
+
+
+
+// Customer Review Elements
+const dadosDosClientes = [
+  {
+    nome: 'Quizito Cristiano',
+    customerImage: "./image/sol.jpg",
+    message: `
+    A Delicacty sempre me surpreende com a qualidade impecável dos
+    produtos. Os legumes são frescos e as frutas são deliciosas. Além
+    disso, a entrega rápida é um grande diferencial. Mal posso esperar
+    para fazer meu próximo pedido!
+    `
+
+  },
+  {
+    nome: 'Rafael T.',
+    customerImage: "./image/quizito2.jpeg",
+    message: `
+    A Delicacty é a minha salvação quando estou sem tempo para ir ao
+    supermercado. Eles entregam tão rapidamente que nunca fico sem
+    frutas e legumes frescos em casa. E os descontos são uma grande
+    ajuda para o orçamento.
+    `
+
+  },
+
+  {
+    nome: 'Sandro',
+    customerImage: "./image/mamae.jpeg",
+    message: `
+    Os produtos da Delicacty são tão frescos que parece que acabei de
+    colhê-los eu mesmo. A entrega rápida é um grande benefício,
+    especialmente quando estou ocupado. Os descontos também são muito
+    apreciados!
+    `
+
+  },
+
+  {
+    nome: 'Pedro Henrique',
+    customerImage: "./image/nascerd-o-sol.jpg",
+    message: `
+    Nunca encontrei uma loja online que entregasse tão rapidamente
+    quanto a Delicacty. Além disso, os produtos são de alta qualidade, e
+    os descontos regulares são um bônus adicional que economiza meu
+    dinheiro.
+    `
+
+  },
+
+  {
+    nome: 'Mariana Dos Santos',
+    customerImage: "./image/Quizito.jpeg",
+    message: `
+    A Delicacty sempre me surpreende com a qualidade impecável dos
+    produtos. Os legumes são frescos e as frutas são deliciosas. Além
+    disso, a entrega rápida é um grande diferencial. Mal posso esperar
+    para fazer meu próximo pedido!
+    `
+
+  },
+  {
+    nome: 'Temótio Luiz',
+    customerImage: "./image/temotio.jpeg",
+    message: `
+    A Delicacty é a minha opção número um para alimentos frescos. A
+    qualidade é impecável, a entrega é super rápida, e os descontos
+    frequentes me fazem voltar sempre. Uma loja incrível!
+    `
+
+  },
+
+
+
+]
+
+const myCustomers = document.querySelector('.customers-container');
+
+dadosDosClientes.map((cardDosCliente) => {
+  const newDiv = document.createElement("div");
+
+  newDiv.innerHTML = `
+  
+
+
+
+
+
+
+    <div class="box">
+        <i class="bx bxs-quote-alt-left"></i>
+
+        <div class="stares">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star-helf"></i>
+        </div>
+        <p>${cardDosCliente.message}</p>
+        <div class="review-profile">
+        <img src="${cardDosCliente.customerImage}" alt="" />
+        <h3>${cardDosCliente.nome}</h3>
+        </div>
+      </div>
+  `;
+
+  myCustomers.appendChild(newDiv);
+});
+
+// Product Card Elements
 const dadosDosCartoes = [
   {
     imagem: "./img/Pimentao.png",
@@ -283,21 +477,50 @@ const dadosDosCartoes = [
     imagem: "./img/tomate1.png",
     titulo: "Tomate",
     quantidade: "30 Item",
-    backgroundColor: "purple",
+    backgroundColor: "#e1fed3",
   },
   {
     imagem: "./img/Cenoura1.png",
     titulo: "Cenoura",
     quantidade: "12 Item",
-    backgroundColor: "red !important",
+    backgroundColor: "#e4fada ",
   },
+
+  {
+    imagem: "./img/alho.jpg",
+    titulo: "Lecumes ",
+    quantidade: "10 Item",
+    backgroundColor: "#fad2f5",
+  },
+  {
+    imagem: "./img/feijoa-Vermelo.png",
+    titulo: "Lecumes ",
+    quantidade: "10 Item",
+    backgroundColor: "#ebf7f5",
+  },
+  {
+    imagem: "./img/broccoli1.png",
+    titulo: "Lecumes ",
+    quantidade: "10 Item",
+    backgroundColor: "#c8ccc8",
+  },
+  {
+    imagem: "./img/piripire.jpg",
+    titulo: "Lecumes ",
+    quantidade: "10 Item",
+    backgroundColor: "#dee2ff",
+  },
+
 ];
+
 
 const cartoesContainer = document.getElementById("categoria-container");
 
 dadosDosCartoes.map((cartao) => {
   const div = document.createElement("div");
-  div.className = `box box1 ${cartao.backgroundColor}`;
+  div.className = `box box1`;
+  div.style.backgroundColor = cartao.backgroundColor; // Apply background color
+
   div.innerHTML = `
     <img src="${cartao.imagem}" alt="" />
     <h2>${cartao.titulo}</h2>
@@ -311,16 +534,21 @@ dadosDosCartoes.map((cartao) => {
 
 
 
-// function finalizar(e) {
-//   abrirNovoModal.classList.add("showNewModal");
-// }
-// document.addEventListener('click', (e)=> {
-//   if(e.target.classList.contains('finalizar-compra')){
-//     finalizar(e)
-//   } else if (e.target.classList.contains("bx-x")) {
-//     fecharSacola();
-//   }
-// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -335,7 +563,7 @@ function fecharModal() {
 }
 
 // Event listener para controlar cliques
-document.addEventListener('click', (e)=> {
+document.addEventListener('click', (e) => {
   if (e.target.classList.contains('finalizar-compra')) {
     finalizar(e); // Abrir o modal
   } else if (e.target.classList.contains("bx-x")) {
