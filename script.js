@@ -254,81 +254,54 @@ function trocarIcone(element) {
 
 // por que os clientes nos amam?
 
-// const dadosDosClintes = [
-//   {
-//     nome: 'Quizito Cristiano',
-//     message: './image/Quizito.jpeg',
-//     customerImage: `A Delicacty sempre me surpreende com a qualidade impecável dos
-//     produtos. Os legumes são frescos e as frutas são deliciosas. Além
-//     disso, a entrega rápida é um grande diferencial. Mal posso esperar
-//     para fazer meu próximo pedido!`
 
-//   }
-// ]
+function abrirModal() {
+  const modal = document.getElementById('meuModal');
+  modal.style.display = 'block';
+}
 
+function fecharModal() {
+  const modal = document.getElementById('meuModal');
+  modal.remove(); // Remove o modal do DOM permanentemente
+  console.log(modal);
+}
 
-// const myCustomers = document.querySelector('.customers-container');
-
-// dadosDosClintes.map((cardDosCliente) => {
-//   const NewDiv = document.createElement("div");
-
-//   NewDiv.innerHTML = `
-//   <div class="box">
-//         <i class="bx bxs-quote-alt-left"></i>
-//         <div class="stares">
-//           <i class="bx bxs-star"></i>
-//           <i class="bx bxs-star"></i>
-//           <i class="bx bxs-star"></i>
-//           <i class="bx bxs-star"></i>
-//           <i class="bx bxs-star-helf"></i>
-//         </div>
-//         <p>${cardDosCliente.message}</p>
-//         <div class="review-profile">
-//           <img src="${cardDosCliente.customerImage}" alt="" />
-//           <h3>${cardDosCliente.nome}</h3>
-//         </div>
-//       </div>
-
-//   `;
-
-//   cardDosCliente.appendChild(NewDiv);
-
-// })
+// Adiciona um event listener para fechar o modal ao clicar fora dele
+window.addEventListener('click', function(event) {
+  const modal = document.getElementById('meuModal');
+  if (event.target === modal) {
+    fecharModal();
+  }
+});
 
 
 
 
+function validarCliente() {
+  // Obtendo os valores dos campos
+  const bloco = document.getElementById('bloco').value;
+  const andar = document.getElementById('andar').value;
+  const apartamento = document.getElementById('apartamento').value;
+
+  // Validando os campos (exemplo simples)
+  if (bloco.trim() === '' && andar.trim() === '' && apartamento.trim() === '') {
+    // Adiciona uma classe CSS para alterar a cor dos campos
+    document.getElementById('bloco').classList.add('campo-vazio');
+    document.getElementById('andar').classList.add('campo-vazio');
+    document.getElementById('apartamento').classList.add('campo-vazio');
+
+    alert('Por favor, preencha pelo menos um campo.');
+    return;
+  }
+
+  // Adicione aqui sua lógica de validação adicional, se necessário
+
+  // Se pelo menos um campo estiver preenchido, faça algo, como enviar os dados para o servidor
+  alert('Cliente validado com sucesso!');
+  // Aqui você pode adicionar a lógica para enviar os dados para o servidor ou realizar outras ações
+}
 
 
-
-// const cartoesContainer = document.getElementById("categoria-container");
-
-// dadosDosCartoes.map((cartao) => {
-//   const div = document.createElement("div");
-//   div.className = `box box1 ${cartao.backgroundColor}`;
-//   div.innerHTML = `
-//     <img src="${cartao.imagem}" alt="" />
-//     <h2>${cartao.titulo}</h2>
-//     <span>${cartao.quantidade}</span>
-//     <i class="bx bx-right-arrow-alt"></i>
-//   `;
-//   cartoesContainer.appendChild(div);
-// });
-
-
-
-
-
-// function finalizar(e) {
-//   abrirNovoModal.classList.add("showNewModal");
-// }
-// document.addEventListener('click', (e)=> {
-//   if(e.target.classList.contains('finalizar-compra')){
-//     finalizar(e)
-//   } else if (e.target.classList.contains("bx-x")) {
-//     fecharSacola();
-//   }
-// })
 
 
 

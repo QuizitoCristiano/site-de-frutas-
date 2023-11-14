@@ -266,13 +266,51 @@
     </div>
 
 
-    <div class="Newmodal">
-      <div class="modal-conteudo">
-        <input type="text" placeholder="Seu texto aqui">
-        <button class="enviar">Enviar</button>
+  </section>
+
+
+  <!-- Formulário -->
+
+  <section class="myForm">
+    <div class="wrapperForm">
+      
+    </div>
+   
+  </section>
+
+
+  <section class="myForm">
+    <div class="wrapperForm">
+      <!-- ... Seu conteúdo existente ... -->
+    </div>
+    <button class="enviar" onclick="abrirModal()">Finalizar Compra</button>
+  </section>
+
+  <div id="meuModal" class="modal">
+    <div  class="WrapperMyModal">
+      <div class="modal-conteudoNewModal ">
+        <span class="fechar-modal" onclick="fecharModal()">&times;</span>
+        <div class="mydivBox">
+          <input type="text" placeholder="Nome completo">
+          <input type="text" placeholder="Número de telefone">
+        </div>
+        <div class="mydivBox">
+          <input type="text" placeholder="Endereço de entrega">
+          <input type="text" placeholder="CEP">
+        </div>
+        <div class="mydivBoxBloco">
+          <input type="text" placeholder="Bloco" id="bloco">
+          <input type="text" placeholder="Andar" id="andar">
+          <input type="text" placeholder="Apartamento" id="apartamento">
+        </div>
+        <div class="mydivBoxTx">
+          <textarea name="" id="" cols="30" rows="10" placeholder="A sua mensagem é muito importante"></textarea>
+        </div>
+        <button class="enviar" onclick="validarCliente()">Finalizar Compra</button>
       </div>
     </div>
-  </section>
+  </div>
+  
 
   <!-- About -->
   <section>
@@ -301,13 +339,15 @@
     </div>
   </section>
 
+
+
   <!-- Clientes -->
   <section class="Clientes" id="Clientes">
     <h2>por que os clientes nos amam?</h2>
 
     <!-- customers contaent -->
     <div class="customers-container">
-  
+
     </div>
   </section>
 
