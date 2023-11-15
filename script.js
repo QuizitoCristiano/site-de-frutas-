@@ -255,24 +255,30 @@ function trocarIcone(element) {
 // por que os clientes nos amam?
 
 
-function abrirModal() {
-  const modal = document.getElementById('meuModal');
-  modal.style.display = 'block';
-}
+document.addEventListener('DOMContentLoaded', function () {
+  var openModalBtn = document.getElementById('openModalBtn');
+  var modal = document.getElementById('myModal');
+  var fecharModalClicado = document.getElementById('fechar-modal');
 
-function fecharModal() {
-  const modal = document.getElementById('meuModal');
-  modal.remove(); // Remove o modal do DOM permanentemente
-  console.log(modal);
-}
+  // Abrir o modal ao clicar no botão
+  openModalBtn.addEventListener('click', function () {
+    modal.style.display = 'block';
+  });
 
-// Adiciona um event listener para fechar o modal ao clicar fora dele
-window.addEventListener('click', function(event) {
-  const modal = document.getElementById('meuModal');
-  if (event.target === modal) {
-    fecharModal();
-  }
+  fecharModalClicado.addEventListener('click', function (e) {
+    modal.style.display = 'none';
+  })
+  // Fechar o modal ao clicar no botão de fechar ou fora dele
+  window.addEventListener('click', function (event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  });
+
 });
+
+
+
 
 
 

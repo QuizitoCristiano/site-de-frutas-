@@ -260,7 +260,8 @@
       <div class="total-dosItens">
         <p class="total-carrinho"></p>
 
-        <button class="finalizar-compra">Finalizar Compra</button>
+        <button class="finalizar-compra"  id="openModalBtn">Finalizar Compra</button>
+       
 
       </div>
     </div>
@@ -271,25 +272,11 @@
 
   <!-- Formulário -->
 
-  <section class="myForm">
-    <div class="wrapperForm">
-      
-    </div>
-   
-  </section>
 
 
-  <section class="myForm">
-    <div class="wrapperForm">
-      <!-- ... Seu conteúdo existente ... -->
-    </div>
-    <button class="enviar" onclick="abrirModal()">Finalizar Compra</button>
-  </section>
-
-  <div id="meuModal" class="modal">
-    <div  class="WrapperMyModal">
-      <div class="modal-conteudoNewModal ">
-        <span class="fechar-modal" onclick="fecharModal()">&times;</span>
+  <div id="myModal" class="Wrappermodal">
+    <div class="modal-content">
+        <i class="bx bx-x"  id="fechar-modal"></i>
         <div class="mydivBox">
           <input type="text" placeholder="Nome completo">
           <input type="text" placeholder="Número de telefone">
@@ -307,9 +294,14 @@
           <textarea name="" id="" cols="30" rows="10" placeholder="A sua mensagem é muito importante"></textarea>
         </div>
         <button class="enviar" onclick="validarCliente()">Finalizar Compra</button>
-      </div>
     </div>
-  </div>
+</div>
+
+
+
+
+
+
   
 
   <!-- About -->
