@@ -288,7 +288,11 @@ function validarCliente() {
   const bloco = document.getElementById('bloco').value;
   const andar = document.getElementById('andar').value;
   const apartamento = document.getElementById('apartamento').value;
+  const NomeElemento = document.querySelector('#Nome');
 
+  if (NomeElemento.value === '') {
+    NomeElemento.style.border = '1px solid red'; 
+  }
   // Validando os campos (exemplo simples)
   if (bloco.trim() === '' && andar.trim() === '' && apartamento.trim() === '') {
     // Adiciona uma classe CSS para alterar a cor dos campos
@@ -300,6 +304,8 @@ function validarCliente() {
     return;
   }
 
+
+ 
   // Adicione aqui sua lógica de validação adicional, se necessário
 
   // Se pelo menos um campo estiver preenchido, faça algo, como enviar os dados para o servidor
