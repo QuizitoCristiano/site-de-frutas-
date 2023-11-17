@@ -392,7 +392,7 @@ function validarCliente() {
     return;
   }
 
-
+ 
   
 
   // alert("CPF válido! Continue com a finalização da compra.");
