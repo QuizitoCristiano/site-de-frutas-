@@ -962,7 +962,12 @@ header {
 /* Estilos para o botão de fechar */
 
 
-
+.campo-vazio {
+  /* color: red; */
+}
+.campo-preenchido {
+  color: #3cb815;
+}
 
 .myForm {
   
