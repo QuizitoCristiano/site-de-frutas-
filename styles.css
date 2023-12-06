@@ -59,7 +59,7 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-.modal-content {
+.modal-contents {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
@@ -159,6 +159,7 @@ button:hover {
   }
 }
 
+
 .total-dosItens {
   width: 358px;
   gap: 1.5rem;
@@ -179,6 +180,11 @@ button:hover {
 .carinho-txt .bx-x {
   font-size: 1.6rem;
   font-weight: 800;
+}
+
+.carinhoItem {
+ 
+  gap: 7rem;
 }
 #trash-alt {
   color: var(--light-orange-color);
@@ -652,6 +658,8 @@ header {
   width: 100%;
   gap: 2rem;
   padding: 4rem;
+  /* background-color: #eff6e6; */
+  /* background-color: #f7f8f6; */
 }
 .about img {
   width: 480px;
@@ -661,15 +669,19 @@ header {
   font-weight: 600;
   text-decoration: underline;
   color: var(--green-color);
+  
 }
 .about-text {
   /* margin: 2rem; */
+  /* background: red; */
 
   width: 100%;
 }
 .about-text p {
   margin: 0.5rem 0 1rem;
-  margin-right: 20rem;
+  margin-right: 4rem;
+  display: flex;
+  justify-content: center;
 }
 
 /* <!-- Clientes --> */
@@ -1090,6 +1102,9 @@ header {
     color: var(--light-orange-color);
   }
 
+  .modal-contents {
+    width: 98%;
+  }
 
   .Mymodal-content{
     position: relative;

@@ -146,6 +146,7 @@ function adicionarAoCarrinho(productIndex, isVegetable = false) {
   atualizarCarrinho();
   calcularTotal();
   tagCarinho.innerHTML = carrinho.length && `${carrinho.length}`;
+ 
 }
 
 function atualizarCarrinho() {
@@ -154,13 +155,17 @@ function atualizarCarrinho() {
   carrinho.forEach((produto, index) => {
     const listItem = document.createElement("li");
     listItem.innerHTML = `
-      ${produto.nome} - R$ ${produto.preco ? produto.preco.toFixed(2) : "N/A"}
+    <div class="carinhoItem">
+    ${produto.nome} - R$ ${produto.preco ? produto.preco.toFixed(2) : "N/A"}
       <button onclick="aumentarQuantidade(${index})">+</button>
       <button onclick="diminuirQuantidade(${index})">-</button>
       <i class='bx bxs-trash-alt' id="trash-alt" onclick="removerDoCarrinho(${index})"></i>
+      </div>
       Quantidade: ${produto.quantidade}
     `;
     listaItensCarrinho.appendChild(listItem);
+
+    
   });
 }
 function aumentarQuantidade(index) {
@@ -193,6 +198,9 @@ function calcularTotal() {
     total += produto.preco * produto.quantidade;
   });
   totalCarrinhoElement.textContent = `Total: R$ ${total.toFixed(2)}`;
+
+
+  
 }
 
 // Inicialização: Adicione produtos à página
@@ -383,7 +391,6 @@ function validarCliente() {
   const cpf = cpfInput.value.trim();
 
   validarNomeCompleto();
-   
   validarCelular();
   validarCamposDeBloco();
   if (!validarCPF(cpf)) {
@@ -581,24 +588,37 @@ dadosDosCartoes.map((cartao) => {
   cartoesContainer.appendChild(div);
 });
 
+
+
+
+
+
+// Seletor específico para o modal
+const novoModal = document.getElementById("seuModalId"); // Substitua "seuModalId" pelo ID real do seu modal
+
 // Função para abrir o modal
-function finalizar(e) {
-  abrirNovoModal.classList.add("showNewModal");
+function abrirModal() {
+  novoModal.classList.add("showNewModal");
 }
 
 // Função para fechar o modal
 function fecharModal() {
-  abrirNovoModal.classList.remove("showNewModal");
+  novoModal.classList.remove("showNewModal");
 }
 
 // Event listener para controlar cliques
 document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("finalizar-compra")) {
-    finalizar(e); // Abrir o modal
-  } else if (e.target.classList.contains("bx-x")) {
+  if (e.target.classList.contains("abrir-modal")) {
+    e.preventDefault(); // Evitar comportamento padrão de links
+    abrirModal(); // Abrir o modal
+  } else if (e.target.classList.contains("fechar-modal")) {
     fecharModal(); // Fechar o modal
-  } else if (e.target.classList.contains("enviar")) {
-    // Aqui você pode adicionar a lógica para o botão "Enviar" se necessário
+  } else if (e.target.classList.contains("enviar-formulario")) {
+    // Lógica para enviar o formulário, se necessário
     fecharModal(); // Fechar o modal após enviar
   }
 });
+
+// Exemplo de como abrir o modal quando necessário (pode ser chamado em outro lugar do seu código)
+abrirModal(); // Remova esta linha se não quiser abrir o modal automaticamente
+

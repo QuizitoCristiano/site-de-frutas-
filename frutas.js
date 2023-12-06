@@ -52,6 +52,8 @@
     img: "./image/frutas2.png",
     preco: 3.49,
   },
+
+ 
   {
     nome: "Coco",
     img: "./image/coco1.png",
