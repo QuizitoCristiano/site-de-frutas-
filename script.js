@@ -56,6 +56,7 @@ document.addEventListener("click", (event) => {
     fecharSacola();
   }
 });
+
 const frutas = [
   // Frutas
   "Maçã",
@@ -146,7 +147,7 @@ function adicionarAoCarrinho(productIndex, isVegetable = false) {
   atualizarCarrinho();
   calcularTotal();
   tagCarinho.innerHTML = carrinho.length && `${carrinho.length}`;
- 
+ console.log(carrinho);
 }
 
 function atualizarCarrinho() {
@@ -228,6 +229,17 @@ function trocarIconDeFrutas(el) {
   }
 }
 
+// Função para trocar o ícone do coração
+function trocarIcone(element) {
+  if (element.classList.contains("bx-heart")) {
+    element.classList.remove("bx-heart");
+    element.classList.add("bxs-heart");
+  } else {
+    element.classList.remove("bxs-heart");
+    element.classList.add("bx-heart");
+  }
+}
+
 produtoLegumes.forEach((myVegetableProducts, index) => {
   const productCardHTML = `
     <div class="wrapper">
@@ -244,39 +256,56 @@ produtoLegumes.forEach((myVegetableProducts, index) => {
   mayContainer.innerHTML += productCardHTML;
 });
 
-// Função para trocar o ícone do coração
-function trocarIcone(element) {
-  if (element.classList.contains("bx-heart")) {
-    element.classList.remove("bx-heart");
-    element.classList.add("bxs-heart");
-  } else {
-    element.classList.remove("bxs-heart");
-    element.classList.add("bx-heart");
-  }
-}
 
-// por que os clientes nos amam?
+
 
 document.addEventListener("DOMContentLoaded", function () {
   var openModalBtn = document.getElementById("openModalBtn");
   var modal = document.getElementById("myModal");
   var fecharModalClicado = document.getElementById("fechar-modal");
 
-  // Abrir o modal ao clicar no botão
+  // Função para abrir ou fechar o modal
+  function toggleModal() {
+    if (modal.style.display === "block") {
+      modal.style.display = "none";
+    } else {
+      modal.style.display = "block";
+    }
+  }
+
+  // Função para verificar se o carrinho está vazio
+  function verificarCarrinho() {
+    var itensCarrinho = document.querySelectorAll('.Minha-lista-carrinho li');
+    return itensCarrinho.length > 0;
+  }
+
+  // Abrir o modal ao clicar no botão "Finalizar Compra"
   openModalBtn.addEventListener("click", function () {
-    modal.style.display = "block";
+    // Fechar o carrinho antes de abrir o modal
+    document.querySelector('.carrinho').style.display = "none";
+
+    if (verificarCarrinho()) {
+      toggleModal();
+    } else {
+      // Carrinho está vazio, alertar o usuário
+      alert("Adicione itens ao carrinho para continuar a navegação no site.");
+    }
   });
 
-  fecharModalClicado.addEventListener("click", function (e) {
+  // Fechar o modal ao clicar no botão dentro do modal
+  fecharModalClicado.addEventListener("click", function () {
     modal.style.display = "none";
   });
-  // Fechar o modal ao clicar no botão de fechar ou fora dele
+
+  // Fechar o modal ao clicar fora dele
   window.addEventListener("click", function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
     }
   });
 });
+
+
 
 function validarNomeCompleto() {
   const nomeCompletoInput = document.getElementById("nomeCompleto");
