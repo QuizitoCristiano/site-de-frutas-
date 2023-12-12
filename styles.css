@@ -1345,7 +1345,14 @@ header {
     justify-content: center !important;
     z-index: 20000;
   }
-
+  .conatiner-login{
+    padding: 10px;
+    box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 15%);
+    border-radius: 7px solid var(--green-color);
+    border-radius: 0.5rem;
+    gap: 00.9rem;
+    width: 98%;
+  }
   .Mymodal-content{
    
     width: 100%;
