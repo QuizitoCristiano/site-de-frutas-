@@ -361,6 +361,7 @@ function validarCamposDeBloco() {
   }
 }
 
+/*
 function validarCelular() {
   const celularInput = document.getElementById("Celular");
   const celular = celularInput.value.trim();
@@ -434,7 +435,7 @@ function validarCliente() {
   // alert("CPF válido! Continue com a finalização da compra.");
 
 
-}
+}*/
 
 // Customer Review Elements
 const dadosDosClientes = [
@@ -650,4 +651,233 @@ document.addEventListener("click", (e) => {
 
 // Exemplo de como abrir o modal quando necessário (pode ser chamado em outro lugar do seu código)
 abrirModal(); // Remova esta linha se não quiser abrir o modal automaticamente
+
+
+function validarCliente() {
+  // Limpar mensagens de erro
+  clearErrors();
+
+  // Obter valores dos campos
+  var nomeCompleto = document.getElementById('nomeCompleto').value;
+  var celular = document.getElementById('Celular').value;
+  var endereco = document.querySelector('.Endereco').value;
+  var cpf = document.getElementById('cpf').value;
+  var bloco = document.getElementById('bloco').value;
+  var andar = document.getElementById('andar').value;
+  var apartamento = document.getElementById('apartamento').value;
+  var mensagem = document.querySelector('.mydivBoxTx textarea').value;
+
+  // Validar campos
+  if (nomeCompleto.trim() === '') {
+    displayError('nomeCompletoError', 'Por favor, digite seu nome completo.');
+  }
+
+  // Adicione aqui mais validações conforme necessário...
+
+  if (cpf.trim() === '' || !validarCPF(cpf)) {
+    displayError('cpfError', 'Por favor, digite um CPF válido.');
+  }
+
+  // Validar bloco, andar e apartamento (garantir que apenas uma opção foi preenchida)
+  var opcoesPreenchidas = [bloco, andar, apartamento].filter(Boolean);
+  if (opcoesPreenchidas.length !== 1) {
+    displayError('blocoAndarAptoError', 'Preencha exatamente um campo entre Bloco, Andar e Apartamento.');
+  }
+}
+
+function isValidEmail(email) {
+  // Adicione sua própria lógica de validação de e-mail, se necessário
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+function validarCPF(cpf) {
+  // Remover caracteres não numéricos
+  cpf = cpf.replace(/\D/g, '');
+
+  // Verificar se o CPF tem 11 dígitos
+  if (cpf.length !== 11) {
+    return false;
+  }
+
+  // Calcular o primeiro dígito verificador
+  let total = 0;
+  for (let i = 0; i < 9; i++) {
+    total += parseInt(cpf[i]) * (10 - i);
+  }
+  let resto = total % 11;
+  let digito1 = resto > 1 ? 11 - resto : 0;
+
+  // Calcular o segundo dígito verificador
+  total = 0;
+  for (let i = 0; i < 10; i++) {
+    total += parseInt(cpf[i]) * (11 - i);
+  }
+  resto = total % 11;
+  let digito2 = resto > 1 ? 11 - resto : 0;
+
+  // Verificar se os dígitos verificadores estão corretos
+  return parseInt(cpf[9]) === digito1 && parseInt(cpf[10]) === digito2;
+}
+
+function displayError(elementId, message) {
+  var errorElement = document.getElementById(elementId);
+  errorElement.textContent = message;
+  errorElement.style.color = 'red';
+}
+
+function clearErrors() {
+  var errorElements = document.getElementsByClassName('error');
+  for (var i = 0; i < errorElements.length; i++) {
+    errorElements[i].textContent = '';
+  }
+}
+
+// Restante do código...
+
+
+
+
+
+
+
+function validateForm() {
+  // Limpar mensagens de erro
+  clearErrors();
+
+  // Obter valores dos campos
+  var fullName = document.getElementById('fullName').value;
+  var password = document.getElementById('password').value;
+  var confirmPassword = document.getElementById('confirmPassword').value;
+  var email = document.getElementById('email').value;
+
+  var showPasswordButton = document.querySelector('.show-password-button');
+  var visibilityIcon = document.querySelector('.bxs-low-vision');
+
+  // Validar campos
+  if (fullName.trim() === '') {
+    displayError('fullNameError', 'Por favor, digite seu nome completo.');
+  }
+
+  if (password.length < 6) {
+    displayError('passwordError', 'A senha deve ter pelo menos 6 dígitos.');
+  }
+
+  if (password !== confirmPassword) {
+    displayError('confirmPasswordError', 'As senhas não coincidem.');
+  }
+
+  if (email.trim() === '' || !isValidEmail(email)) {
+    displayError('emailError', 'Por favor, digite um e-mail válido.');
+  }
+}
+
+function isValidEmail(email) {
+  // Adicione sua própria lógica de validação de e-mail, se necessário
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+function displayError(elementId, message) {
+  document.getElementById(elementId).textContent = message;
+}
+
+function clearErrors() {
+  var errorElements = document.getElementsByClassName('error');
+  for (var i = 0; i < errorElements.length; i++) {
+    errorElements[i].textContent = '';
+  }
+} function validateForm() {
+  // Limpar mensagens de erro
+  clearErrors();
+
+  // Obter valores dos campos
+  var fullName = document.getElementById('fullName').value;
+  var password = document.getElementById('password').value;
+  var confirmPassword = document.getElementById('confirmPassword').value;
+  var email = document.getElementById('email').value;
+  const cpf = document.getElementById('cpf').value;
+
+  // Validar campos
+  if (fullName.trim() === '') {
+    displayError('fullNameError', 'Por favor, digite seu nome completo.');
+  }
+
+  if (password.length < 6) {
+    displayError('passwordError', 'A senha deve ter pelo menos 6 dígitos.');
+  }
+
+  if (password !== confirmPassword) {
+    displayError('confirmPasswordError', 'As senhas não coincidem.');
+  }
+
+  if (email.trim() === '' || !isValidEmail(email)) {
+    displayError('emailError', 'Por favor, digite um e-mail válido.');
+  }
+
+  if (cpf.trim() === '' || !validarCPF(cpf)) {
+    displayError('cpfError', 'Por favor, digite um CPF válido.');
+  }
+}
+
+function isValidEmail(email) {
+  // Adicione sua própria lógica de validação de e-mail, se necessário
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+function displayError(elementId, message) {
+  var errorElement = document.getElementById(elementId);
+  errorElement.textContent = message;
+  errorElement.style.color = 'red';
+}
+
+function clearError(elementId) {
+  var errorElement = document.getElementById(elementId);
+  errorElement.textContent = '';
+}
+
+function clearErrors() {
+  var errorElements = document.getElementsByClassName('error');
+  for (var i = 0; i < errorElements.length; i++) {
+    errorElements[i].textContent = '';
+  }
+}
+
+
+
+
+
+function validarCPF(cpf) {
+  // Remover caracteres não numéricos
+  cpf = cpf.replace(/\D/g, '');
+
+  // Verificar se o CPF tem 11 dígitos
+  if (cpf.length !== 11) {
+    return false;
+  }
+
+  // Calcular o primeiro dígito verificador
+  let total = 0;
+  for (let i = 0; i < 9; i++) {
+    total += parseInt(cpf[i]) * (10 - i);
+  }
+  let resto = total % 11;
+  let digito1 = resto > 1 ? 11 - resto : 0;
+
+  // Calcular o segundo dígito verificador
+  total = 0;
+  for (let i = 0; i < 10; i++) {
+    total += parseInt(cpf[i]) * (11 - i);
+  }
+  resto = total % 11;
+  let digito2 = resto > 1 ? 11 - resto : 0;
+
+  // Verificar se os dígitos verificadores estão corretos
+  if (parseInt(cpf[9]) === digito1 && parseInt(cpf[10]) === digito2) {
+    return true;
+  } else {
+    return false;
+  }
+}
 

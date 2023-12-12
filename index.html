@@ -1,431 +1,477 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site de Frutas</title>
+    <link rel="stylesheet" href="styles.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Site de Frutas</title>
-  <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+  </head>
 
-  <!-- Link Swiper's CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-</head>
+  <body>
+    <header>
+      <a href="" class="logo"><i class="bx bxs-basket">Delicacy</i></a>
+      <!--menu icon -->
+      <div class="bx bx-menu" id="menu-icon"></div>
+      <!--Nave likes -->
 
-<body>
-  <header>
-    <a href="" class="logo"><i class="bx bxs-basket">Delicacy</i></a>
-    <!--menu icon -->
-    <div class="bx bx-menu" id="menu-icon"></div>
-    <!--Nave likes -->
+      <ul class="navbar">
+        <li><a href="#Home" class="home-active">Home</a></li>
+        <li><a href="#Categoria">Categoria</a></li>
+        <li><a href="#Produtos">Produtos</a></li>
+        <li><a href="#Pobre">Sobre</a></li>
+        <li><a href="#Clientes">clientes</a></li>
+      </ul>
 
-    <ul class="navbar">
-      <li><a href="#Home" class="home-active">Home</a></li>
-      <li><a href="#Categoria">Categoria</a></li>
-      <li><a href="#Produtos">Produtos</a></li>
-      <li><a href="#Pobre">Sobre</a></li>
-      <li><a href="#Clientes">clientes</a></li>
-    </ul>
-
-
-
-
-
-
-
-    <!--Profile -->
-    <div class="profile">
-      <img src="./image/Quizito.jpeg" alt="" />
-      <span>Sobre Mim</span>
-      <i class="bx bx-caret-down"></i>
-    </div>
-    <div class="profile">
-      <i class='bx bx-search' id="openModal"></i>
-
-
+      <!--Profile -->
       <div class="profile">
+        <img src="./image/Quizito.jpeg" alt="" />
+        <span>Sobre Mim</span>
+        <i class="bx bx-caret-down"></i>
+      </div>
+      <div class="profile">
+        <i class="bx bx-search" id="openModal"></i>
 
+        <div class="profile">
+          <div class="modal" id="searchModal">
+            <div class="modal-contents">
+              <span class="close" id="closeModal">X</span>
+              <div class="Box-Modal">
+                <input
+                  type="text"
+                  id="frutaInput"
+                  placeholder="Digite sua pesquisa"
+                  oninput="sugerirFrutas()"
+                />
+                <button id="searchButton">Pesquisar</button>
+              </div>
 
-        <div class="modal" id="searchModal">
-          <div class="modal-contents">
-            <span class="close" id="closeModal">X</span>
-            <div class="Box-Modal">
-
-              <input type="text" id="frutaInput" placeholder="Digite sua pesquisa" oninput="sugerirFrutas()">
-              <button id="searchButton">Pesquisar</button>
-            </div>
-
-            <div class="frutis-Box">
-              <ul id="frutaSugestoes"></ul>
+              <div class="frutis-Box">
+                <ul id="frutaSugestoes"></ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-
-    </div>
-
-    <div class="myCartll">
-      <i class='bx bxs-cart'></i>
-      <div class="counter">
-
+      <div class="myCartll">
+        <i class="bx bxs-cart"></i>
+        <div class="counter"></div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- Home -->
+    <!-- Home -->
 
-  <section class="home swiper" id="Home">
-    <div class="swiper-wrapper">
-      <!-- Slide 1 -->
-      <div class="swiper-slide" id="container">
-        <div class="home-text">
-          <span>🌱 Nossas Promessas para Você 🌱</span>
+    <section class="home swiper" id="Home">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide" id="container">
+          <div class="home-text">
+            <span>🌱 Nossas Promessas para Você 🌱</span>
 
-          <p>
-            Frutas e Legumes Frescos: Selecionamos a dedo as frutas e legumes
-            mais frescos, para garantir que você e sua família desfrutem de
-            sabores autênticos.
-          </p>
+            <p>
+              Frutas e Legumes Frescos: Selecionamos a dedo as frutas e legumes
+              mais frescos, para garantir que você e sua família desfrutem de
+              sabores autênticos.
+            </p>
 
-          <a href="#" class="btn">Compre agora <i class="bx bx-right-arrow-alt"></i>
-          </a>
+            <a href="#" class="btn"
+              >Compre agora <i class="bx bx-right-arrow-alt"></i>
+            </a>
+          </div>
+
+          <img src="./image/tropical-fruits.png" alt="" />
         </div>
 
-        <img src="./image/tropical-fruits.png" alt="" />
-      </div>
+        <div class="swiper-slide" id="container">
+          <div class="home-text">
+            <span>🌱 Qualidade e Frescor 🌱🌿</span>
 
-      <div class="swiper-slide" id="container">
-        <div class="home-text">
-          <span>🌱 Qualidade e Frescor 🌱🌿</span>
+            <p>
+              Conveniência: Compre de forma rápida e fácil em nosso site, e
+              entregaremos seus produtos diretamente à sua porta.
+            </p>
+            <a href="#" class="btn"
+              >Compre agora <i class="bx bx-right-arrow-alt"></i>
+            </a>
+          </div>
 
-          <p>
-            Conveniência: Compre de forma rápida e fácil em nosso site, e
-            entregaremos seus produtos diretamente à sua porta.
-          </p>
-          <a href="#" class="btn">Compre agora <i class="bx bx-right-arrow-alt"></i>
-          </a>
+          <img src="./image/tropical-fruits.png" alt="" />
         </div>
-
-        <img src="./image/tropical-fruits.png" alt="" />
-      </div>
-      <!-- Slide 3 -->
-      <div class="swiper-slide" id="container">
-        <div class="home-text">
-          <span>🍏 Nossa Missão 🍏</span>
-          <p>
-            Variedade: Oferecemos uma ampla variedade de produtos, desde
-            frutas suculentas até vegetais nutritivos, para atender a todos os
-            gostos e preferências.
-          </p>
-          <a href="#" class="btn">Compre agora <i class="bx bx-right-arrow-alt"></i>
-          </a>
+        <!-- Slide 3 -->
+        <div class="swiper-slide" id="container">
+          <div class="home-text">
+            <span>🍏 Nossa Missão 🍏</span>
+            <p>
+              Variedade: Oferecemos uma ampla variedade de produtos, desde
+              frutas suculentas até vegetais nutritivos, para atender a todos os
+              gostos e preferências.
+            </p>
+            <a href="#" class="btn"
+              >Compre agora <i class="bx bx-right-arrow-alt"></i>
+            </a>
+          </div>
+          <img src="./image/tropical-fruits.png" alt="" />
         </div>
-        <img src="./image/tropical-fruits.png" alt="" />
       </div>
-    </div>
 
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </section>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </section>
 
-  <!-- Categoria frutas -->
-  <section class="categoria" id="Categoria">
-    <div class="heading">
-      <h1>
-        Explorando a Diversidade da Natureza <br />
-        <span>Frutas</span>
-      </h1>
-      <a href="#" class="btn">Ver tudo <i class="bx bx-right-arrow-alt"></i></a>
-    </div>
-
-    <!-- container content -->
-    <div class="categoria-container">
-      <!-- Box1 -->
-      <div class="box box1">
-        <img src="./image/manga.jpg" alt="" />
-        <h2>Abacate e Manga</h2>
-        <span>22 Item</span>
-        <i class="bx bx-right-arrow-alt"></i>
+    <!-- Categoria frutas -->
+    <section class="categoria" id="Categoria">
+      <div class="heading">
+        <h1>
+          Explorando a Diversidade da Natureza <br />
+          <span>Frutas</span>
+        </h1>
+        <a href="#" class="btn"
+          >Ver tudo <i class="bx bx-right-arrow-alt"></i
+        ></a>
       </div>
-      <!-- Box2 -->
-      <div class="box box2">
-        <img src="./image/morango.jpg" alt="" />
-        <h2>Morango</h2>
-        <span>22 Item</span>
-        <i class="bx bx-right-arrow-alt"></i>
+
+      <!-- container content -->
+      <div class="categoria-container">
+        <!-- Box1 -->
+        <div class="box box1">
+          <img src="./image/manga.jpg" alt="" />
+          <h2>Abacate e Manga</h2>
+          <span>22 Item</span>
+          <i class="bx bx-right-arrow-alt"></i>
+        </div>
+        <!-- Box2 -->
+        <div class="box box2">
+          <img src="./image/morango.jpg" alt="" />
+          <h2>Morango</h2>
+          <span>22 Item</span>
+          <i class="bx bx-right-arrow-alt"></i>
+        </div>
+        <!-- Box3 -->
+        <div class="box box3">
+          <img src="./image/Uva1.png" alt="" />
+          <h2>Uva</h2>
+          <span>22 Item</span>
+          <i class="bx bx-right-arrow-alt"></i>
+        </div>
+        <!-- Box4 -->
+        <div class="box box4">
+          <img src="./image/abacate.jpg" alt="" />
+          <h2>Abacate</h2>
+          <span>22 Item</span>
+          <i class="bx bx-right-arrow-alt"></i>
+        </div>
+        <!-- Box5 -->
+        <div class="box box5">
+          <img src="./image/papaia.png" alt="" />
+          <h2>Mamaõ ou Papaia</h2>
+          <span>22 Item</span>
+          <i class="bx bx-right-arrow-alt"></i>
+        </div>
       </div>
-      <!-- Box3 -->
-      <div class="box box3">
-        <img src="./image/Uva1.png" alt="" />
-        <h2>Uva</h2>
-        <span>22 Item</span>
-        <i class="bx bx-right-arrow-alt"></i>
+    </section>
+
+    <!-- Produtos -->
+    <section class="Produtos" id="Produtos">
+      <div class="heading">
+        <h1>
+          Nossos Produtos Populares<br />
+          <span>Produtos de Frutas</span>
+        </h1>
+        <a href="#" class="btn"
+          >Nova loja<i class="bx bx-right-arrow-alt"></i
+        ></a>
       </div>
-      <!-- Box4 -->
-      <div class="box box4">
-        <img src="./image/abacate.jpg" alt="" />
-        <h2>Abacate</h2>
-        <span>22 Item</span>
-        <i class="bx bx-right-arrow-alt"></i>
+      <!-- Produtos container -->
+
+      <div class="Produtos-container"></div>
+
+      <div class="heading">
+        <h1>
+          Nossos Produtos Populares<br />
+          <span>Produtos de Legumes</span>
+        </h1>
+        <a href="#" class="btn"
+          >Nova loja<i class="bx bx-right-arrow-alt"></i
+        ></a>
       </div>
-      <!-- Box5 -->
-      <div class="box box5">
-        <img src="./image/papaia.png" alt="" />
-        <h2>Mamaõ ou Papaia </h2>
-        <span>22 Item</span>
-        <i class="bx bx-right-arrow-alt"></i>
+    </section>
+
+    <!-- Categoria Legumes -->
+    <section class="categoria" id="Categoria">
+      <div class="heading">
+        <h1>
+          Explorando a Diversidade da Natureza <br />
+          <span>Legumes</span>
+        </h1>
+        <a href="#" class="btn"
+          >Ver tudo <i class="bx bx-right-arrow-alt"></i
+        ></a>
       </div>
-    </div>
-  </section>
 
-  <!-- Produtos -->
-  <section class="Produtos" id="Produtos">
-    <div class="heading">
-      <h1>
-        Nossos Produtos Populares<br />
-        <span>Produtos de Frutas</span>
-      </h1>
-      <a href="#" class="btn">Nova loja<i class="bx bx-right-arrow-alt"></i></a>
-    </div>
-    <!-- Produtos container -->
+      <!-- container content -->
+      <div class="categoria-container" id="categoria-container"></div>
+    </section>
 
-
-    <div class="Produtos-container">
-
-
-    </div>
-
-    <div class="heading">
-      <h1>
-        Nossos Produtos Populares<br />
-        <span>Produtos de Legumes</span>
-      </h1>
-      <a href="#" class="btn">Nova loja<i class="bx bx-right-arrow-alt"></i></a>
-    </div>
-  </section>
-
-  <!-- Categoria Legumes -->
-  <section class="categoria" id="Categoria">
-    <div class="heading">
-      <h1>
-        Explorando a Diversidade da Natureza <br />
-        <span>Legumes</span>
-      </h1>
-      <a href="#" class="btn">Ver tudo <i class="bx bx-right-arrow-alt"></i></a>
-    </div>
-
-    <!-- container content -->
-    <div class="categoria-container" id="categoria-container">
-
-
-    </div>
-  </section>
-
-  <section class="Produtos" id="Produtos">
-    <div class="heading">
-      <h1>
-        Nossos Produtos Populares<br />
-        <span>Produtos de Frutas</span>
-      </h1>
-      <a href="#" class="btn">Nova loja<i class="bx bx-right-arrow-alt"></i></a>
-
-
-    </div>
-    <!-- Produtos container de Legumes-->
-
-
-    <div class="Produtos-legumes">
-
-
-
-    </div>
-
-
-
-
-    <div class="carrinho">
-
-      <div class="carinho-txt">
-
-        <h2>Itens no Carrinho</h2>
-        <i class='bx bx-x'></i>
+    <section class="Produtos" id="Produtos">
+      <div class="heading">
+        <h1>
+          Nossos Produtos Populares<br />
+          <span>Produtos de Frutas</span>
+        </h1>
+        <a href="#" class="btn"
+          >Nova loja<i class="bx bx-right-arrow-alt"></i
+        ></a>
       </div>
-      <ul class="Minha-lista-carrinho">
-        <!-- Aqui serão exibidos os itens do carrinho -->
-      </ul>
+      <!-- Produtos container de Legumes-->
 
-      <div class="total-dosItens">
-        <p class="total-carrinho"></p>
+      <div class="Produtos-legumes"></div>
 
-        <button class="finalizar-compra" id="openModalBtn">Finalizar Compra</button>
+      <div class="carrinho">
+        <div class="carinho-txt">
+          <h2>Itens no Carrinho</h2>
+          <i class="bx bx-x"></i>
+        </div>
+        <ul class="Minha-lista-carrinho">
+          <!-- Aqui serão exibidos os itens do carrinho -->
+        </ul>
 
+        <div class="total-dosItens">
+          <p class="total-carrinho"></p>
 
+          <button class="finalizar-compra" id="openModalBtn">
+            Finalizar Compra
+          </button>
+        </div>
       </div>
-    </div>
+    </section>
 
+    <!-- Formulário -->
+    <section>
+      <div class="container_form">
 
-  </section>
-
-
-  <!-- Formulário -->
-
-
-  <div id="myModal" class="Wrappermodal">
-    <div class="Mymodal-content">
-      <i class="bx bx-x" id="fechar-modal"></i>
-      <div class="mydivBox">
-        <input type="text" class="Nome" id="nomeCompleto" placeholder="Nome completo">
-        <input type="text" class="Telefone" id="Celular" placeholder="Número de telefone">
-      </div>
-      <div class="mydivBox">
-        <input type="text" class="Endereco" placeholder="Endereço de entrega">
-        <input type="text" class="Cep"  id="cpf" placeholder="CPF">
-      </div>
-      <div class="mydivBoxBloco">
-        <input type="text" id="bloco" placeholder="Bloco">
-        <input type="text" id="andar" placeholder="Andar">
-        <input type="text" id="apartamento" placeholder="Apartamento">
-      </div>
-      <div class="mydivBoxTx">
-        <textarea name="" id="" cols="30" rows="10" placeholder="A sua mensagem é muito importante"></textarea>
-      </div>
-      <button class="enviar" onclick="validarCliente()">Insira os Dados</button>
-    </div>
-  </div>
-
-
-  <!-- About -->
-  <section>
-    <div class="about" id="Pobre">
-      <img src="./img/legumes.avif" alt="" />
-
-      <div class="about-text">
-        <span>🌿 Sobre Nós - Delicacty: Nutrição Fresca e Sabor Puro 🌿</span>
-        <p>
-          Na Delicacty, acreditamos que uma vida saudável começa com escolhas
-          alimentares saudáveis. Nossa jornada começou com a paixão por
-          proporcionar a você e sua família acesso a frutas e legumes frescos
-          e de alta qualidade, diretamente à sua porta.
-        </p>
-        <span>🌱 Qualidade e Frescor 🌱 </span>
-        <p>
-          Na Delicacty, a qualidade e o frescor são nossas principais
-          prioridades. Trabalhamos incansavelmente para selecionar os produtos
-          mais frescos e saborosos, diretamente de produtores locais e
-          fornecedores confiáveis. Cada fruta e legume é escolhido a dedo para
-          garantir que apenas o melhor chegue à sua mesa.
-        </p>
-
-        <a href="#" class="btn">Saber mais<i class="bx bx-right-arrow-alt"></i></a>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- Clientes -->
-  <section class="Clientes" id="Clientes">
-    <h2>por que os clientes nos amam?</h2>
-
-    <!-- customers contaent -->
-    <div class="customers-container">
-
-    </div>
-  </section>
-
-  <!-- /* Footer */ -->
-
-  <section class="footer" id="footer">
-    <div class="footer-box">
-      <a href="" class="logo"><i class="bx bxs-basket">Delicacy</i></a>
-      <p>Rua Curupis, 363 - Santa Quiteria, Curitiba</p>
-
-      <div class="social">
-        <i class="bx bxl-facebook"></i>
-        <i class="bx bxl-whatsapp"></i>
-        <i class="bx bxl-twitter"></i>
-        <i class="bx bxl-instagram"></i>
-        <i class="bx bxl-youtube"></i>
-      </div>
-    </div>
-
-    <div class="footer-box">
-      <h2>Categoria</h2>
-      <a href="#">Frutas vegetais</a>
-      <a href="#">PR Curitiba</a>
-      <a href="#">Pacote de comida</a>
-      <a href="#">Bebida</a>
-    </div>
-
-    <div class="footer-box">
-      <h2>Links Úteis</h2>
-      <a href="#">Pagamento e impostos</a>
-      <a href="#">Termos de uso</a>
-      <a href="#">Meu blog</a>
-      <a href="#">Retorne para nos visitar</a>
-    </div>
-
-    <div class="footer-box">
-      <h2>Boletim de Notícias</h2>
-      <p>Obtenha 10% de desconto com <br />boletim informativo por e-mail</p>
-
-      <form action="">
-        <i class="bx bxs-envelope"></i>
-
-        <input type="email" name="email" placeholder="Digite seu e-mail" />
-
-        <i class="bx bx-arrow-back bx-rotate-180"></i>
-      </form>
-    </div>
-  </section>
-
-  <!-- copyright -->
-  <div class="copyright">
-    <p>
-      🍏 🍎🥦🥕🌿🌱 Junte-se a nós na jornada para uma vida mais saudável e
-      saborosa! 🌱🍎🌿🥕🍏🥦
-    </p>
-  </div>
-  <!-- Swiper JS -->
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="./frutas.js"></script>
-  <script src="./script.js"></script>
-
-  // Importe as funções necessárias do Firebase
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
-
-
-<script type="module">
+        <div class="conatiner-login">
+          <h4>Faça login para garantir a sua segurança</h4>
+    
+          <form id="loginForm">
+            <div class="divInput">
+              <input type="text" placeholder="Digite seu nome completo..." id="fullName" oninput="clearError('fullNameError')" />
+              <p id="fullNameError" class="error"></p>
+            </div>
   
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
-  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-  import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+            <div class="divInput password-strength-icons">
+             
+              <input type="password" placeholder="Digite uma senha de 6 dígitos..." id="password" oninput="checkPasswordStrength(); clearError('passwordError');" />
+              <p id="passwordError" class="error"></p>
+            </div>
+  
+            <div class="divInput">
+              <input type="password" placeholder="Confirme a sua senha..." id="confirmPassword" oninput="clearError('confirmPasswordError')" />
+              <p id="confirmPasswordError" class="error"></p>
+            </div>
+  
+            <div class="divInput">
+              <input type="cpf" placeholder="Digite seu CPF..." id="cpf" oninput="clearError('cpfError')" />
+              <p id="cpfError" class="error"></p>
+            </div>
+            
+            <div class="divInput">
+              <input type="email" placeholder="Digite seu e-mail..." id="email" oninput="clearError('emailError')" />
+              <p id="emailError" class="error"></p>
+            </div>
+            
+            <button type="button" onclick="validateForm()">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </section>
 
+    <div id="myModal" class="Wrappermodal">
+      <div class="Mymodal-content">
+        <i class="bx bx-x" id="fechar-modal"></i>
+        <div class="mydivBox">
+          <input
+            type="text"
+            class="Nome"
+            id="nomeCompleto"
+            placeholder="Nome completo"
+          />
+          <input
+            type="text"
+            class="Telefone"
+            id="Celular"
+            placeholder="Número de telefone"
+          />
+        </div>
+        <div class="mydivBox">
+          <input
+            type="text"
+            class="Endereco"
+            placeholder="Endereço de entrega"
+          />
+          <input type="text" class="Cep" id="cpf" placeholder="CPF" />
+        </div>
+        <div class="mydivBoxBloco">
+          <input type="text" id="bloco" placeholder="Bloco" />
+          <input type="text" id="andar" placeholder="Andar" />
+          <input type="text" id="apartamento" placeholder="Apartamento" />
+        </div>
+        <div class="mydivBoxTx">
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="A sua mensagem é muito importante"
+          ></textarea>
+        </div>
+        <button class="enviar" onclick="validarCliente()">
+          Insira os Dados
+        </button>
+      </div>
+    </div>
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyBzoYBmdTZtVjAtjjGFbblHMaV6M7cG3zA",
-    authDomain: "delicacty-site.firebaseapp.com",
-    projectId: "delicacty-site",
-    storageBucket: "delicacty-site.appspot.com",
-    messagingSenderId: "429040390010",
-    appId: "1:429040390010:web:c8e89f91f5789a14edd0c3",
-    measurementId: "G-H48QV0BQZ0"
-  };
+    <!-- About -->
+    <section>
+      <div class="about" id="Pobre">
+        <img src="./img/legumes.avif" alt="" />
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth = getAuth(app);
-    const firestore = getFirestore(app);
-    console.log(firebaseConfig);
-</script>
-</body>
+        <div class="about-text">
+          <span>🌿 Sobre Nós - Delicacty: Nutrição Fresca e Sabor Puro 🌿</span>
+          <p>
+            Na Delicacty, acreditamos que uma vida saudável começa com escolhas
+            alimentares saudáveis. Nossa jornada começou com a paixão por
+            proporcionar a você e sua família acesso a frutas e legumes frescos
+            e de alta qualidade, diretamente à sua porta.
+          </p>
+          <span>🌱 Qualidade e Frescor 🌱 </span>
+          <p>
+            Na Delicacty, a qualidade e o frescor são nossas principais
+            prioridades. Trabalhamos incansavelmente para selecionar os produtos
+            mais frescos e saborosos, diretamente de produtores locais e
+            fornecedores confiáveis. Cada fruta e legume é escolhido a dedo para
+            garantir que apenas o melhor chegue à sua mesa.
+          </p>
+
+          <a href="#" class="btn"
+            >Saber mais<i class="bx bx-right-arrow-alt"></i
+          ></a>
+        </div>
+      </div>
+      
+    </section>
+    <!-- Clientes -->
+    <section class="Clientes" id="Clientes">
+      <h2>por que os clientes nos amam?</h2>
+
+      <!-- customers contaent -->
+      <div class="customers-container"></div>
+    </section>
+
+    <!-- /* Footer */ -->
+
+    <section class="footer" id="footer">
+      <div class="footer-box">
+        <a href="" class="logo"><i class="bx bxs-basket">Delicacy</i></a>
+        <p>Rua Curupis, 363 - Santa Quiteria, Curitiba</p>
+
+        <div class="social">
+          <i class="bx bxl-facebook"></i>
+          <i class="bx bxl-whatsapp"></i>
+          <i class="bx bxl-twitter"></i>
+          <i class="bx bxl-instagram"></i>
+          <i class="bx bxl-youtube"></i>
+        </div>
+      </div>
+
+      <div class="footer-box">
+        <h2>Categoria</h2>
+        <a href="#">Frutas vegetais</a>
+        <a href="#">PR Curitiba</a>
+        <a href="#">Pacote de comida</a>
+        <a href="#">Bebida</a>
+      </div>
+
+      <div class="footer-box">
+        <h2>Links Úteis</h2>
+        <a href="#">Pagamento e impostos</a>
+        <a href="#">Termos de uso</a>
+        <a href="#">Meu blog</a>
+        <a href="#">Retorne para nos visitar</a>
+      </div>
+
+      <div class="footer-box">
+        <h2>Boletim de Notícias</h2>
+        <p>Obtenha 10% de desconto com <br />boletim informativo por e-mail</p>
+
+        <form action="">
+          <i class="bx bxs-envelope"></i>
+
+          <input type="email" name="email" placeholder="Digite seu e-mail" />
+
+          <i class="bx bx-arrow-back bx-rotate-180"></i>
+        </form>
+      </div>
+    </section>
+
+    <!-- copyright -->
+    <div class="copyright">
+      <p>
+        🍏 🍎🥦🥕🌿🌱 Junte-se a nós na jornada para uma vida mais saudável e
+        saborosa! 🌱🍎🌿🥕🍏🥦
+      </p>
+    </div>
+    <!-- Swiper JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./frutas.js"></script>
+    <script src="./script.js"></script>
+
+    // Importe as funções necessárias do Firebase
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+      import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBzoYBmdTZtVjAtjjGFbblHMaV6M7cG3zA",
+        authDomain: "delicacty-site.firebaseapp.com",
+        projectId: "delicacty-site",
+        storageBucket: "delicacty-site.appspot.com",
+        messagingSenderId: "429040390010",
+        appId: "1:429040390010:web:c8e89f91f5789a14edd0c3",
+        measurementId: "G-H48QV0BQZ0",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const auth = getAuth(app);
+      const firestore = getFirestore(app);
+      console.log(firebaseConfig);
+    </script>
+  </body>
 </html>
+
+
+
+
+git config --global user.name "Quizito Cristiano"

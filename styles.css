@@ -405,6 +405,99 @@ header {
 
 /* Catecoria */
 
+/*conatiner-login*/
+
+/*.conatiner-login {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}*/
+.container_form {
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.conatiner-login{
+  padding: 20px;
+  box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 15%);
+  border-radius: 7px solid var(--green-color);
+  border-radius: 0.5rem;
+  gap: 1rem;
+  width: 450px;
+}
+.conatiner-login h4{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--green-color);
+}
+
+.conatiner-login:hover {
+  transform: translateY(10px);
+  transition: 0.2s;
+}
+
+.divInput {
+  display: flex;
+  justify-content: center;
+  align-items: self-start;
+  flex-direction: column;
+  width: 100%;
+ 
+} 
+
+
+
+.password-strength-icons i, .show-password-button {
+  display: none;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.weak i.bxs-low-vision {
+  color: red;
+}
+
+.medium i.bx-happy-heart-eyes {
+  color: orange;
+}
+
+.strong i.bx-happy-heart-eyes {
+  color: green;
+}
+
+.show-password-button {
+  display: inline-block;
+  font-size: 12px;
+}
+
+
+
+
+
+
+
+
+.divInput input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid var(--green-color);
+  outline: none;
+}
+
 .heading {
   display: flex;
   align-items: center;
@@ -438,6 +531,8 @@ header {
   display: flex;
   flex-direction: row;
 } */
+
+
 
 .categoria-container .box {
   position: relative;
@@ -1107,18 +1202,7 @@ header {
     width: 98%;
   }
 
-  .Mymodal-content{
-    position: relative;
-   width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-   
-    height: auto;
-    border-radius: 5px;
-    text-align: center;
-  }
+  
   .home-text p {
     font-size: 1.3rem;
   }
@@ -1262,6 +1346,19 @@ header {
     z-index: 20000;
   }
 
+  .Mymodal-content{
+   
+    width: 100%;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     background-color: #fff;
+    
+     height: auto;
+     border-radius: 5px;
+     text-align: center;
+   }
+
   .mydivBoxTx textarea {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1311,7 +1408,18 @@ header {
   #container img {
     width: 570px;
   }
-
+  .Mymodal-content{
+   
+    width: 100%;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     background-color: #fff;
+    
+     height: auto;
+     border-radius: 5px;
+     text-align: center;
+   }
   .heading h1 {
     font-size: 1.2rem;
   }
