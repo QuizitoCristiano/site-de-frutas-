@@ -37,7 +37,6 @@
       <!--Profile -->
       <div class="profile">
         <img src="./image/Quizito.jpeg" alt="" />
-      
       </div>
       <div class="profile">
         <i class="bx bx-search" id="openModal"></i>
@@ -396,21 +395,11 @@
 
     <script>
       let user = localStorage.getItem("isUserLoged");
-
-      if (user) {
-        window.location.href = "./index.html";
-      } else {
-        alert("Você precisa estar logado para acessar esta página");
+      console.log(user);
+      if (!user) {
         window.location.href = "./assetes/pagesHtmal/signin.html";
-
-        return;
       }
-
     </script>
-
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./frutas.js"></script>
