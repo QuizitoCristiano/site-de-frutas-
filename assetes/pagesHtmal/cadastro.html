@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin</title>
+ <link rel="stylesheet" href="../Styles/styles.css">
+</head>
+<body>
+    <section>
+        <div class="container_form">
+  
+          <div class="conatiner-login">
+            <h4>inscreva-se no site</h4>
+      
+            <form id="loginForm">
+              <div class="divInput">
+                <input type="text" placeholder="Digite seu nome completo..." id="fullName" oninput="clearError('fullNameError')" />
+                <p id="fullNameError" class="error"></p>
+              </div>
+    
+              <div class="divInput password-strength-icons">
+               
+                <input type="password" placeholder="Digite uma senha de 6 dígitos..." id="password" oninput="checkPasswordStrength(); clearError('passwordError');" />
+                <p id="passwordError" class="error"></p>
+              </div>
+    
+              <div class="divInput">
+                <input type="password" placeholder="Confirme a sua senha..." id="confirmPassword" oninput="clearError('confirmPasswordError')" />
+                <p id="confirmPasswordError" class="error"></p>
+              </div>
+    
+              <div class="divInput">
+                <input type="cpf" placeholder="Digite seu CPF..." id="cpf" oninput="clearError('cpfError')" />
+                <p id="cpfError" class="error"></p>
+              </div>
+              
+              <div class="divInput">
+                <input type="email" placeholder="Digite seu e-mail..." id="email" oninput="clearError('emailError')" />
+                <p id="emailError" class="error"></p>
+              </div>
+
+              <div class="divInput Cadastrar">
+
+                <button type="button" onclick="validateForm()">Enviar</button>
+                <li><a href="./signin.html">Voltar para login</a></li>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </section>
+</body>
+<script src="../pagesJs/cadatro.js"></script>
+</html>

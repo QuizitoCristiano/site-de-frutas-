@@ -161,6 +161,9 @@ button:hover {
   display: flex;
   align-items: center;
   column-gap: 0.5rem;
+  
+  gap: 1.3rem;
+  font-size: 1.5rem;
 }
 
 .social-media.bx {
@@ -170,8 +173,13 @@ button:hover {
   border-radius: 5rem;
   font-size: 20px;
 }
+
+
 .social-media .bx:hover {
   background: var(--green-color);
   color: var(--bg-color);
   transition: 0.2s all linear;
+  border-radius: 50%;
+  
 }
+

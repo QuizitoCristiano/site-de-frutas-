@@ -403,114 +403,12 @@ header {
   transition: 0.2e ease;
 }
 
-/* Catecoria */
-
-/*conatiner-login*/
-
-/*.conatiner-login {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, auto));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}*/
-.container_form {
-
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.error {
-  color: red;
-  font-size: 14px;
-  margin-top: 5px;
-}
-
-.conatiner-login{
-  padding: 20px;
-  box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 15%);
-  border-radius: 7px solid var(--green-color);
-  border-radius: 0.5rem;
-  gap: 1rem;
-  width: 450px;
-}
-.conatiner-login h4{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--green-color);
-}
-
-.conatiner-login:hover {
-  transform: translateY(10px);
-  transition: 0.2s;
-}
-
-.divInput {
-  display: flex;
-  justify-content: center;
-  align-items: self-start;
-  flex-direction: column;
-  width: 100%;
- 
-} 
-
-
-
-.password-strength-icons i, .show-password-button {
-  display: none;
-  margin-right: 5px;
-  cursor: pointer;
-}
-
-.weak i.bxs-low-vision {
-  color: red;
-}
-
-.medium i.bx-happy-heart-eyes {
-  color: orange;
-}
-
-.strong i.bx-happy-heart-eyes {
-  color: green;
-}
-
-.show-password-button {
-  display: inline-block;
-  font-size: 12px;
-}
 
 
 
 
 
 
-
-
-.divInput input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid var(--green-color);
-  outline: none;
-}
-
-.heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.heading h1 {
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-
-.heading span {
-  color: var(--green-color);
-}
 
 .categoria {
   max-width: 968px;
@@ -518,20 +416,14 @@ header {
   margin-right: auto;
 }
 
+
+
 .categoria-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, auto));
   gap: 1rem;
   margin-top: 2rem;
 }
-
-/* #container {
-
-  position: relative;
-  display: flex;
-  flex-direction: row;
-} */
-
 
 
 .categoria-container .box {

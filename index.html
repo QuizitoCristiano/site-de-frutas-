@@ -11,7 +11,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
     />
-    
 
     <!-- Link Swiper's CSS -->
     <link
@@ -38,8 +37,7 @@
       <!--Profile -->
       <div class="profile">
         <img src="./image/Quizito.jpeg" alt="" />
-        <span>Sobre Mim</span>
-        <i class="bx bx-caret-down"></i>
+      
       </div>
       <div class="profile">
         <i class="bx bx-search" id="openModal"></i>
@@ -259,44 +257,6 @@
     </section>
 
     <!-- Formulário -->
-    <section>
-      <div class="container_form">
-
-        <div class="conatiner-login">
-          <h4>Faça login para garantir a sua segurança</h4>
-    
-          <form id="loginForm">
-            <div class="divInput">
-              <input type="text" placeholder="Digite seu nome completo..." id="fullName" oninput="clearError('fullNameError')" />
-              <p id="fullNameError" class="error"></p>
-            </div>
-  
-            <div class="divInput password-strength-icons">
-             
-              <input type="password" placeholder="Digite uma senha de 6 dígitos..." id="password" oninput="checkPasswordStrength(); clearError('passwordError');" />
-              <p id="passwordError" class="error"></p>
-            </div>
-  
-            <div class="divInput">
-              <input type="password" placeholder="Confirme a sua senha..." id="confirmPassword" oninput="clearError('confirmPasswordError')" />
-              <p id="confirmPasswordError" class="error"></p>
-            </div>
-  
-            <div class="divInput">
-              <input type="cpf" placeholder="Digite seu CPF..." id="cpf" oninput="clearError('cpfError')" />
-              <p id="cpfError" class="error"></p>
-            </div>
-            
-            <div class="divInput">
-              <input type="email" placeholder="Digite seu e-mail..." id="email" oninput="clearError('emailError')" />
-              <p id="emailError" class="error"></p>
-            </div>
-            
-            <button type="button" onclick="validateForm()">Enviar</button>
-          </form>
-        </div>
-      </div>
-    </section>
 
     <div id="myModal" class="Wrappermodal">
       <div class="Mymodal-content">
@@ -370,7 +330,6 @@
           ></a>
         </div>
       </div>
-      
     </section>
     <!-- Clientes -->
     <section class="Clientes" id="Clientes">
@@ -435,17 +394,35 @@
     </div>
     <!-- Swiper JS -->
 
+    <script>
+      let user = localStorage.getItem("isUserLoged");
+
+      if (user) {
+        window.location.href = "./index.html";
+      } else {
+        alert("Você precisa estar logado para acessar esta página");
+        window.location.href = "./assetes/pagesHtmal/signin.html";
+
+        return;
+      }
+
+    </script>
+
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./frutas.js"></script>
     <script src="./script.js"></script>
 
-    // Importe as funções necessárias do Firebase
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <!-- // Importe as funções necessárias do Firebase -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script> -->
 
-    <script type="module">
+    <!-- <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
       import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
@@ -460,6 +437,9 @@
         appId: "1:429040390010:web:c8e89f91f5789a14edd0c3",
         measurementId: "G-H48QV0BQZ0",
       };
+          12345678
+          lina30@gmail.com
+          12345678
 
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
@@ -467,10 +447,6 @@
       const auth = getAuth(app);
       const firestore = getFirestore(app);
       console.log(firebaseConfig);
-    </script>
+    </script> -->
   </body>
 </html>
-
-
-
-

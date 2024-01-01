@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signin</title>
+    <link rel="stylesheet" href="../Styles/styles.css" />
+  </head>
+  <body>
+    <section>
+      <div class="container_form">
+        <div class="conatiner-login">
+          <h4>Faça login para garantir a sua segurança</h4>
+
+          <form id="loginForm">
+            <div class="divInput">
+              <input
+                type="email"
+                placeholder="Digite seu e-mail..."
+                id="email"
+                oninput="clearError('emailError')"
+              />
+              <p id="emailError" class="error"></p>
+            </div>
+
+            <div class="divInput password-strength-icons">
+              <input
+                type="password"
+                placeholder="Digite uma senha de 6 dígitos..."
+                id="password"
+                oninput="checkPasswordStrength(); clearError('passwordError');"
+              />
+              <p id="passwordError" class="error"></p>
+            </div>
+
+            <div class="divInput Cadastrar">
+               <p>Já tem uma conta?</p>
+                
+                 <li><a href="./cadastro.html">Cadastrar-se</a></li>
+                
+            </div>
+
+            <button type="button" onclick="validateForm()">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    
+    <script src="../pagesJs/signin.js"></script>
+  </body>
+  
+</html>
