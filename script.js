@@ -1,10 +1,10 @@
-
-
 const myAvatar = document.querySelector('.isNoAvatar');
 const profileEditForm = document.querySelector('.profileEditForm');
 const profile = document.querySelector('.profile');
-const isLoged = JSON.parse(localStorage.getItem('isUserLoged'));
-const fullName = isLoged.fullName.trim();
+let isLoged = JSON.parse(localStorage.getItem('isUserLoged')) || {};
+var listaDeUsuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+const fullName = isLoged.fullName ? isLoged.fullName.trim() : '';
 
 myAvatar.addEventListener('click', () => {
   profileEditForm.classList.add('active');
@@ -14,28 +14,33 @@ function closeProfileEditForm() {
   profileEditForm.classList.remove('active');
 }
 
-// Dividir os nomes usando o espaço como separador
-const names = fullName.split(' ');
+function loadAvatar() {
+  if (isLoged.avatar) {
+    myAvatar.innerHTML = `<img class="profileIgmAvatar" src="${isLoged.avatar}" alt="Avatar">`;
+    myAvatar.style.display = 'flex';
+    profile.style.display = 'none';
+  } else if (fullName) {
+    const names = fullName.split(' ');
 
-// Verificar se há pelo menos dois nomes
-if (names.length >= 2 && !isLoged.avatar) {
-  // Pegar a primeira e a segunda letra dos dois nomes
-  const firstLetter = names[0].charAt(0);
-  const secondLetter = names[1].charAt(0);
+    if (names.length >= 2) {
+      const firstLetter = names[0].charAt(0);
+      const secondLetter = names[1].charAt(0);
 
-  myAvatar.innerHTML = firstLetter + secondLetter;
-  profile.style.display = 'none';
-  myAvatar.style.display = 'flex';
-} else if (!isLoged.avatar) {
-  // Se houver apenas um nome ou nenhum, use a primeira letra do primeiro nome
-  const firstLetterOfFirstName = fullName.charAt(0);
+      myAvatar.innerHTML = firstLetter + secondLetter;
+      profile.style.display = 'none';
+      myAvatar.style.display = 'flex';
+    } else {
+      const firstLetterOfFirstName = fullName.charAt(0);
 
-  myAvatar.innerHTML = firstLetterOfFirstName;
-  profile.style.display = 'none';
-  myAvatar.style.display = 'flex';
+      myAvatar.innerHTML = firstLetterOfFirstName;
+      profile.style.display = 'none';
+      myAvatar.style.display = 'flex';
+    }
+  }
 }
 
-// Restante do seu código
+loadAvatar(); // Chamar a função ao carregar a página
+
 const avatarInput = document.getElementById('avatar');
 avatarInput.addEventListener('change', handleAvatarChange);
 
@@ -50,20 +55,42 @@ function handleAvatarChange() {
       myAvatar.style.display = 'flex';
       profile.style.display = 'none';
 
-      // Salvar a imagem no localStorage com uma chave apropriada
-      localStorage.setItem('userAvatar', imageSrc);
+      // Atualizar o objeto isLoged no Local Storage com informações adicionais
+      if ('avatar' in isLoged) {
+        isLoged.avatar = imageSrc;
+        isLoged.avatarTimestamp = new Date().toISOString();
+      }
+      // Não salvar no localStorage aqui, aguardando o clique no botão 'saveProfileChanges'
     };
     reader.readAsDataURL(file);
   }
 }
 
+
+
 function saveProfileChanges() {
-  // Lógica para salvar as alterações, como atualizar o localStorage ou enviar para um servidor
-  alert('Alterações salvas com sucesso!');
+  // Atualizar o localStorage com as informações do objeto isLoged
+  localStorage.setItem('isUserLoged', JSON.stringify(isLoged));
+
+  // Procurar o usuário correspondente na lista de usuários
+  const userIndex = listaDeUsuarios.findIndex(user => user.id === isLoged.id);
+
+  if (userIndex !== -1) {
+    // Atualizar avatar apenas se o usuário tiver a propriedade
+    if ('avatar' in isLoged) {
+      listaDeUsuarios[userIndex].avatar = isLoged.avatar;
+      listaDeUsuarios[userIndex].avatarTimestamp = isLoged.avatarTimestamp;
+    }
+
+    // Atualizar o localStorage com as informações da lista de usuários
+    localStorage.setItem('usuarios', JSON.stringify(listaDeUsuarios));
+
+    // Lógica para salvar as alterações, como enviar para um servidor
+    alert('Alterações salvas com sucesso!');
+  } else {
+    alert('Usuário não encontrado na lista de usuários.');
+  }
 }
-
-
-
 
 
 
@@ -444,81 +471,10 @@ function validarCamposDeBloco() {
   }
 }
 
-/*
-function validarCelular() {
-  const celularInput = document.getElementById("Celular");
-  const celular = celularInput.value.trim();
-  let valor = telefoneInput.value.replace(/\D/g, '');
-
-  // Padrão esperado: (XX) XXXXX-XXXX ou XX XXXXX-XXXX
-  if (valor.length >= 2) {
-    valor = `(+${valor.slice(0, 2)}) ${valor.slice(2)}`;
-  }
-
-  if (valor.length >= 11) {
-    valor = `${valor.slice(0, 10)}-${valor.slice(10)}`;
-  }
-}
 
 
 
 
-
-function validarCPF(cpf) {
-  // Remove caracteres não numéricos
-  cpf = cpf.replace(/\D/g, "");
-
-  // Verifica se o CPF tem 11 dígitos
-  if (cpf.length !== 11) {
-    return false;
-  }
-
-  // Verifica se todos os dígitos são iguais, o que torna o CPF inválido
-  if (/^(\d)\1{10}$/.test(cpf)) {
-    return false;
-  }
-
-  // Calcula os dígitos verificadores
-  let soma = 0;
-  for (let i = 0; i < 9; i++) {
-    soma += parseInt(cpf.charAt(i)) * (10 - i);
-  }
-  let resto = soma % 11;
-  let digito1 = resto < 2 ? 0 : 11 - resto;
-
-  soma = 0;
-  for (let i = 0; i < 10; i++) {
-    soma += parseInt(cpf.charAt(i)) * (11 - i);
-  }
-  resto = soma % 11;
-  let digito2 = resto < 2 ? 0 : 11 - resto;
-
-  // Verifica se os dígitos calculados são iguais aos dígitos do CPF
-  return (
-    digito1 === parseInt(cpf.charAt(9)) && digito2 === parseInt(cpf.charAt(10))
-  );
-}
-
-function validarCliente() {
-  const cpfInput = document.getElementById("cpf");
-  const cpf = cpfInput.value.trim();
-
-  validarNomeCompleto();
-  validarCelular();
-  validarCamposDeBloco();
-  if (!validarCPF(cpf)) {
-    cpfInput.classList.add("campo-vazio");
-    alert("CPF inválido. Por favor, verifique.");
-    return;
-  }
-
- 
-  
-
-  // alert("CPF válido! Continue com a finalização da compra.");
-
-
-}*/
 
 // Customer Review Elements
 const dadosDosClientes = [
@@ -736,233 +692,8 @@ document.addEventListener("click", (e) => {
 abrirModal(); // Remova esta linha se não quiser abrir o modal automaticamente
 
 
-function validarCliente() {
-  // Limpar mensagens de erro
-  clearErrors();
-
-  // Obter valores dos campos
-  var nomeCompleto = document.getElementById('nomeCompleto').value;
-  var celular = document.getElementById('Celular').value;
-  var endereco = document.querySelector('.Endereco').value;
-  var cpf = document.getElementById('cpf').value;
-  var bloco = document.getElementById('bloco').value;
-  var andar = document.getElementById('andar').value;
-  var apartamento = document.getElementById('apartamento').value;
-  var mensagem = document.querySelector('.mydivBoxTx textarea').value;
-
-  // Validar campos
-  if (nomeCompleto.trim() === '') {
-    displayError('nomeCompletoError', 'Por favor, digite seu nome completo.');
-  }
-
-  // Adicione aqui mais validações conforme necessário...
-
-  if (cpf.trim() === '' || !validarCPF(cpf)) {
-    displayError('cpfError', 'Por favor, digite um CPF válido.');
-  }
-
-  // Validar bloco, andar e apartamento (garantir que apenas uma opção foi preenchida)
-  var opcoesPreenchidas = [bloco, andar, apartamento].filter(Boolean);
-  if (opcoesPreenchidas.length !== 1) {
-    displayError('blocoAndarAptoError', 'Preencha exatamente um campo entre Bloco, Andar e Apartamento.');
-  }
-}
-
-function isValidEmail(email) {
-  // Adicione sua própria lógica de validação de e-mail, se necessário
-  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-function validarCPF(cpf) {
-  // Remover caracteres não numéricos
-  cpf = cpf.replace(/\D/g, '');
-
-  // Verificar se o CPF tem 11 dígitos
-  if (cpf.length !== 11) {
-    return false;
-  }
-
-  // Calcular o primeiro dígito verificador
-  let total = 0;
-  for (let i = 0; i < 9; i++) {
-    total += parseInt(cpf[i]) * (10 - i);
-  }
-  let resto = total % 11;
-  let digito1 = resto > 1 ? 11 - resto : 0;
-
-  // Calcular o segundo dígito verificador
-  total = 0;
-  for (let i = 0; i < 10; i++) {
-    total += parseInt(cpf[i]) * (11 - i);
-  }
-  resto = total % 11;
-  let digito2 = resto > 1 ? 11 - resto : 0;
-
-  // Verificar se os dígitos verificadores estão corretos
-  return parseInt(cpf[9]) === digito1 && parseInt(cpf[10]) === digito2;
-}
-
-function displayError(elementId, message) {
-  var errorElement = document.getElementById(elementId);
-  errorElement.textContent = message;
-  errorElement.style.color = 'red';
-}
-
-function clearErrors() {
-  var errorElements = document.getElementsByClassName('error');
-  for (var i = 0; i < errorElements.length; i++) {
-    errorElements[i].textContent = '';
-  }
-}
-
-// Restante do código...
 
 
-
-
-
-
-
-function validateForm() {
-  // Limpar mensagens de erro
-  clearErrors();
-
-  // Obter valores dos campos
-  var fullName = document.getElementById('fullName').value;
-  var password = document.getElementById('password').value;
-  var confirmPassword = document.getElementById('confirmPassword').value;
-  var email = document.getElementById('email').value;
-
-  var showPasswordButton = document.querySelector('.show-password-button');
-  var visibilityIcon = document.querySelector('.bxs-low-vision');
-
-  // Validar campos
-  if (fullName.trim() === '') {
-    displayError('fullNameError', 'Por favor, digite seu nome completo.');
-  }
-
-  if (password.length < 6) {
-    displayError('passwordError', 'A senha deve ter pelo menos 6 dígitos.');
-  }
-
-  if (password !== confirmPassword) {
-    displayError('confirmPasswordError', 'As senhas não coincidem.');
-  }
-
-  if (email.trim() === '' || !isValidEmail(email)) {
-    displayError('emailError', 'Por favor, digite um e-mail válido.');
-  }
-}
-
-function isValidEmail(email) {
-  // Adicione sua própria lógica de validação de e-mail, se necessário
-  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-function displayError(elementId, message) {
-  document.getElementById(elementId).textContent = message;
-}
-
-function clearErrors() {
-  var errorElements = document.getElementsByClassName('error');
-  for (var i = 0; i < errorElements.length; i++) {
-    errorElements[i].textContent = '';
-  }
-} function validateForm() {
-  // Limpar mensagens de erro
-  clearErrors();
-
-  // Obter valores dos campos
-  var fullName = document.getElementById('fullName').value;
-  var password = document.getElementById('password').value;
-  var confirmPassword = document.getElementById('confirmPassword').value;
-  var email = document.getElementById('email').value;
-  const cpf = document.getElementById('cpf').value;
-
-  // Validar campos
-  if (fullName.trim() === '') {
-    displayError('fullNameError', 'Por favor, digite seu nome completo.');
-  }
-
-  if (password.length < 6) {
-    displayError('passwordError', 'A senha deve ter pelo menos 6 dígitos.');
-  }
-
-  if (password !== confirmPassword) {
-    displayError('confirmPasswordError', 'As senhas não coincidem.');
-  }
-
-  if (email.trim() === '' || !isValidEmail(email)) {
-    displayError('emailError', 'Por favor, digite um e-mail válido.');
-  }
-
-  if (cpf.trim() === '' || !validarCPF(cpf)) {
-    displayError('cpfError', 'Por favor, digite um CPF válido.');
-  }
-}
-
-function isValidEmail(email) {
-  // Adicione sua própria lógica de validação de e-mail, se necessário
-  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-function displayError(elementId, message) {
-  var errorElement = document.getElementById(elementId);
-  errorElement.textContent = message;
-  errorElement.style.color = 'red';
-}
-
-function clearError(elementId) {
-  var errorElement = document.getElementById(elementId);
-  errorElement.textContent = '';
-}
-
-function clearErrors() {
-  var errorElements = document.getElementsByClassName('error');
-  for (var i = 0; i < errorElements.length; i++) {
-    errorElements[i].textContent = '';
-  }
-}
-
-
-
-
-
-function validarCPF(cpf) {
-  // Remover caracteres não numéricos
-  cpf = cpf.replace(/\D/g, '');
-
-  // Verificar se o CPF tem 11 dígitos
-  if (cpf.length !== 11) {
-    return false;
-  }
-
-  // Calcular o primeiro dígito verificador
-  let total = 0;
-  for (let i = 0; i < 9; i++) {
-    total += parseInt(cpf[i]) * (10 - i);
-  }
-  let resto = total % 11;
-  let digito1 = resto > 1 ? 11 - resto : 0;
-
-  // Calcular o segundo dígito verificador
-  total = 0;
-  for (let i = 0; i < 10; i++) {
-    total += parseInt(cpf[i]) * (11 - i);
-  }
-  resto = total % 11;
-  let digito2 = resto > 1 ? 11 - resto : 0;
-
-  // Verificar se os dígitos verificadores estão corretos
-  if (parseInt(cpf[9]) === digito1 && parseInt(cpf[10]) === digito2) {
-    return true;
-  } else {
-    return false;
-  }
-}
 
 
 
