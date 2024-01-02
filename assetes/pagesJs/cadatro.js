@@ -13,16 +13,23 @@ function validateForm() {
     clearErrors();
 
     // Obter valores dos campos
+    // var fullName = document.getElementById('fullName').value;
     var fullName = document.getElementById('fullName').value;
+
     var password = document.getElementById('password').value;
     var confirmPassword = document.getElementById('confirmPassword').value;
     var email = document.getElementById('email').value;
     const cpf = document.getElementById('cpf').value;
 
     // Validar campos
-    if (fullName.trim() === '') {
+    // if (fullName.trim() === '') {
+    //     displayError('fullNameError', 'Por favor, digite seu nome completo.');
+    // }
+
+    if (fullName.trim() === '' || fullName.split(' ').length < 2) {
         displayError('fullNameError', 'Por favor, digite seu nome completo.');
     }
+
 
     if (password.length < 6) {
         displayError('passwordError', 'A senha deve ter pelo menos 6 dígitos.');
@@ -44,6 +51,7 @@ function validateForm() {
 
 
     if (fullName.trim() !== '' &&
+        fullName.split(' ').length >= 2 &&
         password.length >= 6 &&
         password === confirmPassword &&
         email.trim() !== '' &&
@@ -59,7 +67,8 @@ function validateForm() {
             email: email,
             password: password,
             confirmPassword: confirmPassword,
-            cpf: cpf
+            cpf: cpf,
+            avatar: false
         };
 
         listaDeUsuarios.push(novoUsuario);

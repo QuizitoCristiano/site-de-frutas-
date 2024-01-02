@@ -36,8 +36,17 @@
 
       <!--Profile -->
       <div class="profile">
-        <img src="./image/Quizito.jpeg" alt="" />
+        <!-- <img src="./image/Quizito.jpeg" alt="" /> -->
       </div>
+      <div class="isNoAvatar"></div>
+
+      <form id="profileEditForm">
+        <label for="avatar">Editar Avatar:</label>
+        <input type="file" id="avatar" name="avatar" accept="image/*" onchange="handleAvatarChange()">
+        <button type="button" class="mybuttonAvatar" onclick="saveProfileChanges()">Salvar</button>
+      </form>
+
+
       <div class="profile">
         <i class="bx bx-search" id="openModal"></i>
 

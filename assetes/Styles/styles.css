@@ -61,7 +61,7 @@
   box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 15%);
   border-radius: 7px solid var(--green-color);
   border-radius: 0.5rem;
-  gap: 1rem;
+  gap: 2rem;
   width: 450px;
 }
 .conatiner-login h4 {
@@ -84,6 +84,7 @@
   width: 100%;
 }
 
+
 .Cadastrar {
   display: flex;
   justify-content: space-between;
@@ -91,6 +92,10 @@
   flex-direction: row;
   padding: 5px;
   margin: 2px;
+}
+.Cadastrar li a {
+  color: var(--orange-color);
+  font-weight: 600;
 }
 
 .password-strength-icons i,

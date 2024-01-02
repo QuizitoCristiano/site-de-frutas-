@@ -43,8 +43,6 @@
 
 /* // */
 
-
-
 #logoutButton {
   position: fixed;
   bottom: 20px;
@@ -67,12 +65,9 @@
 }
 
 #logoutButton:hover {
-
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.9); 
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.9);
   background-color: var(--light-orange-color);
 }
-
-
 
 /* Modal */
 
@@ -149,13 +144,15 @@ button:hover {
   width: 360px;
   min-height: 100vh;
   padding: 20px;
-  background: #faeaea;
+  /* background: #faeaea; */
+  background: var(--bg-color);
   box-shadow: rgb(14 55 54 / 15%);
   overflow-x: auto;
   z-index: 2000;
 }
 .show {
-  background: #faeaea;
+  /* background: #faeaea; */
+  background: var(--bg-color);
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -188,7 +185,6 @@ button:hover {
   }
 }
 
-
 .total-dosItens {
   width: 358px;
   gap: 1.5rem;
@@ -212,9 +208,19 @@ button:hover {
 }
 
 .carinhoItem {
- 
   gap: 7rem;
+  
 }
+
+.increaseAndDecrease {
+background: #1a2428;
+display: flex;
+  gap: 5px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
 #trash-alt {
   color: var(--light-orange-color);
 }
@@ -274,6 +280,7 @@ header {
 .profile {
   display: flex;
   align-items: center;
+  justify-content: center;
   column-gap: 0.5rem;
   cursor: pointer;
 }
@@ -291,17 +298,14 @@ header {
   font-weight: 600;
 }
 
-/* .frutis-Box{
-  background: #3cb815 !important;
- position: absolute;
- width: 250px;
- height: 290px;
- left: 44rem;
- right: 0;
- top: 5rem;
- z-index: 2000;
- 
-} */
+.profileIgmAvatar {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
 
 .logo {
   display: flex;
@@ -432,6 +436,98 @@ header {
   transition: 0.2e ease;
 }
 
+.isNoAvatar {
+  display: none;
+  align-items: center;
+  column-gap: 0.5rem;
+  cursor: pointer;
+  color: var(--green-color);
+  font-weight: 800;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  text-align: center;
+  justify-content: center;
+  background: rgb(14 55 54 / 20%);
+}
+
+#profileEditForm {
+  background-color: var(--text-color);
+  height: 200px;
+  width: 190px;
+  position: absolute;
+  position: fixed;
+  display: none;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  right: 25%;
+  top: 9.6%;
+  border-radius: 8px;
+  color: #eeeef9;
+
+}
+
+/* #profileEditForm {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+
+#profileEditForm.active {
+  display: block;
+} 
+
+
+
+/* Estilos para o input de arquivo */
+#avatar {
+  display: none; /* Oculta o input padrão */
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.mybuttonAvatar {
+  border: 2px solid gray;
+  color: var(--bg-color);
+  background: var(--green-color);
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.upload-btn-wrapper .upload-btn-label {
+  font-size: 16px;
+  color: gray;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
 
 
 
@@ -444,15 +540,12 @@ header {
   margin-right: auto;
 }
 
-
-
 .categoria-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, auto));
   gap: 1rem;
   margin-top: 2rem;
 }
-
 
 .categoria-container .box {
   position: relative;
@@ -684,7 +777,6 @@ header {
   font-weight: 600;
   text-decoration: underline;
   color: var(--green-color);
-  
 }
 .about-text {
   /* margin: 2rem; */
@@ -900,7 +992,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .modal-content {
@@ -940,8 +1032,6 @@ header {
   background-color: #555;
 }
 
-
-
 /* Seus estilos existentes */
 
 .Wrappermodal {
@@ -951,11 +1041,11 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 2000;
 }
 
-.Mymodal-content{
+.Mymodal-content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -964,6 +1054,7 @@ header {
   padding: 20px;
   border-radius: 5px;
   text-align: center;
+  
 }
 
 #fechar-modal {
@@ -986,9 +1077,7 @@ header {
 
 /* Estilos para o conteúdo do modal */
 
-
 /* Estilos para o botão de fechar */
-
 
 .campo-vazio {
   /* color: red; */
@@ -998,7 +1087,6 @@ header {
 }
 
 .myForm {
-  
   max-width: 968px;
   margin-left: auto;
   margin-right: auto;
@@ -1015,22 +1103,20 @@ header {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 10px;
-
 }
 .mydivBox {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 3px;
-
 }
-.mydivBox  input {
+.mydivBox input {
   border: 1px solid var(--text-color);
 }
-.mydivBoxBloco input{
+.mydivBoxBloco input {
   border: 1px solid var(--text-color);
 }
-.mydivBoxBloco  {
+.mydivBoxBloco {
   width: 100%;
 
   display: grid;
@@ -1039,7 +1125,6 @@ header {
 }
 
 .campo-vazio {
- 
   border: 1px solid red; /* Adiciona uma borda vermelha como destaque opcional */
 }
 
@@ -1122,7 +1207,6 @@ header {
     width: 98%;
   }
 
-  
   .home-text p {
     font-size: 1.3rem;
   }
@@ -1155,14 +1239,13 @@ header {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2px;
-  
   }
 
   .mydivBoxBloco input {
     width: 100%;
   }
 
-  .mydivBox  input {
+  .mydivBox input {
     width: 100%;
   }
 
@@ -1172,13 +1255,13 @@ header {
     grid-gap: 2px;
     width: 100%;
     padding: 14px;
-  
+
     border: none;
     outline: none;
     font-size: 15px;
     border-radius: 8px;
     border: 1px solid var(--text-color);
-  
+
     resize: none;
     height: 150px;
   }
@@ -1265,7 +1348,7 @@ header {
     justify-content: center !important;
     z-index: 20000;
   }
-  .conatiner-login{
+  .conatiner-login {
     padding: 10px;
     box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 15%);
     border-radius: 7px solid var(--green-color);
@@ -1273,18 +1356,16 @@ header {
     gap: 00.9rem;
     width: 98%;
   }
-  .Mymodal-content{
-   
+  .Mymodal-content {
     width: 100%;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     background-color: #fff;
-    
-     height: auto;
-     border-radius: 5px;
-     text-align: center;
-   }
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    height: auto;
+    border-radius: 5px;
+    text-align: center;
+  }
 
   .mydivBoxTx textarea {
     display: grid;
@@ -1292,17 +1373,15 @@ header {
     grid-gap: 5px;
     width: 100%;
     padding: 14px;
-  
     border: none;
     outline: none;
     font-size: 15px;
     border-radius: 8px;
     border: 1px solid var(--text-color);
-  
+
     resize: none;
     height: 100px;
   }
-
 
   .mydivBox {
     grid-template-columns: repeat(1, 1fr);
@@ -1311,10 +1390,7 @@ header {
     align-items: center;
     flex-direction: column;
     /* background: #c0eb7b; */
-  
   }
-
-
 
   .mydivBoxBloco {
     grid-template-columns: repeat(1, 1fr);
@@ -1322,8 +1398,6 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    
- 
   }
   .total-dosItens {
     width: 268px;
@@ -1335,18 +1409,17 @@ header {
   #container img {
     width: 570px;
   }
-  .Mymodal-content{
-   
+  .Mymodal-content {
     width: 100%;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     background-color: #fff;
-    
-     height: auto;
-     border-radius: 5px;
-     text-align: center;
-   }
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+
+    height: auto;
+    border-radius: 5px;
+    text-align: center;
+  }
   .heading h1 {
     font-size: 1.2rem;
   }

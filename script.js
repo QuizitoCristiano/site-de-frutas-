@@ -1,11 +1,72 @@
-var swiper = new Swiper(".home", {
-  spaceBetween: 30,
-  centeredSlides: true,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
+
+
+const myAvatar = document.querySelector('.isNoAvatar');
+const profileEditForm = document.querySelector('.profileEditForm');
+const profile = document.querySelector('.profile');
+const isLoged = JSON.parse(localStorage.getItem('isUserLoged'));
+const fullName = isLoged.fullName.trim();
+
+myAvatar.addEventListener('click', () => {
+  profileEditForm.classList.add('active');
 });
+
+function closeProfileEditForm() {
+  profileEditForm.classList.remove('active');
+}
+
+// Dividir os nomes usando o espaço como separador
+const names = fullName.split(' ');
+
+// Verificar se há pelo menos dois nomes
+if (names.length >= 2 && !isLoged.avatar) {
+  // Pegar a primeira e a segunda letra dos dois nomes
+  const firstLetter = names[0].charAt(0);
+  const secondLetter = names[1].charAt(0);
+
+  myAvatar.innerHTML = firstLetter + secondLetter;
+  profile.style.display = 'none';
+  myAvatar.style.display = 'flex';
+} else if (!isLoged.avatar) {
+  // Se houver apenas um nome ou nenhum, use a primeira letra do primeiro nome
+  const firstLetterOfFirstName = fullName.charAt(0);
+
+  myAvatar.innerHTML = firstLetterOfFirstName;
+  profile.style.display = 'none';
+  myAvatar.style.display = 'flex';
+}
+
+// Restante do seu código
+const avatarInput = document.getElementById('avatar');
+avatarInput.addEventListener('change', handleAvatarChange);
+
+function handleAvatarChange() {
+  const file = avatarInput.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const imageSrc = e.target.result;
+      myAvatar.innerHTML = `<img class="profileIgmAvatar" src="${imageSrc}" alt="Avatar">`;
+      myAvatar.style.display = 'flex';
+      profile.style.display = 'none';
+
+      // Salvar a imagem no localStorage com uma chave apropriada
+      localStorage.setItem('userAvatar', imageSrc);
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+function saveProfileChanges() {
+  // Lógica para salvar as alterações, como atualizar o localStorage ou enviar para um servidor
+  alert('Alterações salvas com sucesso!');
+}
+
+
+
+
+
+
 
 const menuIcon = document.querySelector("#menu-icon");
 const navbar = document.querySelector('.navbar');
@@ -150,6 +211,8 @@ function adicionarAoCarrinho(productIndex, isVegetable = false) {
  console.log(carrinho);
 }
 
+
+
 function atualizarCarrinho() {
   listaItensCarrinho.innerHTML = "";
 
@@ -158,11 +221,16 @@ function atualizarCarrinho() {
     listItem.innerHTML = `
     <div class="carinhoItem">
     ${produto.nome} - R$ ${produto.preco ? produto.preco.toFixed(2) : "N/A"}
-      <button onclick="aumentarQuantidade(${index})">+</button>
-      <button onclick="diminuirQuantidade(${index})">-</button>
+  
+    <div class="increaseAndDecrease">
+    <button onclick="aumentarQuantidade(${index})">+</button>
+    <button onclick="diminuirQuantidade(${index})">-</button>
+    </div>
+    
       <i class='bx bxs-trash-alt' id="trash-alt" onclick="removerDoCarrinho(${index})"></i>
-      </div>
+
       Quantidade: ${produto.quantidade}
+      </div>
     `;
     listaItensCarrinho.appendChild(listItem);
 
