@@ -208,7 +208,7 @@ function adicionarAoCarrinho(productIndex, isVegetable = false) {
   atualizarCarrinho();
   calcularTotal();
   tagCarinho.innerHTML = carrinho.length && `${carrinho.length}`;
- console.log(carrinho);
+  console.log(carrinho);
 }
 
 
@@ -220,21 +220,36 @@ function atualizarCarrinho() {
     const listItem = document.createElement("li");
     listItem.innerHTML = `
     <div class="carinhoItem">
-    ${produto.nome} - R$ ${produto.preco ? produto.preco.toFixed(2) : "N/A"}
-  
-    <div class="increaseAndDecrease">
-    <button onclick="aumentarQuantidade(${index})">+</button>
-    <button onclick="diminuirQuantidade(${index})">-</button>
-    </div>
-    
-      <i class='bx bxs-trash-alt' id="trash-alt" onclick="removerDoCarrinho(${index})"></i>
 
-      Quantidade: ${produto.quantidade}
-      </div>
+    <div class="priceQuantity">
+    <div>
+    ${produto.nome} - R$ ${produto.preco ? produto.preco.toFixed(2) : "N/A"}
+    </div>
+
+    <div>
+    Quantidade: ${produto.quantidade}
+    </div>
+    </div>
+  
+    <div class="wrapperIncrease">
+        <div class="iconRemuveItem">
+            <i class='bx bxs-trash-alt' id="trash-alt" onclick="removerDoCarrinho(${index})"></i>
+        </div>
+
+        <div class="increaseAndDecrease">
+            <button onclick="aumentarQuantidade(${index})">+</button>
+            <button onclick="diminuirQuantidade(${index})">-</button>
+        </div>
+    </div>
+
+    
+  </div>
+
+      
     `;
     listaItensCarrinho.appendChild(listItem);
 
-    
+
   });
 }
 function aumentarQuantidade(index) {
@@ -269,7 +284,7 @@ function calcularTotal() {
   totalCarrinhoElement.textContent = `Total: R$ ${total.toFixed(2)}`;
 
 
-  
+
 }
 
 // Inicialização: Adicione produtos à página
@@ -314,8 +329,8 @@ produtoLegumes.forEach((myVegetableProducts, index) => {
       <img src="${myVegetableProducts.img}" alt="" />
       <h2>${myVegetableProducts.nome}</h2>
       <h3 class="price">R$: ${myVegetableProducts.preco.toFixed(
-        2
-      )} <span>kg</span></h3>
+    2
+  )} <span>kg</span></h3>
       <i class="bx bx-cart-alt" onclick="adicionarAoCarrinho(${index}, true)"></i>
       <i class="bx bx-heart" onclick="trocarIcone(this)"></i>
      
