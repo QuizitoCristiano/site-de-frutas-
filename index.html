@@ -339,6 +339,9 @@
     </section>
 
     <!-- /* Footer */ -->
+    <section>
+      <button id="logoutButton" onclick="logoutButton()">Sair</button>
+    </section>
 
     <section class="footer" id="footer">
       <div class="footer-box">
@@ -397,6 +400,12 @@
       let user = localStorage.getItem("isUserLoged");
       console.log(user);
       if (!user) {
+        window.location.href = "./assetes/pagesHtmal/signin.html";
+      }
+
+      function logoutButton() {
+        localStorage.removeItem("isUserLoged");
+        localStorage.removeItem("userLogado");
         window.location.href = "./assetes/pagesHtmal/signin.html";
       }
     </script>

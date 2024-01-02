@@ -39,17 +39,19 @@ function validateForm() {
 
         });
 
-       
+
 
         if (usuarioEncontrado) {
             // Os dados do usuário são válidos, faça o que for necessário
             localStorage.setItem('isUserLoged', JSON.stringify(user));
-
+            const loader = document.querySelector('.contante_laoder')
+            loader.style.display = 'flex'
             alert(`Olá ${email}! Seja Bem-vindo!`);
             // Redirecione para a página home ou faça o que for necessário após o login
             setTimeout(() => {
+                loader.style.display = 'none'
                 window.location.href = '../../index.html';
-            }, 2000);
+            }, 3000);
 
         } else {
             // Os dados do usuário não correspondem, trate conforme necessário

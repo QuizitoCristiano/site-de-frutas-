@@ -45,6 +45,35 @@
 
 
 
+#logoutButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  font-weight: 800;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--light-orange-color);
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
+  transition: box-shadow 0.3s ease;
+}
+
+#logoutButton:hover {
+
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.9); 
+  background-color: var(--light-orange-color);
+}
+
+
+
 /* Modal */
 
 .modal {
@@ -402,7 +431,6 @@ header {
   background: var(--light-orange-color);
   transition: 0.2e ease;
 }
-
 
 
 

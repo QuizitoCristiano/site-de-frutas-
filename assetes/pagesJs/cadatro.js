@@ -66,9 +66,11 @@ function validateForm() {
 
         // Atualizar a lista de usuários no localStorage
         localStorage.setItem('usuarios', JSON.stringify(listaDeUsuarios));
-
+        const loader = document.querySelector('.contante_laoder')
+        loader.style.display = 'flex'
         // Se todos os campos estão corretos, você pode decidir redirecionar para a página de login ou home
         setTimeout(() => {
+            loader.style.display = 'none';
             window.location.href = './signin.html';
         }, 2000);
     }
