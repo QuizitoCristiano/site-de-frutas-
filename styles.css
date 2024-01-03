@@ -69,6 +69,7 @@
   background-color: var(--light-orange-color);
 }
 
+
 /* Modal */
 
 .modal {
@@ -214,7 +215,6 @@ button:hover {
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  
 }
 
 .priceQuantity {
@@ -222,37 +222,36 @@ button:hover {
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  
 }
 
 .wrapperIncrease {
-
   display: flex;
   justify-content: center;
   align-items: self-end;
   flex-direction: column;
   gap: 3px;
   margin: 5px;
-
 }
 
-
 .iconRemuveItem {
-
   width: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 .increaseAndDecrease {
-
-display: flex;
+  display: flex;
   gap: 8px;
   justify-content: flex-end;
   align-items: center;
 }
 
+.increaseAndDecrease button {
+  background: var(--green-color);
+  color: var(--bg-color);
+  font-size: 20px;
+  border-radius: 0.5rem 0 0.5rem 0;
+}
 
 
 
@@ -340,7 +339,6 @@ header {
   object-position: center;
   border-radius: 50%;
 }
-
 
 .logo {
   display: flex;
@@ -472,7 +470,7 @@ header {
 }
 
 .isNoAvatar {
-  display: none;
+  display: flex;
   align-items: center;
   column-gap: 0.5rem;
   cursor: pointer;
@@ -487,12 +485,12 @@ header {
 }
 
 #profileEditForm {
-  background-color: var(--text-color);
+  display: none;
+  background-color: var(--orange-color);
   height: 200px;
   width: 190px;
   position: absolute;
   position: fixed;
-  display: flex;
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
@@ -500,23 +498,21 @@ header {
   top: 9.6%;
   border-radius: 8px;
   color: #eeeef9;
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.7);
 
+ 
+  opacity: 0;
+  transform: translateY( -200px);
+  animation-name: animarEdeeFor;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
 }
-
-/* #profileEditForm {
-  display: flex;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-} */
-
-#profileEditForm.active {
-  display: block;
+@keyframes animarEdeeFor {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 } 
 
 
@@ -543,7 +539,7 @@ header {
   font-weight: bold;
 }
 
-.upload-btn-wrapper input[type=file] {
+.upload-btn-wrapper input[type="file"] {
   font-size: 100px;
   position: absolute;
   left: 0;
@@ -556,18 +552,6 @@ header {
   color: gray;
   font-weight: bold;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 .categoria {
   max-width: 968px;
@@ -1089,7 +1073,6 @@ header {
   padding: 20px;
   border-radius: 5px;
   text-align: center;
-  
 }
 
 #fechar-modal {
@@ -1114,9 +1097,7 @@ header {
 
 /* Estilos para o botão de fechar */
 
-.campo-vazio {
-  /* color: red; */
-}
+
 .campo-preenchido {
   color: #3cb815;
 }
@@ -1143,7 +1124,7 @@ header {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 3px;
+  grid-gap: 10px;
 }
 .mydivBox input {
   border: 1px solid var(--text-color);
@@ -1158,6 +1139,16 @@ header {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
 }
+
+.wrapperInputModal {
+  background: #3cb815;
+  width: 100%;
+}
+.wrapperInputModal input{
+  width: 100%;
+}
+
+
 
 .campo-vazio {
   border: 1px solid red; /* Adiciona uma borda vermelha como destaque opcional */
@@ -1392,7 +1383,7 @@ header {
     width: 98%;
   }
   .Mymodal-content {
-    width: 100%;
+    width: 98%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -1445,7 +1436,7 @@ header {
     width: 570px;
   }
   .Mymodal-content {
-    width: 100%;
+    width: 98%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

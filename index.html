@@ -39,7 +39,7 @@
         <!-- <img src="./image/Quizito.jpeg" alt="" /> -->
       </div>
       <div class="isNoAvatar"></div>
-
+      
       <form id="profileEditForm">
         <label for="avatar">Editar Avatar:</label>
         <input type="file" id="avatar" name="avatar" accept="image/*" onchange="handleAvatarChange()">
@@ -267,35 +267,58 @@
     <!-- Formulário -->
 
     <div id="myModal" class="Wrappermodal">
+      
       <form class="Mymodal-content">
         <i class="bx bx-x" id="fechar-modal"></i>
+
         <div class="mydivBox">
-          <input
-            type="text"
-            class="Nome"
-            id="nomeCompleto"
-            placeholder="Nome completo"
-          />
-          <input
-            type="text"
-            class="Telefone"
-            id="Celular"
-            placeholder="Número de telefone"
-          />
+         <div class="wrapperInputModal">
+           <input
+             type="text"
+             class="Nome"
+             id="nomeCompleto"
+             placeholder="Nome completo"
+             oninput="clearError('nomeCompletoErro')"
+           />
+           <p id="nomeCompletoErro" class="error"></p>
+         </div> 
+
+         <div class="wrapperInputModal">
+           <input
+             type="text"
+             class="Telefone"
+             id="celular"
+             placeholder="Número de telefone"
+             oninput="clearError('celularErro')"
+           />
+           <p id="celularErro" class="error"></p>
+         </div>
+
         </div>
         <div class="mydivBox">
-          <input
+          <div class="wrapperInputModal">
+            <input
             type="text"
             class="Endereco"
+            id="Endereco"
             placeholder="Endereço de entrega"
+            oninput="clearError('enderecoErro')"
           />
-          <input type="text" class="Cep" id="cpf" placeholder="CPF" />
+          <p id="enderecoErro" class="error"></p>
+          </div>
+
+          <div class="wrapperInputModal">
+            <input type="text" class="Cep" id="myCPF" placeholder="CPF" oninput="clearError('cpfError')"/>
+            <p id="cpfError" class="error"></p>
+          </div>
         </div>
+
         <div class="mydivBoxBloco">
           <input type="text" id="bloco" placeholder="Bloco" />
           <input type="text" id="andar" placeholder="Andar" />
           <input type="text" id="apartamento" placeholder="Apartamento" />
         </div>
+
         <div class="mydivBoxTx">
           <textarea
             name=""
@@ -310,6 +333,10 @@
         </button>
       </form>
     </div>
+
+    <!-- Exemplo de HTML com rótulos associados -->
+
+
     
 
     <!-- About -->
@@ -408,7 +435,7 @@
 
     <script>
       let user = localStorage.getItem("isUserLoged");
-      console.log(user);
+      
       if (!user) {
         window.location.href = "./assetes/pagesHtmal/signin.html";
       }

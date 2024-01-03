@@ -1,48 +1,58 @@
-const myAvatar = document.querySelector('.isNoAvatar');
-const profileEditForm = document.querySelector('.profileEditForm');
-const profile = document.querySelector('.profile');
-let isLoged = JSON.parse(localStorage.getItem('isUserLoged')) || {};
-var listaDeUsuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+const myAvatar = document.querySelector(".isNoAvatar");
+const profileEditForm = document.getElementById("profileEditForm");
+const profile = document.querySelector(".profile");
+let isLoged = JSON.parse(localStorage.getItem("isUserLoged")) || {};
+const listaDeUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+let photoURL = "";
+const fullName = isLoged.fullName ? isLoged.fullName.trim() : "";
+const clicado = document.querySelector(".profileIgmAvatar");
 
-const fullName = isLoged.fullName ? isLoged.fullName.trim() : '';
-
-myAvatar.addEventListener('click', () => {
-  profileEditForm.classList.add('active');
-});
-
-function closeProfileEditForm() {
-  profileEditForm.classList.remove('active');
+function showEditForm() {
+  if (profileEditForm.style.display === "flex") {
+    profileEditForm.style.display = "none";
+  } else {
+    profileEditForm.style.display = "flex";
+  }
 }
+document.addEventListener("click", (e) => {
+  // console.log(e.target.classList)
+  const profileDinamic = e.target.classList.value === "profileIgmAvatar";
+  const profileIsNoAvatar = e.target.classList.value === "isNoAvatar";
+  const profileDefault = e.target.classList.value === "profile";
+  if (profileDinamic || profileIsNoAvatar || profileDefault) {
+    showEditForm();
+  }
+});
 
 function loadAvatar() {
   if (isLoged.avatar) {
     myAvatar.innerHTML = `<img class="profileIgmAvatar" src="${isLoged.avatar}" alt="Avatar">`;
-    myAvatar.style.display = 'flex';
-    profile.style.display = 'none';
+    myAvatar.style.display = "flex";
+    profile.style.display = "none";
   } else if (fullName) {
-    const names = fullName.split(' ');
+    const names = fullName.split(" ");
 
     if (names.length >= 2) {
       const firstLetter = names[0].charAt(0);
       const secondLetter = names[1].charAt(0);
 
       myAvatar.innerHTML = firstLetter + secondLetter;
-      profile.style.display = 'none';
-      myAvatar.style.display = 'flex';
+      profile.style.display = "none";
+      myAvatar.style.display = "flex";
     } else {
       const firstLetterOfFirstName = fullName.charAt(0);
 
       myAvatar.innerHTML = firstLetterOfFirstName;
-      profile.style.display = 'none';
-      myAvatar.style.display = 'flex';
+      profile.style.display = "none";
+      myAvatar.style.display = "flex";
     }
   }
 }
 
 loadAvatar(); // Chamar a função ao carregar a página
 
-const avatarInput = document.getElementById('avatar');
-avatarInput.addEventListener('change', handleAvatarChange);
+const avatarInput = document.getElementById("avatar");
+avatarInput.addEventListener("change", handleAvatarChange);
 
 function handleAvatarChange() {
   const file = avatarInput.files[0];
@@ -52,51 +62,47 @@ function handleAvatarChange() {
     reader.onload = function (e) {
       const imageSrc = e.target.result;
       myAvatar.innerHTML = `<img class="profileIgmAvatar" src="${imageSrc}" alt="Avatar">`;
-      myAvatar.style.display = 'flex';
-      profile.style.display = 'none';
-
-      // Atualizar o objeto isLoged no Local Storage com informações adicionais
-      if ('avatar' in isLoged) {
-        isLoged.avatar = imageSrc;
-        isLoged.avatarTimestamp = new Date().toISOString();
-      }
-      // Não salvar no localStorage aqui, aguardando o clique no botão 'saveProfileChanges'
+      myAvatar.style.display = "flex";
+      profile.style.display = "none";
+      photoURL = imageSrc;
     };
     reader.readAsDataURL(file);
   }
 }
 
-
-
 function saveProfileChanges() {
-  // Atualizar o localStorage com as informações do objeto isLoged
-  localStorage.setItem('isUserLoged', JSON.stringify(isLoged));
-
-  // Procurar o usuário correspondente na lista de usuários
-  const userIndex = listaDeUsuarios.findIndex(user => user.id === isLoged.id);
-
-  if (userIndex !== -1) {
-    // Atualizar avatar apenas se o usuário tiver a propriedade
-    if ('avatar' in isLoged) {
-      listaDeUsuarios[userIndex].avatar = isLoged.avatar;
-      listaDeUsuarios[userIndex].avatarTimestamp = isLoged.avatarTimestamp;
-    }
-
-    // Atualizar o localStorage com as informações da lista de usuários
-    localStorage.setItem('usuarios', JSON.stringify(listaDeUsuarios));
-
-    // Lógica para salvar as alterações, como enviar para um servidor
-    alert('Alterações salvas com sucesso!');
-  } else {
-    alert('Usuário não encontrado na lista de usuários.');
+  if (!photoURL) {
+    alert("por favor selecione uma foto!!");
+    return false;
   }
+  const userInUsers = listaDeUsuarios.filter(
+    (item) => item.email === isLoged.email
+  );
+  if (userInUsers.length > 0) {
+    const indexToRemove = listaDeUsuarios.findIndex(
+      (item) => item.email === isLoged.email
+    );
+
+    if (indexToRemove !== -1) {
+      listaDeUsuarios.splice(indexToRemove, 1);
+
+      const updatedUser = { ...userInUsers[0], avatar: photoURL };
+      listaDeUsuarios.push(updatedUser);
+      localStorage.setItem("usuarios", JSON.stringify(listaDeUsuarios));
+      localStorage.setItem("isUserLoged", JSON.stringify(updatedUser));
+      console.log("Usuário removido com sucesso e atualizado");
+    } else {
+      console.log("Usuário não encontrado");
+    }
+  } else {
+    console.log("Usuário não encontrado");
+  }
+
+  showEditForm();
 }
 
-
-
-
 const menuIcon = document.querySelector("#menu-icon");
-const navbar = document.querySelector('.navbar');
+const navbar = document.querySelector(".navbar");
 menuIcon.addEventListener("click", function () {
   menuIcon.classList.toggle("bx-x");
   navbar.classList.toggle("active");
@@ -238,8 +244,6 @@ function adicionarAoCarrinho(productIndex, isVegetable = false) {
   console.log(carrinho);
 }
 
-
-
 function atualizarCarrinho() {
   listaItensCarrinho.innerHTML = "";
 
@@ -275,8 +279,6 @@ function atualizarCarrinho() {
       
     `;
     listaItensCarrinho.appendChild(listItem);
-
-
   });
 }
 function aumentarQuantidade(index) {
@@ -309,9 +311,6 @@ function calcularTotal() {
     total += produto.preco * produto.quantidade;
   });
   totalCarrinhoElement.textContent = `Total: R$ ${total.toFixed(2)}`;
-
-
-
 }
 
 // Inicialização: Adicione produtos à página
@@ -356,8 +355,8 @@ produtoLegumes.forEach((myVegetableProducts, index) => {
       <img src="${myVegetableProducts.img}" alt="" />
       <h2>${myVegetableProducts.nome}</h2>
       <h3 class="price">R$: ${myVegetableProducts.preco.toFixed(
-    2
-  )} <span>kg</span></h3>
+        2
+      )} <span>kg</span></h3>
       <i class="bx bx-cart-alt" onclick="adicionarAoCarrinho(${index}, true)"></i>
       <i class="bx bx-heart" onclick="trocarIcone(this)"></i>
      
@@ -365,9 +364,6 @@ produtoLegumes.forEach((myVegetableProducts, index) => {
   `;
   mayContainer.innerHTML += productCardHTML;
 });
-
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
   var openModalBtn = document.getElementById("openModalBtn");
@@ -385,14 +381,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Função para verificar se o carrinho está vazio
   function verificarCarrinho() {
-    var itensCarrinho = document.querySelectorAll('.Minha-lista-carrinho li');
+    var itensCarrinho = document.querySelectorAll(".Minha-lista-carrinho li");
     return itensCarrinho.length > 0;
   }
 
   // Abrir o modal ao clicar no botão "Finalizar Compra"
   openModalBtn.addEventListener("click", function () {
     // Fechar o carrinho antes de abrir o modal
-    document.querySelector('.carrinho').style.display = "none";
+    document.querySelector(".carrinho").style.display = "none";
 
     if (verificarCarrinho()) {
       toggleModal();
@@ -414,8 +410,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
-
 
 function validarNomeCompleto() {
   const nomeCompletoInput = document.getElementById("nomeCompleto");
@@ -470,11 +464,6 @@ function validarCamposDeBloco() {
     alert("Por favor, preencha pelo menos um campo.");
   }
 }
-
-
-
-
-
 
 // Customer Review Elements
 const dadosDosClientes = [
@@ -657,11 +646,6 @@ dadosDosCartoes.map((cartao) => {
   cartoesContainer.appendChild(div);
 });
 
-
-
-
-
-
 // Seletor específico para o modal
 const novoModal = document.getElementById("seuModalId"); // Substitua "seuModalId" pelo ID real do seu modal
 
@@ -690,12 +674,3 @@ document.addEventListener("click", (e) => {
 
 // Exemplo de como abrir o modal quando necessário (pode ser chamado em outro lugar do seu código)
 abrirModal(); // Remova esta linha se não quiser abrir o modal automaticamente
-
-
-
-
-
-
-
-
-
