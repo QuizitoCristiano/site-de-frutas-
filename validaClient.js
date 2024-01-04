@@ -5,32 +5,77 @@ function validarFormularioClient(event) {
 
   // Obter os valores dos campos
   const nomeCompleto = obterValorCampo("nomeCompleto");
+  const email = obterValorCampo("email");
   const myCPF = obterValorCampo("myCPF");
   const endereco = obterValorCampo("Endereco");
   const telefone = obterValorCampo("celular");
   const bloco = obterValorCampo("bloco");
   const andar = obterValorCampo("andar");
   const apartamento = obterValorCampo("apartamento");
+  const statusUpdateOptions = obterValorCampo("statusUpdateOptions");
 
   // Validar campos
   validarCampoNome(nomeCompleto, event);
+  validarCampoeEmail(email, event);
   validarCampoTelefone(telefone, event);
   validarCampoCPF(myCPF, event);
   validarCampoEndereco(endereco, event);
   validarCamposMoradia(bloco, andar, apartamento, event);
+  validarCampoStatusUpdateOptions(statusUpdateOptions, event);
 
   if (!event.defaultPrevented) {
     alert("Formulário válido. Prosseguir com o envio.");
-    const loader = document.querySelector('.contante_laoder')
-    loader.style.display = 'flex'
+    const loader = document.querySelector(".contante_laoder");
+    loader.style.display = "flex";
+
+    // Salvar dados no localStorage
+    salvarDadosNoLocalStorage(
+      nomeCompleto,
+      email,
+      myCPF,
+      endereco,
+      telefone,
+      bloco,
+      andar,
+      apartamento,
+      statusUpdateOptions
+    );
 
     setTimeout(() => {
-      loader.style.display = 'none';
-      window.location.href = './assetes/WaitingForConfirmation/Waiting.html';
+      loader.style.display = "none";
+      window.location.href = "./assetes/WaitingForConfirmation/Waiting.html";
     }, 2000);
   }
 
   return false;
+}
+
+// Função para salvar dados no localStorage
+function salvarDadosNoLocalStorage(
+  nomeCompleto,
+  email,
+  cpf,
+  endereco,
+  telefone,
+  bloco,
+  andar,
+  apartamento,
+  formaPagamento
+) {
+  const dados = {
+    nomeCompleto,
+    email,
+    cpf,
+    endereco,
+    telefone,
+    bloco,
+    andar,
+    apartamento,
+    formaPagamento,
+  };
+
+  // Convertendo o objeto para uma string JSON e salvando no localStorage
+  localStorage.setItem("dadosCliente", JSON.stringify(dados));
 }
 
 
@@ -41,14 +86,12 @@ function obterValorCampo(campoId) {
 
 // Função para validar o campo de nome
 function validarCampoNome(nome, event) {
-  console.log(event);  // Adicione este log para verificar o valor de event
+  console.log(event); // Adicione este log para verificar o valor de event
   if (nome === "" || nome.split(" ").length < 2) {
     exibirErro("nomeCompletoErro", "Informe o nome completo.");
     event.preventDefault();
   }
 }
-
-
 
 // Função para validar o campo de telefone
 function validarCampoTelefone(telefone, event) {
@@ -66,18 +109,56 @@ function validarCampoCPF(cpf, event) {
   }
 }
 
+function validarCampoeEmail(email, event) {
+  if (email === "" || !isValidEmail(email)) {
+    exibirErro("emailErro", "Por favor, digite um E-mail válido.");
+    event.preventDefault();
+  }
+}
+
 // Função para validar o campo de endereço
 function validarCampoEndereco(endereco, event) {
   if (endereco === "" || !validarEndereco(endereco)) {
-    exibirErro("enderecoErro", 'O endereço deve começar com "Rua" ou "Avenida".');
+    exibirErro(
+      "enderecoErro",
+      'O endereço deve começar com "Rua" ou "Avenida".'
+    );
     event.preventDefault();
   }
 }
 
 // Função para validar os campos de moradia (Bloco, Andar, Apartamento)
 function validarCamposMoradia(bloco, andar, apartamento, event) {
-  if (bloco === "" && andar === "" && apartamento === "") {
-    exibirErro("blocoErro", "Preencha pelo menos uma opção entre Bloco, Andar ou Apartamento.");
+  const quantidadePreenchidos = [bloco, andar, apartamento].filter(
+    (campo) => campo.trim() !== ""
+  ).length;
+
+  if (quantidadePreenchidos === 0) {
+    // Nenhum campo preenchido
+    exibirErro(
+      "blocoErro",
+      "Preencha pelo menos um campo entre Bloco, Andar ou Apartamento."
+    );
+    event.preventDefault();
+  } else if (quantidadePreenchidos > 1) {
+    // Mais de um campo preenchido
+    exibirErro(
+      "blocoErro",
+      "Não é permitido preencher mais de um campo ao mesmo tempo."
+    );
+    event.preventDefault();
+  } else {
+    // Um campo preenchido, então limpa o erro
+    clearError("blocoErro");
+  }
+}
+
+function validarCampoStatusUpdateOptions(statusUpdateOptions, event) {
+  if (statusUpdateOptions === "aguardando") {
+    exibirErro(
+      "statusUpdateOptionsError",
+      "Selecione uma forma de pagamento válida."
+    );
     event.preventDefault();
   }
 }
@@ -85,11 +166,6 @@ function validarCamposMoradia(bloco, andar, apartamento, event) {
 // Restante do código permanece inalterado
 
 // Função para limpar um erro específico
-function clearError(errorId) {
-  var errorElement = document.getElementById(errorId);
-  errorElement.textContent = "";
-  errorElement.style.color = "";
-}
 
 // Função para limpar todos os erros
 function clearErrors() {
@@ -119,19 +195,20 @@ function validarEndereco(endereco) {
     return false;
   }
 
-  clearError('enderecoErro');
+  clearError("enderecoErro");
   return true;
-
-
-
 }
-
-
 
 function exibirErro(elementId, message) {
   var errorElement = document.getElementById(elementId);
   errorElement.textContent = message;
   errorElement.style.color = "red";
+}
+
+function isValidEmail(email) {
+  // Adicione sua própria lógica de validação de e-mail, se necessário
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
 }
 
 function validarCPF(cpf) {
@@ -215,9 +292,6 @@ function clearError(errorId) {
   errorElement.textContent = "";
   errorElement.style.color = "red";
 }
-
-
-
 
 function clearErrors() {
   var errorElements = document.getElementsByClassName("error");

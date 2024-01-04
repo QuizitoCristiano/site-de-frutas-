@@ -45,8 +45,8 @@
 
 #logoutButton {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 0px;
+  right: 0px;
   width: 50px;
   font-weight: 800;
   height: 50px;
@@ -217,13 +217,34 @@ button:hover {
   flex-direction: row;
 }
 
+.produtoName {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.produtoPreco{
+  margin-top: 0.5rem;
+  color: var(--light-orange-color);
+  font-weight: 600;
+  font-size: 1rem;
+}
+/* .produtoPreco span{
+  color: var(--text-color);
+} */
+.Amount {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
 .priceQuantity {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
 }
-
+ 
+.WrapperProducts {
+  width: 100%;
+}
 .wrapperIncrease {
   display: flex;
   justify-content: center;
@@ -234,8 +255,8 @@ button:hover {
 }
 
 .iconRemuveItem {
-  width: 80px;
   display: flex;
+  font-size: 1.3rem;
   justify-content: center;
   align-items: center;
 }
@@ -960,10 +981,6 @@ header {
   font-weight: 700;
 }
 
-
-
-
-
 .contante_laoder {
   position: absolute;
   display: none;
@@ -988,7 +1005,7 @@ header {
   animation: rotation 1s linear infinite;
 }
 .loader::after {
-  content: '';  
+  content: "";
   box-sizing: border-box;
   position: absolute;
   left: 0;
@@ -1006,10 +1023,7 @@ header {
   100% {
     transform: rotate(360deg);
   }
-} 
-
-
-
+}
 
 /* new .modal */
 
@@ -1191,18 +1205,14 @@ header {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  
-  
 }
 
 .inputBoxBloco input {
   width: 100%;
 }
 
-
 .inputBoxBloco p {
   font-size: 12px;
- 
 }
 
 .statusUpdateOptions {
@@ -1210,7 +1220,6 @@ header {
   background: #3cb815;
 }
 .wrapperInputModal {
- 
   display: flex;
   align-items: flex-start;
   flex-direction: column;

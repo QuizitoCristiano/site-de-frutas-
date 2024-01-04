@@ -371,30 +371,30 @@
         </div>
 
        
-        <div class="mydivBox">
+       <div class="mydivBox">
           <div class="wrapperInputModal">
             <input
               type="text"
               class="email"
               id="email"
               placeholder="Endereço de entrega"
-              oninput="clearError('emaileErro')"
+              oninput="clearError('emailErro')"
             />
-            <p id="emaileErro" class="error"></p>
+            <p id="emailErro" class="error"></p>
           </div>
-
+          
           <div class="wrapperInputModal">
             <select id="statusUpdateOptions">
-              <option value="aguardando">Forma de Pagamendo</option>
+              <option value="aguardando">Forma de Pagamento</option>
               <option value="preparo">Pix</option>
               <option value="entrega">Boleto Bancário</option>
               <option value="entregue">Cartões de Débito</option>
               <option value="entrega">Boleto Bancário</option>
               <option value="entregue">Pagamento na Entrega</option>
             </select>
-            <p id="cpfError" class="error"></p>
+            <p id="statusUpdateOptionsError" class="error"></p>
           </div>
-        </div>
+        </div> 
 
         <div class="mydivBoxTx">
           <textarea

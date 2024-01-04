@@ -253,12 +253,19 @@ function atualizarCarrinho() {
     <div class="carinhoItem">
 
     <div class="priceQuantity">
-    <div>
-    ${produto.nome} - R$ ${produto.preco ? produto.preco.toFixed(2) : "N/A"}
+    <div class="WrapperProducts">
+      <div class="produtoName">
+      ${produto.nome} 
+      </div>
+
+      <div class="produtoPreco">
+      R$ ${produto.preco ? produto.preco.toFixed(2) : "N/A"}
+      
+      </div>
     </div>
 
-    <div>
-    Quantidade: ${produto.quantidade}
+    <div class="Amount">
+    <p>Quantidade: ${produto.quantidade}</p>
     </div>
     </div>
   

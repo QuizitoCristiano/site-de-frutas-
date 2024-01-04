@@ -1,27 +1,46 @@
 // Simule dados do pedido
 const orderItems = ["Maçãs (2kg)", "Bananas (1kg)", "Tomates (500g)"];
-const customerName = "João da Silva";
-const customerPhone = "(11) 98765-4321";
-const customerEmail =  'joaosilva24@gmail.com'
-const deliveryAddress = "Rua Principal, 123 - Bloco A, Apto 101";
-const specialInstructions = "Sem açúcar, por favor";
-const orderStatus = "Aguardando Confirmação";
-const preparationTime = "30 minutos";
-const paymentDetails = "Cartão de Crédito";
-const supportEmail = "suporte@delicacy.com";
-const supportPhone = "(11) 1234-5678";
+
+
+
 
 // Atualize o DOM com os dados simulados
 document.getElementById("orderItems").innerHTML = orderItems.map(item => `<li>${item}</li>`).join('');
-document.getElementById("customerName").textContent = customerName;
-document.getElementById("customerPhone").textContent = customerPhone;
-document.getElementById("customerEmail").textContent = customerEmail;
-document.getElementById("deliveryAddress").textContent = deliveryAddress;
-document.getElementById("specialInstructions").textContent = specialInstructions;
-document.getElementById("orderStatus").textContent = orderStatus;
-document.getElementById("preparationTime").textContent = preparationTime;
-document.getElementById("paymentDetails").textContent = paymentDetails;
-document.getElementById("supportEmail").textContent = supportEmail;
-document.getElementById("supportPhone").textContent = supportPhone;
 
 // Adicione lógica adicional conforme necessário
+
+
+document.addEventListener("DOMContentLoaded", function () {
+      // Obter os dados armazenados no localStorage
+      const dadosArmazenados = localStorage.getItem('dadosCliente');
+      const dadosCliente = JSON.parse(dadosArmazenados);
+
+      // Atualizar o DOM com os dados do cliente
+      document.getElementById("andar").textContent = dadosCliente.andar;
+      document.getElementById("apartamento").textContent = dadosCliente.apartamento;
+      document.getElementById("bloco").textContent = dadosCliente.bloco;
+      document.getElementById("cpf").textContent = dadosCliente.cpf;
+      document.getElementById("email").textContent = dadosCliente.email;
+      document.getElementById("endereco").textContent = dadosCliente.endereco;
+      document.getElementById("formaPagamento").textContent = dadosCliente.formaPagamento;
+      document.getElementById("nomeCompleto").textContent = dadosCliente.nomeCompleto;
+      document.getElementById("telefone").textContent = dadosCliente.telefone;
+
+
+
+     // Exibir dados dinamicamente
+     exibirDado("andar", dadosCliente.andar);
+     exibirDado("bloco", dadosCliente.bloco);
+     exibirDado("apartamento", dadosCliente.apartamento);
+
+     // Função para exibir dados dinamicamente
+     function exibirDado(elementId, dado) {
+       const elemento = document.getElementById(elementId);
+       if (dado !== undefined && dado !== null && dado.trim() !== "") {
+         elemento.textContent = dado;
+       } else {
+         // Ocultar o parágrafo se o dado não estiver disponível
+         elemento.parentElement.style.display = 'none';
+       }
+     }
+    });
