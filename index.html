@@ -334,6 +334,11 @@
           </div>
         </div>
 
+
+
+
+
+
         <div class="mydivBoxBloco">
           <div class="inputBoxBloco">
             <input
@@ -365,6 +370,32 @@
           </div>
         </div>
 
+       
+        <div class="mydivBox">
+          <div class="wrapperInputModal">
+            <input
+              type="text"
+              class="email"
+              id="email"
+              placeholder="Endereço de entrega"
+              oninput="clearError('emaileErro')"
+            />
+            <p id="emaileErro" class="error"></p>
+          </div>
+
+          <div class="wrapperInputModal">
+            <select id="statusUpdateOptions">
+              <option value="aguardando">Forma de Pagamendo</option>
+              <option value="preparo">Pix</option>
+              <option value="entrega">Boleto Bancário</option>
+              <option value="entregue">Cartões de Débito</option>
+              <option value="entrega">Boleto Bancário</option>
+              <option value="entregue">Pagamento na Entrega</option>
+            </select>
+            <p id="cpfError" class="error"></p>
+          </div>
+        </div>
+
         <div class="mydivBoxTx">
           <textarea
             name=""
@@ -374,6 +405,7 @@
             placeholder="A sua mensagem é muito importante"
           ></textarea>
         </div>
+
         <button class="enviar" onclick="validarFormularioClient(event)">
           Insira os Dados
         </button>

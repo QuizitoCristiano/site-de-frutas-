@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./confirmed.css" />
+    <title>Confirmação do Pedido - Delicacy</title>
+  </head>
+  <body>
+    <div class="confirmation-container">
+
+        <header>
+      
+            <a href="" class="logo"><i class="bx bxs-basket">Delicacy</i></a>
+            <!--menu icon -->
+            
+            <h1>Delicacy</h1>
+          </header>
+
+
+      <div class="order-summary">
+        <h2>Resumo do Pedido</h2>
+        <ul id="orderItems"></ul>
+      </div>
+      <div class="customer-details">
+        <h2>Detalhes do Cliente</h2>
+        <p><strong>Nome:</strong> <span id="customerName"></span></p>
+        <p><strong>Telefone:</strong> <span id="customerPhone"></span></p>
+        <p><strong>E-mail:</strong> <span id="customerEmail"></span></p>
+      </div>
+      <div class="delivery-address">
+        <h2>Endereço de Entrega</h2>
+        <p><strong>Endereço:</strong> <span id="deliveryAddress"></span></p>
+      </div>
+
+      <div class="action-options">
+        <h2>Opções de Ação do Pedido</h2>
+        <button id="confirmOrder">Confirmar Pedido</button>
+        <button id="rejectOrder">Rejeitar Pedido</button>
+      </div>
+      
+      <div class="preparation-time">
+        <h2>Tempo Estimado de Preparo</h2>
+        <p><span id="preparationTime"></span></p>
+      </div>
+      <div class="payment-details">
+        <h2>Detalhes do Pagamento</h2>
+        <p><span id="paymentDetails"></span></p>
+      </div>
+      <div class="contact-buttons">
+        <h2>Botões de Contato</h2>
+        <button id="contactCustomer">Contatar Cliente</button>
+      </div>
+      <div class="notifications">
+        <h2>Notificações ao Cliente</h2>
+        <label for="sendNotification">
+          <input type="checkbox" id="sendNotification" /> Enviar notificação ao
+          cliente
+        </label>
+      </div>
+      <div class="status-update-options">
+        <h2>Opções de Atualização do Status</h2>
+        <select id="statusUpdateOptions">
+          <option value="aguardando">Aguardando Confirmação</option>
+          <option value="preparo">Em Preparo</option>
+          <option value="entrega">Em Entrega</option>
+          <option value="entregue">Entregue</option>
+        </select>
+      </div>
+      <div class="customer-support">
+        <h2>Suporte ao Cliente</h2>
+        <p>Entre em contato conosco em caso de dúvidas ou problemas:</p>
+        <p>E-mail: <span id="supportEmail">suporte@delicacy.com</span></p>
+        <p>Telefone: <span id="supportPhone">(11) 1234-5678</span></p>
+      </div>
+    </div>
+    <script src="./confirmed.js"></script>
+  </body>
+</html>

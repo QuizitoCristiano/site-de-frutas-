@@ -1204,6 +1204,11 @@ header {
   font-size: 12px;
  
 }
+
+.statusUpdateOptions {
+  width: 100%;
+  background: #3cb815;
+}
 .wrapperInputModal {
  
   display: flex;
