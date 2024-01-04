@@ -62,13 +62,13 @@
   flex-direction: column;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
   transition: box-shadow 0.3s ease;
+  z-index: 2000;
 }
 
 #logoutButton:hover {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.9);
   background-color: var(--light-orange-color);
 }
-
 
 /* Modal */
 
@@ -252,8 +252,6 @@ button:hover {
   font-size: 20px;
   border-radius: 0.5rem 0 0.5rem 0;
 }
-
-
 
 #trash-alt {
   color: var(--light-orange-color);
@@ -500,9 +498,8 @@ header {
   color: #eeeef9;
   box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.7);
 
- 
   opacity: 0;
-  transform: translateY( -200px);
+  transform: translateY(-200px);
   animation-name: animarEdeeFor;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
@@ -513,9 +510,7 @@ header {
     transform: translateY(0);
     opacity: 1;
   }
-} 
-
-
+}
 
 /* Estilos para o input de arquivo */
 #avatar {
@@ -965,6 +960,57 @@ header {
   font-weight: 700;
 }
 
+
+
+
+
+.contante_laoder {
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100vh;
+  width: 100%;
+  z-index: 50000 !important;
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid var(--green-color);
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-bottom: 4px solid var(--light-orange-color);
+  border-left: 4px solid transparent;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+
+
+
+
 /* new .modal */
 
 /* Estilos do modal (inicialmente escondido) */
@@ -1097,7 +1143,6 @@ header {
 
 /* Estilos para o botão de fechar */
 
-
 .campo-preenchido {
   color: #3cb815;
 }
@@ -1134,21 +1179,41 @@ header {
 }
 .mydivBoxBloco {
   width: 100%;
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
 }
+.mydivBox p {
+  font-size: 12px;
+}
+.inputBoxBloco {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  
+  
+}
 
+.inputBoxBloco input {
+  width: 100%;
+}
+
+
+.inputBoxBloco p {
+  font-size: 12px;
+ 
+}
 .wrapperInputModal {
-  background: #3cb815;
+ 
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
   width: 100%;
 }
-.wrapperInputModal input{
+.wrapperInputModal input {
   width: 100%;
 }
-
-
 
 .campo-vazio {
   border: 1px solid red; /* Adiciona uma borda vermelha como destaque opcional */

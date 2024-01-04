@@ -17,6 +17,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+
   </head>
 
   <body>
@@ -39,13 +40,24 @@
         <!-- <img src="./image/Quizito.jpeg" alt="" /> -->
       </div>
       <div class="isNoAvatar"></div>
-      
+
       <form id="profileEditForm">
         <label for="avatar">Editar Avatar:</label>
-        <input type="file" id="avatar" name="avatar" accept="image/*" onchange="handleAvatarChange()">
-        <button type="button" class="mybuttonAvatar" onclick="saveProfileChanges()">Salvar</button>
+        <input
+          type="file"
+          id="avatar"
+          name="avatar"
+          accept="image/*"
+          onchange="handleAvatarChange()"
+        />
+        <button
+          type="button"
+          class="mybuttonAvatar"
+          onclick="saveProfileChanges()"
+        >
+          Salvar
+        </button>
       </form>
-
 
       <div class="profile">
         <i class="bx bx-search" id="openModal"></i>
@@ -245,6 +257,7 @@
 
       <div class="Produtos-legumes"></div>
 
+
       <div class="carrinho">
         <div class="carinho-txt">
           <h2>Itens no Carrinho</h2>
@@ -257,7 +270,7 @@
         <div class="total-dosItens">
           <p class="total-carrinho"></p>
 
-          <button class="finalizar-compra" id="openModalBtn">
+          <button class="finalizar-compra" id="openModalBtn" onclick="finalizarCompra()">
             Finalizar Compra
           </button>
         </div>
@@ -267,56 +280,89 @@
     <!-- Formulário -->
 
     <div id="myModal" class="Wrappermodal">
-      
-      <form class="Mymodal-content">
+      <div class="contante_laoder">
+        <div class="loader"></div>
+        <div>Logando...</div>
+      </div>
+      <div class="Mymodal-content">
         <i class="bx bx-x" id="fechar-modal"></i>
 
         <div class="mydivBox">
-         <div class="wrapperInputModal">
-           <input
-             type="text"
-             class="Nome"
-             id="nomeCompleto"
-             placeholder="Nome completo"
-             oninput="clearError('nomeCompletoErro')"
-           />
-           <p id="nomeCompletoErro" class="error"></p>
-         </div> 
+          <div class="wrapperInputModal">
+            <input
+              type="text"
+              class="Nome"
+              id="nomeCompleto"
+              placeholder="Nome completo"
+              oninput="clearError('nomeCompletoErro')"
+            />
+            <p id="nomeCompletoErro" class="error"></p>
+          </div>
 
-         <div class="wrapperInputModal">
-           <input
-             type="text"
-             class="Telefone"
-             id="celular"
-             placeholder="Número de telefone"
-             oninput="clearError('celularErro')"
-           />
-           <p id="celularErro" class="error"></p>
-         </div>
-
+          <div class="wrapperInputModal">
+            <input
+              type="text"
+              class="Telefone"
+              id="celular"
+              placeholder="Número de telefone"
+              oninput="clearError('celularErro')"
+            />
+            <p id="celularErro" class="error"></p>
+          </div>
         </div>
         <div class="mydivBox">
           <div class="wrapperInputModal">
             <input
-            type="text"
-            class="Endereco"
-            id="Endereco"
-            placeholder="Endereço de entrega"
-            oninput="clearError('enderecoErro')"
-          />
-          <p id="enderecoErro" class="error"></p>
+              type="text"
+              class="Endereco"
+              id="Endereco"
+              placeholder="Endereço de entrega"
+              oninput="clearError('enderecoErro')"
+            />
+            <p id="enderecoErro" class="error"></p>
           </div>
 
           <div class="wrapperInputModal">
-            <input type="text" class="Cep" id="myCPF" placeholder="CPF" oninput="clearError('cpfError')"/>
+            <input
+              type="text"
+              class="Cep"
+              id="myCPF"
+              placeholder="CPF"
+              oninput="clearError('cpfError')"
+            />
             <p id="cpfError" class="error"></p>
           </div>
         </div>
 
         <div class="mydivBoxBloco">
-          <input type="text" id="bloco" placeholder="Bloco" />
-          <input type="text" id="andar" placeholder="Andar" />
-          <input type="text" id="apartamento" placeholder="Apartamento" />
+          <div class="inputBoxBloco">
+            <input
+              type="text"
+              id="bloco"
+              placeholder="Bloco"
+              oninput="clearError('blocoErro')"
+            />
+            <p id="blocoErro" class="error"></p>
+          </div>
+          <div class="inputBoxBloco">
+            <input
+              type="text"
+              id="andar"
+              placeholder="Andar"
+              oninput="clearError('andarErro')"
+            />
+            <p id="andarErro" class="error"></p>
+          </div>
+
+          <div class="inputBoxBloco">
+            <input
+              type="text"
+              id="apartamento"
+              placeholder="Apartamento"
+              oninput="clearError('apartamentoErro')"
+            />
+            <p id="apartamentoErro" class="error"></p>
+          </div>
         </div>
 
         <div class="mydivBoxTx">
@@ -328,16 +374,16 @@
             placeholder="A sua mensagem é muito importante"
           ></textarea>
         </div>
-        <button class="enviar" onclick="validarCliente()">
+        <button class="enviar" onclick="validarFormularioClient(event)">
           Insira os Dados
         </button>
-      </form>
+
+      
+      </div>
+    
     </div>
 
     <!-- Exemplo de HTML com rótulos associados -->
-
-
-    
 
     <!-- About -->
     <section>
@@ -435,7 +481,7 @@
 
     <script>
       let user = localStorage.getItem("isUserLoged");
-      
+
       if (!user) {
         window.location.href = "./assetes/pagesHtmal/signin.html";
       }

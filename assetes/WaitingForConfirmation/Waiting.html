@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Waiting.css" />
+    <!-- <link rel="stylesheet" href="../../styles.css"> -->
+       
+    <title>Aguardando Confirmação</title>
+
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+  />
+
+  <!-- Link Swiper's CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  </head>
+  <body>
+      <div class="contante_laoder">
+        <div class="loader"></div>
+        <div>Logando...</div>
+      </div>
+    <div class="WaitingContainer">
+      <header>
+      
+        <a href="" class="logo"><i class="bx bxs-basket">Delicacy</i></a>
+        <!--menu icon -->
+        
+        <h1>Delicacy</h1>
+      </header>
+
+    
+      <section id="detalhes-pedido">
+        <h2>Detalhes do Pedido</h2>
+        <section id="detalhes-pedido">
+            <form id="pedido-form">
+              <ul id="pedido-list">
+                <!-- Itens do pedido serão adicionados dinamicamente aqui -->
+              </ul>
+              <p id="total">Total: R$ 0.00</p>
+            </form>
+          </section>
+        <p>Personalizações: Nenhuma</p>
+      </section>
+
+      <section id="info-restaurante">
+        <h2>Informações do Delicacy</h2>
+        <p>Nome: Delicacy</p>
+        <p>Telefone: (41) 9761-0740</p>
+        <p>Email: delicacy@gmail.com</p>
+        <p>Endereço: Rua da Delícia, 123</p>
+      </section>
+
+      <section id="status-pedido">
+        <h2>Status do Pedido</h2>
+        <p id="status-message">O seu pedido está sendo processado.</p>
+        <p>Número do Pedido: <span id="order-number">123456</span></p>
+      </section>
+
+      <section id="tempo-confirmacao">
+        <h2>Tempo Estimado de Confirmação</h2>
+        <p>Estimativa: <span id="confirmation-time">10 minutos</span></p>
+      </section>
+
+      
+      <button id="cancelar-pedido" onclick="cancelarPedido()">
+        Cancelar Pedido
+      </button>
+
+      <section id="contato-suporte">
+        <h2>Informações de Contato e Suporte</h2>
+        <p>Entre em contato conosco em caso de dúvidas ou problemas:</p>
+        <p>Email: delicacy@gmail.com</p>
+        <!-- Adicione mais informações de suporte conforme necessário -->
+      </section>
+
+    </div>
+
+    <script src="./Waiting.js"></script>
+  </body>
+</html>

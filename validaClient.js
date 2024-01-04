@@ -1,62 +1,112 @@
-const formulario = document.querySelector('.Mymodal-content');
-
-formulario.addEventListener('submit', function(event) {
-  // Chama a função validarCliente quando o formulário é enviado
-  validarCliente(event);
-});
-
-function validarCliente(event) {
+// Função para validar o formulário quando enviado
+function validarFormularioClient(event) {
   // Resetar mensagens de erro
   clearErrors();
 
   // Obter os valores dos campos
-  const nomeCompleto = document.getElementById("nomeCompleto").value;
-  const myCPF = document.getElementById("myCPF").value;
-  const endereco = document.getElementById("Endereco").value;
-  const telefone = document.getElementById("celular").value;
-  const bloco = document.getElementById("bloco").value;
-  const andar = document.getElementById("andar").value;
-  const apartamento = document.getElementById("apartamento").value;
+  const nomeCompleto = obterValorCampo("nomeCompleto");
+  const myCPF = obterValorCampo("myCPF");
+  const endereco = obterValorCampo("Endereco");
+  const telefone = obterValorCampo("celular");
+  const bloco = obterValorCampo("bloco");
+  const andar = obterValorCampo("andar");
+  const apartamento = obterValorCampo("apartamento");
 
-  if (nomeCompleto.trim() === "" || nomeCompleto.split(" ").length < 2) {
-    exibirErro("nomeCompletoErro", "Informe o nome completo.");
-    event.preventDefault();  // Impede o envio do formulário se houver erro
-    return;
+  // Validar campos
+  validarCampoNome(nomeCompleto, event);
+  validarCampoTelefone(telefone, event);
+  validarCampoCPF(myCPF, event);
+  validarCampoEndereco(endereco, event);
+  validarCamposMoradia(bloco, andar, apartamento, event);
+
+  if (!event.defaultPrevented) {
+    alert("Formulário válido. Prosseguir com o envio.");
+    const loader = document.querySelector('.contante_laoder')
+    loader.style.display = 'flex'
+
+    setTimeout(() => {
+      loader.style.display = 'none';
+      window.location.href = './assetes/WaitingForConfirmation/Waiting.html';
+    }, 2000);
   }
 
-  if (telefone.trim() === "" || !valitaCelular(telefone)) {
-    exibirErro("celularErro", "Por favor, digite um número válido.");
-    event.preventDefault();  // Impede o envio do formulário se houver erro
-    return;
-  }
-
-
-  if (myCPF.trim() === "" || !validarCPF(myCPF)) {
-    exibirErro("cpfError", "Por favor, digite um CPF válido.");
-    event.preventDefault();  // Impede o envio do formulário se houver erro
-    return;
-  }
-
-  if (endereco.trim() === "" || !validarEndereco(endereco)) {
-    exibirErro("enderecoErro", 'O endereço deve começar com "Rua" ou "Avenida".');
-    event.preventDefault();  // Impede o envio do formulário se houver erro
-    return;
-  }
-
-  if (bloco.trim() === "" && andar.trim() === "" && apartamento.trim() === "") {
-    exibirErro(
-      "Preencha pelo menos uma opção entre Bloco, Andar ou Apartamento."
-    );
-    event.preventDefault();  // Impede o envio do formulário se houver erro
-    return;
-  }
-
-  // Se todas as validações passarem, pode prosseguir com o envio do formulário ou outra ação desejada
-  // ...
-
-  alert("Formulário válido. Prosseguir com o envio.");
+  return false;
 }
 
+
+// Função para obter o valor de um campo do formulário por ID
+function obterValorCampo(campoId) {
+  return document.getElementById(campoId).value.trim();
+}
+
+// Função para validar o campo de nome
+function validarCampoNome(nome, event) {
+  console.log(event);  // Adicione este log para verificar o valor de event
+  if (nome === "" || nome.split(" ").length < 2) {
+    exibirErro("nomeCompletoErro", "Informe o nome completo.");
+    event.preventDefault();
+  }
+}
+
+
+
+// Função para validar o campo de telefone
+function validarCampoTelefone(telefone, event) {
+  if (telefone === "" || !valitaCelular(telefone)) {
+    exibirErro("celularErro", "Por favor, digite um número válido.");
+    event.preventDefault();
+  }
+}
+
+// Função para validar o campo de CPF
+function validarCampoCPF(cpf, event) {
+  if (cpf === "" || !validarCPF(cpf)) {
+    exibirErro("cpfError", "Por favor, digite um CPF válido.");
+    event.preventDefault();
+  }
+}
+
+// Função para validar o campo de endereço
+function validarCampoEndereco(endereco, event) {
+  if (endereco === "" || !validarEndereco(endereco)) {
+    exibirErro("enderecoErro", 'O endereço deve começar com "Rua" ou "Avenida".');
+    event.preventDefault();
+  }
+}
+
+// Função para validar os campos de moradia (Bloco, Andar, Apartamento)
+function validarCamposMoradia(bloco, andar, apartamento, event) {
+  if (bloco === "" && andar === "" && apartamento === "") {
+    exibirErro("blocoErro", "Preencha pelo menos uma opção entre Bloco, Andar ou Apartamento.");
+    event.preventDefault();
+  }
+}
+
+// Restante do código permanece inalterado
+
+// Função para limpar um erro específico
+function clearError(errorId) {
+  var errorElement = document.getElementById(errorId);
+  errorElement.textContent = "";
+  errorElement.style.color = "";
+}
+
+// Função para limpar todos os erros
+function clearErrors() {
+  var errorElements = document.getElementsByClassName("error");
+  for (let index = 0; index < errorElements.length; index++) {
+    clearError(errorElements[index].id);
+  }
+}
+
+// Função para exibir um erro específico
+function exibirErro(elementId, message) {
+  var errorElement = document.getElementById(elementId);
+  errorElement.textContent = message;
+  errorElement.style.color = "red";
+}
+
+// Restante do código permanece inalterado
 
 // Restante do código permanece inalterado
 
@@ -71,6 +121,9 @@ function validarEndereco(endereco) {
 
   clearError('enderecoErro');
   return true;
+
+
+
 }
 
 
@@ -162,6 +215,9 @@ function clearError(errorId) {
   errorElement.textContent = "";
   errorElement.style.color = "red";
 }
+
+
+
 
 function clearErrors() {
   var errorElements = document.getElementsByClassName("error");

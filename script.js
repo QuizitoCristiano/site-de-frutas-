@@ -411,59 +411,38 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function validarNomeCompleto() {
-  const nomeCompletoInput = document.getElementById("nomeCompleto");
-  const nomeCompleto = nomeCompletoInput.value.trim();
-
-  if (nomeCompleto === "") {
-    nomeCompletoInput.classList.add("campo-vazio");
-  } else {
-    nomeCompletoInput.classList.remove("campo-vazio");
+function finalizarCompra() {
+  // Verifique se o carrinho está vazio
+  if (carrinho.length === 0) {
+    alert("Adicione itens ao carrinho antes de finalizar a compra.");
+    return;
   }
+
+  // Calcule o total de todos os produtos no carrinho
+  const carrinhoTotal = carrinho.reduce((total, produto) => {
+    return total + produto.preco * produto.quantidade;
+  }, 0);
+
+  // Armazene o carrinho no localStorage para acessar na próxima página
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  
+  // Armazene o total no localStorage
+  localStorage.setItem('total', carrinhoTotal);
+
+  // Redirecione para a página Waiting.html
+  // setTimeout(() => {
+  //   window.location.href = './assetes/WaitingForConfirmation/Waiting.html';
+  // }, 2000);
 }
 
-function validarNomeCompleto() {
-  const nomeCompletoInput = document.getElementById("nomeCompleto");
-  const nomeCompleto = nomeCompletoInput.value.trim();
 
-  // Verifique se o campo está vazio ou não contém apenas letras
-  if (nomeCompleto === "" || !/^[a-zA-Z\s]+$/.test(nomeCompleto)) {
-    nomeCompletoInput.classList.add("campo-vazio");
-    alert("Por favor, insira um nome válido.");
-  } else {
-    nomeCompletoInput.classList.remove("campo-vazio");
-  }
-}
 
-function validarCamposDeBloco() {
-  const bloco = document.getElementById("bloco");
-  const andar = document.getElementById("andar");
-  const apartamento = document.getElementById("apartamento");
 
-  // Remove as classes existentes
-  bloco.classList.remove("campo-vazio", "campo-preenchido");
-  andar.classList.remove("campo-vazio", "campo-preenchido");
-  apartamento.classList.remove("campo-vazio", "campo-preenchido");
 
-  const valorBloco = bloco.value.trim();
-  const valorAndar = andar.value.trim();
-  const valorApartamento = apartamento.value.trim();
 
-  // Verifica se pelo menos um dos campos foi preenchido
-  if (valorBloco !== "" || valorAndar !== "" || valorApartamento !== "") {
-    // Se pelo menos um campo foi preenchido, adiciona a classe campo-preenchido a todos os campos
-    bloco.classList.add("campo-preenchido");
-    andar.classList.add("campo-preenchido");
-    apartamento.classList.add("campo-preenchido");
-  } else {
-    // Se nenhum campo foi preenchido, adiciona a classe campo-vazio a todos os campos
-    bloco.classList.add("campo-vazio");
-    andar.classList.add("campo-vazio");
-    apartamento.classList.add("campo-vazio");
 
-    alert("Por favor, preencha pelo menos um campo.");
-  }
-}
+
+
 
 // Customer Review Elements
 const dadosDosClientes = [
