@@ -17,6 +17,11 @@
 </head>
 
 <body>
+  <div class="contante_laoder">
+    <div class="loader"></div>
+    <div>Logando...</div>
+  </div>
+
   <div class="confirmation-container">
 
     <header>
@@ -29,13 +34,9 @@
     <div class="order-summary">
       <h2>Resumo do Pedido</h2>
       <ul id="orderItems"></ul>
+      <p id="resumoDoPedidoTotal">Total: </p>
     </div>
-    <!-- <div class="customer-details">
-        <h2>Detalhes do Cliente</h2>
-        <p><strong>Nome:</strong> <span id="customerName"></span></p>
-        <p><strong>Telefone:</strong> <span id="customerPhone"></span></p>
-        <p><strong>E-mail:</strong> <span id="customerEmail"></span></p>
-      </div> -->
+  
 
     <div class="customer-details">
       <h2>Detalhes do Cliente</h2>
@@ -56,15 +57,11 @@
     </div>
 
 
-    <!-- <div class="delivery-address">
-        <h2>Endereço de Entrega</h2>
-        <p><strong>Endereço:</strong> <span id="deliveryAddress"></span></p>
-      </div> -->
-
     <div class="action-options">
       <h2>Opções de Ação do Pedido</h2>
-      <button id="confirmOrder">Confirmar Pedido</button>
-      <button id="rejectOrder">Rejeitar Pedido</button>
+      <button id="confirmOrder" onclick="confirmarPedido()">Confirmar Pedido</button>
+      <button id="rejectOrder" onclick="rejeitarPedido()">Rejeitar Pedido</button>
+      <div id="div2"></div>
     </div>
 
     <div class="preparation-time">

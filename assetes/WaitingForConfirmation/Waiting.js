@@ -24,6 +24,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function cancelarPedido() {
+
+//     const carrinhoArmazenado = localStorage.getItem('carrinho');
+//   if (!carrinhoArmazenado || JSON.parse(carrinhoArmazenado).length === 0) {
+//     // Exibir mensagem de erro se o carrinho estiver vazio
+//     alert("Não é possível cancelar o pedido sem itens. Adicione itens ao carrinho para cancelar.");
+//     return;
+//   }
+
     // Simulação de ação ao clicar no botão de cancelamento
     alert("Pedido cancelado com sucesso!");
 
@@ -40,6 +48,21 @@ function cancelarPedido() {
         window.location.href = '../../index.html';
     }, 2000);
 }
+
+
+  // Recuperar a mensagem de confirmação da sessionStorage
+  var mensagemConfirmacao = sessionStorage.getItem("mensagemConfirmacao");
+
+  // Verificar se há uma mensagem de confirmação
+  if (mensagemConfirmacao) {
+    // Exibir a mensagem ao usuário
+    alert(mensagemConfirmacao);
+
+    // Limpar a sessionStorage após exibir a mensagem (opcional)
+    sessionStorage.removeItem("mensagemConfirmacao");
+  } else {
+    // Se não houver mensagem de confirmação, redirecionar de volta para a página do pedido
+  }
 
 
 

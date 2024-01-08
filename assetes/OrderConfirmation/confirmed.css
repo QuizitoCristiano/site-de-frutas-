@@ -143,3 +143,51 @@ button {
 button:hover {
   background-color: var(--orange-color);
 }
+
+
+
+
+
+.contante_laoder {
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100vh;
+  width: 100%;
+  z-index: 9000 !important;
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid var(--green-color);
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-bottom: 4px solid var(--light-orange-color);
+  border-left: 4px solid transparent;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
