@@ -137,7 +137,6 @@ button:hover {
 }
 
 .carrinho {
-  background-color: red;
   position: fixed;
   top: 0;
   display: none;
@@ -209,14 +208,23 @@ button:hover {
 }
 
 .carinhoItem {
-  gap: 2rem;
-
+  
+  margin-top: 10px;
+ margin-left: 10px;
+ margin-right: 10px;
+  /* background: #86b877; */
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
+  border-radius: 5px;
+  /* border-bottom: 1px solid rgb(14 55 54 / 15%); */
+  box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 7%);
+ 
 }
-
+.priceQuantity {
+  /* background-color: red; */
+}
 .produtoName {
   font-weight: 600;
   font-size: 1.2rem;
@@ -231,7 +239,7 @@ button:hover {
   color: var(--text-color);
 } */
 .Amount {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.2rem;
 }
 
@@ -1215,9 +1223,9 @@ header {
   font-size: 12px;
 }
 
-.statusUpdateOptions {
+#formaPagamento {
   width: 100%;
-  background: #3cb815;
+  /* background: #3cb815; */
 }
 .wrapperInputModal {
   display: flex;
@@ -1225,6 +1233,7 @@ header {
   flex-direction: column;
   width: 100%;
 }
+
 .wrapperInputModal input {
   width: 100%;
 }

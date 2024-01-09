@@ -56,6 +56,11 @@
       <p><strong>Apartamento:</strong> <span id="apartamento"></span></p>
     </div>
 
+    <div class="payment-details">
+      <h2>Detalhes do Pagamento</h2>
+      <p><span id="formaDePagamento"></span></p>
+    </div>
+
 
     <div class="action-options">
       <h2>Opções de Ação do Pedido</h2>
@@ -66,16 +71,14 @@
 
     <div class="preparation-time">
       <h2>Tempo Estimado de Preparo</h2>
-      <p><span id="preparationTime"></span></p>
+
+      <select id="statusUpdateOptions">
+        <option value="aguardando"> Aguardando a Sua Confirmação</option>
+        <option value="Seu pedido foi confirmado e está em preparo">Seu pedido foi confirmado e está em preparo</option>
+      </select>
     </div>
-    <div class="payment-details">
-      <h2>Detalhes do Pagamento</h2>
-      <p><span id="formaPagamento"></span></p>
-    </div>
-    <div class="contact-buttons">
-      <h2>Botões de Contato</h2>
-      <button id="contactCustomer">Contatar Cliente</button>
-    </div>
+
+
     <div class="notifications">
       <h2>Notificações ao Cliente</h2>
       <label for="sendNotification">

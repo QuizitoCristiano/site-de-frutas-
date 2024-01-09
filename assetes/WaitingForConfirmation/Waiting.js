@@ -1,26 +1,68 @@
+
 document.addEventListener('DOMContentLoaded', function () {
+  const carrinhoLocalStorage = localStorage.getItem('carrinho');
 
-    const carrinhoLocalStorage = localStorage.getItem('carrinho');
-    if (carrinhoLocalStorage) {
-        const carrinho = JSON.parse(carrinhoLocalStorage);
+  if (carrinhoLocalStorage) {
+      const carrinho = JSON.parse(carrinhoLocalStorage);
+      const detalhesPedido = document.getElementById('detalhes-pedido');
+      const formaPagamentoElement = document.getElementById('forma-pagamento'); // Add an element with id 'forma-pagamento' in your HTML
 
-        // Agora você pode usar o carrinho na página Waiting.html conforme necessário
-        // Por exemplo, exibindo os itens na seção de detalhes do pedido
-        const detalhesPedido = document.getElementById('detalhes-pedido');
+      // carrinho.forEach((produto) => {
+      //     const item = document.createElement('li');
+      //     item.textContent = `${produto.nome} - Quantidade: ${produto.quantidade} - Total: R$ ${(produto.preco * produto.quantidade).toFixed(2)}`;
+      //     detalhesPedido.appendChild(item);
 
-        carrinho.forEach((produto) => {
-            const item = document.createElement('li');
-            item.textContent = `${produto.nome} - Quantidade: ${produto.quantidade} - Total: R$ ${(produto.preco * produto.quantidade).toFixed(2)}`;
-            detalhesPedido.appendChild(item);
-        });
-    }
+      // });
+      // Source
 
-    const totalElement = document.getElementById('total');
-    const total = parseFloat(localStorage.getItem('total')) || 0; // Recupera o total do localStorage
+      carrinho.forEach((produto) => {
+        const item = document.createElement('li');
+      
+   
+        const nomeElement = document.createElement('div');
+        nomeElement.textContent = ` ${produto.nome}`;
+        nomeElement.classList.add('nomeProduto'); 
+        item.appendChild(nomeElement);
 
-    totalElement.textContent = `Total: R$ ${total.toFixed(2)}`;
+        const totalElement = document.createElement('div');
+        totalElement.textContent = `Total: R$ ${(produto.preco * produto.quantidade).toFixed(2)}`;
+        totalElement.classList.add('totalProduto');
+        item.appendChild(totalElement);
+      
+        const quantidadeElement = document.createElement('div');
+        quantidadeElement.textContent = `Quantidade: ${produto.quantidade}`;
+        quantidadeElement.classList.add('quantidadeProduto'); 
+        item.appendChild(quantidadeElement);
+      
+        detalhesPedido.appendChild(item);
+      });
+      
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+      const totalElement = document.getElementById('total');
+      const total = parseFloat(localStorage.getItem('total')) || 0;
+      totalElement.textContent = `Total: R$ ${total.toFixed(2)}`;
+      totalElement.classList.add("PrecoTotal");
+
+      // Retrieve and display the payment method
+      const formaPagamento = localStorage.getItem('formaPagamento');
+      formaPagamentoElement.textContent = `Forma de Pagamento: ${formaPagamento || 'Não especificada'}`;
+  }
 });
-
 
 
 function cancelarPedido() {

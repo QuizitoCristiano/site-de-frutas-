@@ -250,23 +250,22 @@ function atualizarCarrinho() {
   carrinho.forEach((produto, index) => {
     const listItem = document.createElement("li");
     listItem.innerHTML = `
-    <div class="carinhoItem">
+  <div class="carinhoItem">
 
     <div class="priceQuantity">
-    <div class="WrapperProducts">
-      <div class="produtoName">
-      ${produto.nome} 
+      <div class="WrapperProducts">
+        <div class="produtoName">
+         ${produto.nome} 
+        </div>
+
+        <div class="produtoPreco">
+         R$ ${produto.preco ? produto.preco.toFixed(2) : "N/A"}
+        </div>
       </div>
 
-      <div class="produtoPreco">
-      R$ ${produto.preco ? produto.preco.toFixed(2) : "N/A"}
-      
+      <div class="Amount">
+       <p>Quantidade: ${produto.quantidade}</p>
       </div>
-    </div>
-
-    <div class="Amount">
-    <p>Quantidade: ${produto.quantidade}</p>
-    </div>
     </div>
   
     <div class="wrapperIncrease">
@@ -280,7 +279,6 @@ function atualizarCarrinho() {
         </div>
     </div>
 
-    
   </div>
 
       
@@ -386,6 +384,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  
+
+
+
+
   // Função para verificar se o carrinho está vazio
   function verificarCarrinho() {
     var itensCarrinho = document.querySelectorAll(".Minha-lista-carrinho li");
@@ -396,6 +399,7 @@ document.addEventListener("DOMContentLoaded", function () {
   openModalBtn.addEventListener("click", function () {
     // Fechar o carrinho antes de abrir o modal
     document.querySelector(".carrinho").style.display = "none";
+   
 
     if (verificarCarrinho()) {
       toggleModal();
@@ -405,10 +409,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+
   // Fechar o modal ao clicar no botão dentro do modal
   fecharModalClicado.addEventListener("click", function () {
     modal.style.display = "none";
   });
+
 
   // Fechar o modal ao clicar fora dele
   window.addEventListener("click", function (event) {
@@ -432,24 +438,15 @@ function finalizarCompra() {
 
   // Armazene o carrinho no localStorage para acessar na próxima página
   localStorage.setItem("carrinho", JSON.stringify(carrinho));
-  
+
   // Armazene o total no localStorage
-  localStorage.setItem('total', carrinhoTotal);
+  localStorage.setItem("total", carrinhoTotal);
 
   // Redirecione para a página Waiting.html
   // setTimeout(() => {
   //   window.location.href = './assetes/WaitingForConfirmation/Waiting.html';
   // }, 2000);
 }
-
-
-
-
-
-
-
-
-
 
 // Customer Review Elements
 const dadosDosClientes = [

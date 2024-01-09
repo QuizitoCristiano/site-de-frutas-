@@ -191,3 +191,45 @@ button:hover {
     transform: rotate(360deg);
   }
 } 
+
+
+.quantidade {
+  font-weight: 600;
+  font-size: 1.2rem;
+  
+}
+
+.preco {
+  margin-top: 0.5rem;
+  color: var(--light-orange-color);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.resumoDoPedidoTotal  {
+  margin-top: 0.5rem;
+  color: var(--light-orange-color);
+  font-weight: 600;
+  font-size: 1rem
+}
+.produtoTota {
+  margin-top: 0.5rem;
+  color: var(--light-orange-color);
+  font-weight: 600;
+  font-size: 1rem
+}
+
+.produtoNome {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+ul {
+  list-style-type: none;
+}
+ol {
+  list-style-type: none;
+}
+
+li {
+  list-style-type: none;
+}

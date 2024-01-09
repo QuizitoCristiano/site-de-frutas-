@@ -12,7 +12,7 @@ function validarFormularioClient(event) {
   const bloco = obterValorCampo("bloco");
   const andar = obterValorCampo("andar");
   const apartamento = obterValorCampo("apartamento");
-  const statusUpdateOptions = obterValorCampo("statusUpdateOptions");
+  const formaPagamento = obterValorCampo("formaPagamento");
 
   // Validar campos
   validarCampoNome(nomeCompleto, event);
@@ -21,7 +21,7 @@ function validarFormularioClient(event) {
   validarCampoCPF(myCPF, event);
   validarCampoEndereco(endereco, event);
   validarCamposMoradia(bloco, andar, apartamento, event);
-  validarCampoStatusUpdateOptions(statusUpdateOptions, event);
+  validarCampoformaPagamento(formaPagamento, event);
 
   if (!event.defaultPrevented) {
     alert("Formulário válido. Prosseguir com o envio.");
@@ -37,8 +37,7 @@ function validarFormularioClient(event) {
       telefone,
       bloco,
       andar,
-      apartamento,
-      statusUpdateOptions
+      formaPagamento,
     );
 
     setTimeout(() => {
@@ -59,8 +58,7 @@ function salvarDadosNoLocalStorage(
   telefone,
   bloco,
   andar,
-  apartamento,
-  formaPagamento
+  formaPagamento,
 ) {
   const dados = {
     nomeCompleto,
@@ -70,7 +68,6 @@ function salvarDadosNoLocalStorage(
     telefone,
     bloco,
     andar,
-    apartamento,
     formaPagamento,
   };
 
@@ -153,15 +150,32 @@ function validarCamposMoradia(bloco, andar, apartamento, event) {
   }
 }
 
-function validarCampoStatusUpdateOptions(statusUpdateOptions, event) {
-  if (statusUpdateOptions === "aguardando") {
+// function validarCampoformaPagamento(formaPagamento, event) {
+//   if (formaPagamento === "aguardando") {
+//     exibirErro(
+//       "statusUpdateOptionsError",
+//       "Selecione uma forma de pagamento válida."
+//     );
+//     event.preventDefault();
+//   }
+// }
+
+
+function validarCampoformaPagamento(formaPagamento, event) {
+  if (!formaPagamento || formaPagamento === "") {
     exibirErro(
-      "statusUpdateOptionsError",
+      "formaPagamentoError",
       "Selecione uma forma de pagamento válida."
     );
     event.preventDefault();
   }
 }
+
+// ... (your other functions)
+
+
+
+
 
 // Restante do código permanece inalterado
 

@@ -15,6 +15,37 @@
   overflow-x: hidden !important;
 }
 
+.quantidadeProduto {
+  font-weight: 600;
+  font-size: 1.2rem;
+  
+}
+
+.preco {
+  margin-top: 0.5rem;
+  color: var(--light-orange-color);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.resumoDoPedidoTotal  {
+  margin-top: 0.5rem;
+  color: var(--light-orange-color);
+  font-weight: 600;
+  font-size: 1rem
+}
+.totalProduto {
+  margin-top: 0.5rem;
+  color: var(--light-orange-color);
+  font-weight: 600;
+  font-size: 1rem
+}
+
+.nomeProduto {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;

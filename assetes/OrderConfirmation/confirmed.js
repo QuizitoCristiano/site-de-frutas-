@@ -1,8 +1,6 @@
-
-
 document.addEventListener("DOMContentLoaded", function () {
   // Obter os dados armazenados no localStorage
-  const dadosArmazenados = localStorage.getItem('dadosCliente');
+  const dadosArmazenados = localStorage.getItem("dadosCliente");
   const dadosCliente = JSON.parse(dadosArmazenados);
 
   // Atualizar o DOM com os dados do cliente
@@ -12,11 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("cpf").textContent = dadosCliente.cpf;
   document.getElementById("email").textContent = dadosCliente.email;
   document.getElementById("endereco").textContent = dadosCliente.endereco;
-  document.getElementById("formaPagamento").textContent = dadosCliente.formaPagamento;
-  document.getElementById("nomeCompleto").textContent = dadosCliente.nomeCompleto;
+  document.getElementById("nomeCompleto").textContent =
+    dadosCliente.nomeCompleto;
   document.getElementById("telefone").textContent = dadosCliente.telefone;
-
-
 
   // Exibir dados dinamicamente
   exibirDado("andar", dadosCliente.andar);
@@ -30,39 +26,97 @@ document.addEventListener("DOMContentLoaded", function () {
       elemento.textContent = dado;
     } else {
       // Ocultar o parágrafo se o dado não estiver disponível
-      elemento.parentElement.style.display = 'none';
+      elemento.parentElement.style.display = "none";
     }
   }
 
-
-
-  const carrinhoLocalStorage = localStorage.getItem('carrinho');
+  const carrinhoLocalStorage = localStorage.getItem("carrinho");
   if (carrinhoLocalStorage) {
     const carrinho = JSON.parse(carrinhoLocalStorage);
 
-    // Agora você pode usar o carrinho na página Waiting.html conforme necessário
-    // Por exemplo, exibindo os itens na seção de detalhes do pedido
-    const resumoDoPedido = document.getElementById('orderItems');
+    
+    const resumoDoPedido = document.getElementById("orderItems");
+
+    // carrinho.forEach((produto) => {
+    //   const item = document.createElement("li");
+    //   item.textContent = `${produto.nome} - Quantidade: ${
+    //     produto.quantidade
+    //   } - Total: R$ ${(produto.preco * produto.quantidade).toFixed(2)}`;
+    //   resumoDoPedido.appendChild(item);
+    // });
+
 
     carrinho.forEach((produto) => {
-      const item = document.createElement('li');
-      item.textContent = `${produto.nome} - Quantidade: ${produto.quantidade} - Total: R$ ${(produto.preco * produto.quantidade).toFixed(2)}`;
+      const item = document.createElement("li");
+    
+     
+      const nomeElement = document.createElement("div");
+      nomeElement.textContent = ` Nome: ${produto.nome}`;
+      nomeElement.classList.add("produtoNome")
+      item.appendChild(nomeElement);
+
+      const precoElement = document.createElement("div");
+      precoElement.textContent = `Preço: R$ ${produto.preco.toFixed(2)}`;
+      precoElement.classList.add("preco");
+      item.appendChild(precoElement);
+
+      const totalElement = document.createElement("div");
+      totalElement.textContent = `Total: R$ ${(produto.preco * produto.quantidade).toFixed(2)}`;
+      totalElement.classList.add("produtoTota");
+      item.appendChild(totalElement);
+    
+      const quantidadeElement = document.createElement("div");
+      quantidadeElement.textContent = `Quantidade: ${produto.quantidade}`;
+      quantidadeElement.classList.add("quantidade"); 
+      item.appendChild(quantidadeElement);
+    
+    
+      // Adicionar o item à lista
       resumoDoPedido.appendChild(item);
     });
+    
   }
 
-  const resumoDoPedidoTotal = document.getElementById('resumoDoPedidoTotal');
-  const total = parseFloat(localStorage.getItem('total')) || 0; // Recupera o total do localStorage
+  const resumoDoPedidoTotal = document.getElementById("resumoDoPedidoTotal");
+  const total = parseFloat(localStorage.getItem("total")) || 0;
 
   resumoDoPedidoTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
 
-
-
-
+  const dadosDoCliente = localStorage.getItem("dadosCliente");
+  let dadosClienteObj;
+  
+  try {
+    dadosClienteObj = JSON.parse(dadosDoCliente);
+  } catch (error) {
+    console.error("Erro ao analisar dadosCliente:", error);
+  }
+  
+  const formaPagamento = dadosClienteObj && dadosClienteObj.formaPagamento;
+  
+  const formaDePagamento = document.getElementById("formaDePagamento");
+  formaDePagamento.textContent = `Forma de Pagamento: ${
+    formaPagamento || "Não especificada"
+  }`;
 });
 
 
+const tempoPreparoElement = document.getElementById("tempoPreparo");
 
+// Defina o tempo estimado de preparo em segundos (por exemplo, 10 minutos)
+const tempoEstimadoPreparoSegundos = 600;
+
+// Atualize o temporizador a cada segundo
+const temporizador = setInterval(() => {
+  if (tempoEstimadoPreparoSegundos > 0) {
+    tempoEstimadoPreparoSegundos--;
+    const minutos = Math.floor(tempoEstimadoPreparoSegundos / 60);
+    const segundos = tempoEstimadoPreparoSegundos % 60;
+    tempoPreparoElement.textContent = `Tempo estimado de preparo: ${minutos}:${segundos}`;
+  } else {
+    clearInterval(temporizador);
+    tempoPreparoElement.textContent = "Seu pedido está pronto!";
+  }
+}, 1000);
 
 
 
@@ -81,22 +135,18 @@ function rejeitarPedido() {
   alert("Pedido foi cancelado com sucesso!");
 
   // Limpar o carrinho e total do localStorage
-  localStorage.removeItem('carrinho');
-  localStorage.removeItem('total');
-
-  const loader = document.querySelector('.contante_laoder');
-  loader.style.display = 'flex';
+  localStorage.removeItem("carrinho");
+  localStorage.removeItem("total");
+  localStorage.removeItem("dadosCliente");
+  const loader = document.querySelector(".contante_laoder");
+  loader.style.display = "flex";
 
   setTimeout(() => {
     // Use window.location.href diretamente sem a variável loader
-    loader.style.display = 'none';
-    window.location.href = '../../index.html';
+    loader.style.display = "none";
+    window.location.href = "../../index.html";
   }, 2000);
 }
-
-
-
-
 
 function confirmarPedido() {
   // Exibir mensagem ao usuário
@@ -104,11 +154,4 @@ function confirmarPedido() {
   sessionStorage.setItem("mensagemConfirmacao", "Seu pedido foi confirmado!");
 
   // Oferecer mais opções ao atendente
-;
 }
-
-
-
-
-
-
