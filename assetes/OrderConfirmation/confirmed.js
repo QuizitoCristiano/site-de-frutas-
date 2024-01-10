@@ -148,10 +148,207 @@ function rejeitarPedido() {
   }, 2000);
 }
 
-function confirmarPedido() {
-  // Exibir mensagem ao usuário
-  alert("Seu pedido foi confirmado!");
-  sessionStorage.setItem("mensagemConfirmacao", "Seu pedido foi confirmado!");
 
-  // Oferecer mais opções ao atendente
+
+
+
+
+// function confirmarPedido() {
+//   var statusOption = document.getElementById("statusUpdateOptions").value;
+//   var sendNotification = document.getElementById("sendNotification").checked;
+//   var preparationTimeOption = document.getElementById("preparationTimeOptions").value;
+//   var selectedHour = document.getElementById("selectedHour").value;
+
+//   var preparationTimeDiv = document.querySelector(".preparationTimeDiv");
+//   var notificationsDiv = document.querySelector(".notificationsDiv");
+//   var statusOptionsDiv = document.querySelector(".statusOptionsDiv");
+
+//   preparationTimeDiv.classList.remove("error", "success");
+//   notificationsDiv.classList.remove("error", "success");
+//   statusOptionsDiv.classList.remove("error", "success");
+
+//   if ((statusOption === "" && !sendNotification) || preparationTimeOption === "" || selectedHour === "") {
+//       alert("Por favor, preencha todas as opções e selecione um horário.");
+
+//       preparationTimeDiv.classList.add("error");
+//       notificationsDiv.classList.add("error");
+//       statusOptionsDiv.classList.add("error");
+//   } else {
+//       console.log("Status do pedido: " + statusOption);
+
+//       if (sendNotification) {
+//           console.log("Notificação ao cliente enviada.");
+//       }
+
+//       console.log("Tempo estimado de preparo: " + preparationTimeOption);
+
+//       // Calcular a hora estimada de entrega
+//       var horaAtual = new Date().getHours();
+//       var horaPreparo = parseInt(preparationTimeOption) + parseInt(selectedHour);
+//       var horaEntrega = Math.min(20, horaAtual + horaPreparo);
+
+//       console.log("Hora estimada de entrega: " + horaEntrega + ":00");
+
+//       alert("Pedido confirmado com sucesso!\nHora estimada de entrega: " + horaEntrega + ":00");
+
+//       preparationTimeDiv.classList.add("success");
+//       notificationsDiv.classList.add("success");
+//       statusOptionsDiv.classList.add("success");
+//   }
+// }
+
+
+
+// function confirmarPedido() {
+//   var statusOption = document.getElementById("statusUpdateOptions").value;
+//   var sendNotification = document.getElementById("sendNotification").checked;
+//   var preparationTimeOption = document.getElementById("preparationTimeOptions").value;
+//   var selectedPreparationHour = document.getElementById("selectedPreparationHour");
+//   var selectedDeliveryHour = document.getElementById("selectedDeliveryHour");
+
+//   var preparationTimeDiv = document.querySelector(".preparationTimeDiv");
+//   var notificationsDiv = document.querySelector(".notificationsDiv");
+//   var statusOptionsDiv = document.querySelector(".statusOptionsDiv");
+
+//   preparationTimeDiv.classList.remove("error", "success");
+//   notificationsDiv.classList.remove("error", "success");
+//   statusOptionsDiv.classList.remove("error", "success");
+
+//   if (
+//       (statusOption === "" && !sendNotification) ||
+//       preparationTimeOption === "" ||
+//       selectedPreparationHour.value === "" ||
+//       selectedDeliveryHour.value === ""
+//   ) {
+//       alert("Por favor, preencha todas as opções e selecione os horários.");
+
+//       preparationTimeDiv.classList.add("error");
+//       notificationsDiv.classList.add("error");
+//       statusOptionsDiv.classList.add("error");
+//       selectedDeliveryHour.classList.add("error");
+//       selectedPreparationHour.classList.add("error");
+
+//   } else {
+//       console.log("Status do pedido: " + statusOption);
+
+//       if (sendNotification) {
+//           console.log("Notificação ao cliente enviada.");
+//       }
+
+//       console.log("Tempo estimado de preparo: " + preparationTimeOption);
+
+//       // Calcular a hora estimada de entrega
+//       var horaAtual = new Date().getHours();
+//       var horaPreparo = parseInt(preparationTimeOption) + parseInt(selectedPreparationHour.value);
+//       var horaEntrega = Math.min(20, horaAtual + horaPreparo);
+
+//       console.log("Hora estimada de entrega: " + horaEntrega + ":00");
+
+//       // Adicionar a lógica para calcular a hora estimada de entrega com base na hora selecionada para a entrega
+//       var horaEstimadaEntrega = parseInt(selectedDeliveryHour.value);
+
+//       console.log("Hora estimada de entrega (baseada na seleção do cliente): " + horaEstimadaEntrega + ":00");
+
+//       alert("Pedido confirmado com sucesso!\nHora estimada de entrega (baseada na seleção do cliente): " + horaEstimadaEntrega + ":00");
+
+//       preparationTimeDiv.classList.add("success");
+//       notificationsDiv.classList.add("success");
+//       statusOptionsDiv.classList.add("success");
+//       selectedDeliveryHour.classList.add("success");
+//       selectedPreparationHour.classList.add("success");
+//   }
+// }
+
+
+function confirmarPedido() {
+  var statusOption = document.getElementById("statusUpdateOptions").value;
+  var sendNotification = document.getElementById("sendNotification").checked;
+  var preparationTimeOption = document.getElementById("preparationTimeOptions").value;
+  var selectedPreparationHour = document.getElementById("selectedPreparationHour");
+  var selectedDeliveryHour = document.getElementById("selectedDeliveryHour");
+
+  var preparationTimeDiv = document.querySelector(".preparationTimeDiv");
+  var notificationsDiv = document.querySelector(".notificationsDiv");
+  var statusOptionsDiv = document.querySelector(".statusOptionsDiv");
+
+  preparationTimeDiv.classList.remove("error", "success");
+  notificationsDiv.classList.remove("error", "success");
+  statusOptionsDiv.classList.remove("error", "success");
+
+  if (
+      (statusOption === "" && !sendNotification) ||
+      preparationTimeOption === "" ||
+      selectedPreparationHour.value === "" ||
+      selectedDeliveryHour.value === ""
+  ) {
+      alert("Por favor, preencha todas as opções e selecione os horários.");
+
+      preparationTimeDiv.classList.add("error");
+      notificationsDiv.classList.add("error");
+      statusOptionsDiv.classList.add("error");
+      selectedDeliveryHour.classList.add("error");
+      selectedPreparationHour.classList.add("error");
+
+  } else {
+      console.log("Status do pedido: " + statusOption);
+
+      if (sendNotification) {
+          console.log("Notificação ao cliente enviada.");
+      }
+
+      console.log("Tempo estimado de preparo: " + preparationTimeOption);
+
+      // Calcular a hora estimada de entrega
+      var horaAtual = new Date().getHours();
+      var horaPreparo = parseInt(preparationTimeOption) + parseInt(selectedPreparationHour.value);
+      var horaEntrega = Math.min(20, horaAtual + horaPreparo);
+
+      console.log("Hora estimada de entrega: " + horaEntrega + ":00");
+
+      // Adicionar a lógica para calcular a hora estimada de entrega com base na hora selecionada para a entrega
+      var horaEstimadaEntrega = parseInt(selectedDeliveryHour.value);
+
+      console.log("Hora estimada de entrega (baseada na seleção do cliente): " + horaEstimadaEntrega + ":00");
+
+      alert("Pedido confirmado com sucesso!\nHora estimada de entrega (baseada na seleção do cliente): " + horaEstimadaEntrega + ":00");
+
+      preparationTimeDiv.classList.add("success");
+      notificationsDiv.classList.add("success");
+      statusOptionsDiv.classList.add("success");
+      selectedDeliveryHour.classList.add("success");
+      selectedPreparationHour.classList.add("success");
+
+      // Salvar informações do pedido no localStorage
+      salvarPedidoNoLocalStorage(statusOption, sendNotification, preparationTimeOption, horaEntrega);
+  }
+}
+
+function salvarPedidoNoLocalStorage(status, notificacao, preparo, entrega) {
+  var pedido = {
+      status: status,
+      notificacao: notificacao,
+      preparo: preparo,
+      entrega: entrega
+  };
+
+  // Converte o objeto em uma string JSON e salva no localStorage
+  localStorage.setItem('pedido', JSON.stringify(pedido));
+}
+
+function exibirEstadoPedido() {
+  // Recupera as informações do pedido do localStorage
+  var pedidoSalvo = localStorage.getItem('pedido');
+
+  if (pedidoSalvo) {
+      // Converte a string JSON de volta para um objeto
+      var pedido = JSON.parse(pedidoSalvo);
+
+      // Exibe as informações do pedido (você pode personalizar isso conforme necessário)
+      alert('Status do Pedido: ' + pedido.status +
+          '\nNotificação ao Cliente: ' + (pedido.notificacao ? 'Sim' : 'Não') +
+          '\nTempo de Preparo Estimado: ' + pedido.preparo +
+          '\nHora Estimada de Entrega: ' + pedido.entrega + ':00');
+  } else {
+      alert('Nenhum pedido encontrado no localStorage.');
+  }
 }

@@ -216,14 +216,11 @@ button:hover {
  margin-left: 10px;
  margin-right: 10px;
  padding-left: 10px;
-  /* background: #86b877; */
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
   border-radius: 5px;
-  /* border-bottom: 1px solid rgb(14 55 54 / 15%); */
-  /* box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 7%); */
   -webkit-box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 15%);
 -moz-box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 15%);
 box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 20%);

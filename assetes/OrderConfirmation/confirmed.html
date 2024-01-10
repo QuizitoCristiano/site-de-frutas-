@@ -36,7 +36,7 @@
       <ul id="orderItems"></ul>
       <p id="resumoDoPedidoTotal">Total: </p>
     </div>
-  
+
 
     <div class="customer-details">
       <h2>Detalhes do Cliente</h2>
@@ -69,32 +69,48 @@
       <div id="div2"></div>
     </div>
 
+    
+
+  
     <div class="preparation-time">
       <h2>Tempo Estimado de Preparo</h2>
-
-      <select id="statusUpdateOptions">
-        <option value="aguardando"> Aguardando a Sua Confirmação</option>
-        <option value="Seu pedido foi confirmado e está em preparo">Seu pedido foi confirmado e está em preparo</option>
+      <select id="preparationTimeOptions" class="preparationTimeDiv">
+          <option value="">Selecione uma opção</option>
+          <option value="1">1 hora</option>
+          <option value="2">2 horas</option>
+          <option value="3">3 horas</option>
+          <!-- Adicione outras opções conforme necessário -->
       </select>
-    </div>
+  </div>
 
-
-    <div class="notifications">
+  <div class="notifications">
       <h2>Notificações ao Cliente</h2>
-      <label for="sendNotification">
-        <input type="checkbox" id="sendNotification" /> Enviar notificação ao
-        cliente
+      <label for="sendNotification" class="notificationsDiv">
+          <input type="checkbox" id="sendNotification" /> Enviar notificação ao cliente
       </label>
-    </div>
-    <div class="status-update-options">
+  </div>
+
+  <div class="status-update-options">
       <h2>Opções de Atualização do Status</h2>
-      <select id="statusUpdateOptions">
-        <option value="aguardando">Aguardando Confirmação</option>
-        <option value="preparo">Em Preparo</option>
-        <option value="entrega">Em Entrega</option>
-        <option value="entregue">Entregue</option>
+      <select id="statusUpdateOptions" class="statusOptionsDiv">
+          <option value="">Selecione uma opção</option>
+          <option value="aguardando">Aguardando Confirmação</option>
+          <option value="preparo">Em Preparo</option>
+          <option value="entrega">Em Entrega</option>
+          <option value="entregue">Entregue</option>
       </select>
-    </div>
+  </div>
+
+  <div>
+      <h2>Selecionar Horário de Preparo</h2>
+      <input type="time" id="selectedPreparationHour" class="statusOptionsDiv">
+  </div>
+
+  <div>
+      <h2>Selecionar Horário de Entrega</h2>
+      <input type="time" id="selectedDeliveryHour" class="statusOptionsDiv">
+  </div>
+
     <div class="customer-support">
       <h2>Suporte ao Cliente</h2>
       <p>Entre em contato conosco em caso de dúvidas ou problemas:</p>

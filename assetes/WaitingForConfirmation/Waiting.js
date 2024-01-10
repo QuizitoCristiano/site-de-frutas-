@@ -62,6 +62,22 @@ document.addEventListener('DOMContentLoaded', function () {
       const formaPagamento = localStorage.getItem('formaPagamento');
       formaPagamentoElement.textContent = `Forma de Pagamento: ${formaPagamento || 'Não especificada'}`;
   }
+
+
+  var pedidoSalvo = localStorage.getItem('pedido');
+
+  if (pedidoSalvo) {
+      var pedido = JSON.parse(pedidoSalvo);
+
+      // Atualizar parágrafos ou elementos na tela com as informações do pedido
+      document.getElementById('statusParagraph').innerText = 'Status do Pedido: ' + pedido.status;
+      document.getElementById('notificationParagraph').innerText = 'Notificação ao Cliente: ' + (pedido.notificacao ? 'Sim' : 'Não');
+      document.getElementById('preparationParagraph').innerText = 'Tempo de Preparo Estimado: ' + pedido.preparo;
+      document.getElementById('deliveryParagraph').innerText = 'Hora Estimada de Entrega: ' + pedido.entrega + ':00';
+  } else {
+      alert('Nenhum pedido encontrado no localStorage.');
+  }
+
 });
 
 
@@ -124,5 +140,40 @@ setInterval(() => {
 
 
 
+
+
+function confirmarPedido() {
+  // ... seu código atual
+
+  // Salvar informações do pedido no localStorage
+  salvarPedidoNoLocalStorage(statusOption, sendNotification, preparationTimeOption, horaEntrega);
+
+  // Atualizar parágrafos na tela com as informações do pedido
+  atualizarParagrafos();
+}
+
+function salvarPedidoNoLocalStorage(status, notificacao, preparo, entrega) {
+  var pedido = {
+      status: status,
+      notificacao: notificacao,
+      preparo: preparo,
+      entrega: entrega
+  };
+
+  localStorage.setItem('pedido', JSON.stringify(pedido));
+}
+
+function exibirEstadoPedido() {
+  var pedidoSalvo = localStorage.getItem('pedido');
+
+  if (pedidoSalvo) {
+      var pedido = JSON.parse(pedidoSalvo);
+
+      // Atualizar parágrafos na tela com as informações do pedido
+      atualizarParagrafos(pedido);
+  } else {
+      alert('Nenhum pedido encontrado no localStorage.');
+  }
+}
 
 
