@@ -139,9 +139,11 @@ document.getElementById("searchButton").addEventListener("click", function () {
 let sacola = document.querySelector(".carrinho");
 function motrarSacola(event) {
   sacola.classList.add("show");
+  console.log('mostrar')
 }
 function fecharSacola(e) {
   sacola.classList.remove("show");
+  console.log('fechar')
 }
 document.addEventListener("click", (event) => {
   if (event.target.classList.contains("bxs-cart")) {
@@ -398,7 +400,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Abrir o modal ao clicar no botão "Finalizar Compra"
   openModalBtn.addEventListener("click", function () {
     // Fechar o carrinho antes de abrir o modal
-    document.querySelector(".carrinho").style.display = "none";
+    // document.querySelector(".carrinho").style.display = "none";
+    document.querySelector(".carrinho").classList.remove("show");
    
 
     if (verificarCarrinho()) {
@@ -413,6 +416,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Fechar o modal ao clicar no botão dentro do modal
   fecharModalClicado.addEventListener("click", function () {
     modal.style.display = "none";
+
   });
 
 

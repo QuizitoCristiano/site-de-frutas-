@@ -140,6 +140,9 @@ button:hover {
   position: fixed;
   top: 0;
   display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   right: 0;
   width: 360px;
   min-height: 100vh;
@@ -212,6 +215,7 @@ button:hover {
   margin-top: 10px;
  margin-left: 10px;
  margin-right: 10px;
+ padding-left: 10px;
   /* background: #86b877; */
   display: flex;
   align-items: center;
@@ -219,7 +223,10 @@ button:hover {
   flex-direction: row;
   border-radius: 5px;
   /* border-bottom: 1px solid rgb(14 55 54 / 15%); */
-  box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 7%);
+  /* box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 7%); */
+  -webkit-box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 15%);
+-moz-box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 15%);
+box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 20%);
  
 }
 .priceQuantity {
