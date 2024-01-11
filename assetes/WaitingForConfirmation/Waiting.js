@@ -64,19 +64,19 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
-  var pedidoSalvo = localStorage.getItem('pedido');
+  // var pedidoSalvo = localStorage.getItem('pedido');
 
-  if (pedidoSalvo) {
-      var pedido = JSON.parse(pedidoSalvo);
+  // if (pedidoSalvo) {
+  //     var pedido = JSON.parse(pedidoSalvo);
 
-      // Atualizar parágrafos ou elementos na tela com as informações do pedido
-      document.getElementById('statusParagraph').innerText = 'Status do Pedido: ' + pedido.status;
-      document.getElementById('notificationParagraph').innerText = 'Notificação ao Cliente: ' + (pedido.notificacao ? 'Sim' : 'Não');
-      document.getElementById('preparationParagraph').innerText = 'Tempo de Preparo Estimado: ' + pedido.preparo;
-      document.getElementById('deliveryParagraph').innerText = 'Hora Estimada de Entrega: ' + pedido.entrega + ':00';
-  } else {
-      alert('Nenhum pedido encontrado no localStorage.');
-  }
+  //     // Atualizar parágrafos ou elementos na tela com as informações do pedido
+  //     document.getElementById('statusParagraph').innerText = 'Status do Pedido: ' + pedido.status;
+  //     document.getElementById('notificationParagraph').innerText = 'Notificação ao Cliente: ' + (pedido.notificacao ? 'Sim' : 'Não');
+  //     document.getElementById('preparationParagraph').innerText = 'Tempo de Preparo Estimado: ' + pedido.preparo;
+  //     document.getElementById('deliveryParagraph').innerText = 'Hora Estimada de Entrega: ' + pedido.entrega + ':00';
+  // } else {
+  //     alert('Nenhum pedido encontrado no localStorage.');
+  // }
 
 });
 
@@ -177,3 +177,29 @@ function exibirEstadoPedido() {
 }
 
 
+
+
+function exibirEstadoPedido() {
+  // Recupera as informações do pedido do localStorage
+  var pedidoSalvo = localStorage.getItem('pedido');
+
+  var detalhesPedidoDiv = document.getElementById('detalhesPedido');
+
+  if (pedidoSalvo) {
+      // Converte a string JSON de volta para um objeto
+      var pedido = JSON.parse(pedidoSalvo);
+
+      // Cria elementos HTML para exibir as informações do pedido
+      var detalhesPedidoHTML = `
+          <p><strong>Status do Pedido:</strong> ${pedido.status}</p>
+          <p><strong>Notificação ao Cliente:</strong> ${pedido.notificacao ? 'Sim' : 'Não'}</p>
+          <p><strong>Tempo de Preparo Estimado:</strong> ${pedido.preparo}</p>
+          <p><strong>Hora Estimada de Entrega:</strong> ${pedido.entrega}:00</p>
+      `;
+
+      // Atualiza o conteúdo da div com os detalhes do pedido
+      detalhesPedidoDiv.innerHTML = detalhesPedidoHTML;
+  } else {
+      detalhesPedidoDiv.innerHTML = '<p>Nenhum pedido encontrado no localStorage.</p>';
+  }
+}

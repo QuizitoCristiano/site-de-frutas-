@@ -308,9 +308,9 @@ function confirmarPedido() {
       // Adicionar a lógica para calcular a hora estimada de entrega com base na hora selecionada para a entrega
       var horaEstimadaEntrega = parseInt(selectedDeliveryHour.value);
 
-      console.log("Hora estimada de entrega (baseada na seleção do cliente): " + horaEstimadaEntrega + ":00");
+      console.log("Hora estimada de entrega: " + horaEstimadaEntrega + ":00");
 
-      alert("Pedido confirmado com sucesso!\nHora estimada de entrega (baseada na seleção do cliente): " + horaEstimadaEntrega + ":00");
+      alert("Pedido confirmado com sucesso!\nHora estimada de entrega: " + horaEstimadaEntrega + ":00");
 
       preparationTimeDiv.classList.add("success");
       notificationsDiv.classList.add("success");
@@ -345,7 +345,7 @@ function exibirEstadoPedido() {
 
       // Exibe as informações do pedido (você pode personalizar isso conforme necessário)
       alert('Status do Pedido: ' + pedido.status +
-          '\nNotificação ao Cliente: ' + (pedido.notificacao ? 'Sim' : 'Não') +
+          // '\nNotificação ao Cliente: ' + (pedido.notificacao ? 'Sim' : 'Não') +
           '\nTempo de Preparo Estimado: ' + pedido.preparo +
           '\nHora Estimada de Entrega: ' + pedido.entrega + ':00');
   } else {

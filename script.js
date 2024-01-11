@@ -401,7 +401,7 @@ document.addEventListener("DOMContentLoaded", function () {
   openModalBtn.addEventListener("click", function () {
     // Fechar o carrinho antes de abrir o modal
     // document.querySelector(".carrinho").style.display = "none";
-    document.querySelector(".carrinho").classList.remove("show");
+    document.querySelector(".carrinho").classList.remove("show")
    
 
     if (verificarCarrinho()) {
