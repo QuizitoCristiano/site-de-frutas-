@@ -1,3 +1,7 @@
+import { getAuth , createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+const auth = getAuth();
+
 function clearError(errorId) {
     var errorElement = document.getElementById(errorId);
     errorElement.textContent = '';
@@ -8,7 +12,7 @@ function checkPasswordStrength() {
     // Implemente a lógica de verificação da força da senha, se necessário
 }
 
-function validateForm() {
+export function validateForm() {
     // Limpar mensagens de erro
     clearErrors();
 
@@ -105,6 +109,19 @@ function criaUsuario(usuario) {
 
     // Adicione o parágrafo ao corpo do documento ou a outro elemento desejado
     // document.body.appendChild(novoParagrafo);
+    createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    // ...
+    console.log(user)
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+    console.error(errorMessage)
+  });
 }
 
 // ...

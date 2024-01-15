@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="./localizacaoModal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+<body>
+    <!-- Adicione isso onde você achar adequado, provavelmente dentro do body -->
+
+    <div id="localizacaoModal" class="modal">
+        <div class="modal-content">
+            <h4>Selecione sua localização</h4>
+            <form id="localizacaoForm">
+                <div class="input-field">
+                    <select id="estado" name="estado" required>
+                        <!-- Adicione options para todos os estados do Brasil -->
+                    </select>
+                    <label for="estado">Estado</label>
+                </div>
+
+                <div class="input-field">
+                    <input type="text" id="cidade" name="cidade" required>
+                    <label for="cidade">Cidade</label>
+                </div>
+
+                <button class="btn waves-effect waves-light" type="submit">Selecionar</button>
+            </form>
+        </div>
+    </div>
+
+  
+    <script src="./localizacaoModal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>

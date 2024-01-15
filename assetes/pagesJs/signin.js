@@ -1,4 +1,5 @@
 
+
 function clearError(errorId) {
     document.getElementById(errorId).textContent = '';
 }
@@ -63,5 +64,8 @@ function validateForm() {
     }
 
     console.log(usuarioEncontrado);
+    
 }
+
+
 

@@ -40,17 +40,35 @@ const produtos = [
   },
 ];
 
+
 const container = document.querySelector(".Produtos-container");
 produtos.forEach((produto, index) => {
   const productCardHTML = `
-      <div class="box">
-        <img src="${produto.img}" alt="" />
-        <h2>${produto.nome}</h2>
-         <i class="bx bx-heart" onclick="trocarIconDeFrutas(this)"></i>
-      </div>
-    `;
+    <div class="box" onclick="mostrarAlerta('${produto.nome}')">
+      <img src="${produto.img}" alt="" />
+      <h2>${produto.nome}</h2>
+      <i class="bx bx-heart" onclick="trocarIconDeFrutas(this)"></i>
+    </div>
+  `;
   container.innerHTML += productCardHTML;
 });
+
+function mostrarAlerta(nomeMercado) {
+  alert(`Suas compras serão realizadas no mercado: ${nomeMercado}`);
+
+  // Referência ao elemento loader (ajuste conforme sua implementação)
+  const loader = document.querySelector(".loader");
+
+  // Adicionando um delay de 2 segundos antes do redirecionamento
+  setTimeout(() => {
+    if (loader) {
+      loader.style.display = "none";
+    }
+    // Redirecionar para a página desejada
+    window.location.href = "./home.html";
+  }, 2000);
+}
+
 
 // Função para trocar o ícone do coração;
 function trocarIconDeFrutas(el) {
@@ -74,20 +92,18 @@ function trocarIcone(element) {
   }
 }
 
-
-
 function changeBg(bg, litle) {
-  const banner = document.querySelector('.home_banner');
-  const contents = document.querySelector('.content');
+  const banner = document.querySelector(".home_banner");
+  const contents = document.querySelector(".content");
 
   banner.style.background = `url("./image/${bg}")`;
-  banner.style.backgroundSize =' cover';
-  banner.style.backgroundPosition ='center';
+  banner.style.backgroundSize = " cover";
+  banner.style.backgroundPosition = "center";
 
-  contents.forEach(content => {
-    content.classList.remove('active');
-    if (content.classList.contains(litle)){
-      content.classList.add('active');
+  contents.forEach((content) => {
+    content.classList.remove("active");
+    if (content.classList.contains(litle)) {
+      content.classList.add("active");
     }
-  })
+  });
 }
