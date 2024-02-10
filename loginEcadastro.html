@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+  <!-- Link Swiper's CSS -->
+
+</head>
+</head>
+
+<body>
+  <div class="container_Globall">
+    <div class="content first-content">
+      <div class="first-column">
+        <h2 class="title">Welcome back!</h2>
+        <p class="description">Para se manter conectado conosco</p>
+        <p class="description">Faça login com suas informações pessoais</p>
+        <button class="btn">inscrever-se</button>
+      </div>
+
+      <div class="second-column">
+        <h2 class="title">Criar uma conta com...</h2>
+
+        <div class="social-media">
+          <i class="bx bxl-facebook"></i>
+          <i class="bx bxl-google"></i>
+          <i class="bx bxl-linkedin"></i>
+        </div>
+        <!-- Social Media -->
+
+        <section>
+          <div class="container_form">
+            <div class="conatiner-login">
+              <h4>Faça cadastro para garantir a sua segurança</h4>
+
+              <form id="loginForm">
+                <div class="divInput">
+                  <input type="text" placeholder="Digite seu nome completo..." id="fullName"
+                    oninput="clearError('fullNameError')" />
+                  <p id="fullNameError" class="error"></p>
+                </div>
+
+                <div class="divInput password-strength-icons">
+
+                  <input type="password" placeholder="Digite uma senha de 6 dígitos..." id="password"
+                    oninput="checkPasswordStrength(); clearError('passwordError');" />
+                  <p id="passwordError" class="error"></p>
+                </div>
+
+                <div class="divInput">
+                  <input type="password" placeholder="Confirme a sua senha..." id="confirmPassword"
+                    oninput="clearError('confirmPasswordError')" />
+                  <p id="confirmPasswordError" class="error"></p>
+                </div>
+
+                <div class="divInput">
+                  <input type="cpf" placeholder="Digite seu CPF..." id="cpf" oninput="clearError('cpfError')" />
+                  <p id="cpfError" class="error"></p>
+                </div>
+
+                <div class="divInput">
+                  <input type="email" placeholder="Digite seu e-mail..." id="email"
+                    oninput="clearError('emailError')" />
+                  <p id="emailError" class="error"></p>
+                </div>
+
+                <button type="button" onclick="validateForm()">Enviar</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="content second-content">
+
+
+      <div class="second-content">
+        <h2 class="title">Bem vindo de volta!</h2>
+        <p class="description">insira os seu dados pessoais</p>
+        <p class="description">e comece a jornada com os</p>
+        <button class="btn"> Faça login </button>
+      </div>
+
+      <div class="second-column">
+        <h2 class="title">Create account </h2>
+
+        <div class="social-media">
+          <i class="bx bxl-facebook"></i>
+          <i class="bx bxl-google"></i>
+          <i class="bx bxl-linkedin"></i>
+        </div>
+        <!-- Social Media -->
+
+
+
+        <section>
+          <div class="container_form">
+
+            <div class="conatiner-login">
+              <h4>Faça login para garantir a sua segurança</h4>
+
+              <form id="loginForm">
+                <div class="divInput">
+                  <input type="email" placeholder="Digite seu e-mail..." id="email"
+                    oninput="clearError('emailError')" />
+                  <p id="emailError" class="error"></p>
+                </div>
+
+                <div class="divInput password-strength-icons">
+                  <input type="password" placeholder="Digite uma senha de 6 dígitos..." id="password"
+                    oninput="checkPasswordStrength(); clearError('passwordError');" />
+                  <p id="passwordError" class="error"></p>
+                </div>
+
+                <button type="button" onclick="validateForm()">Enviar</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+
+</body>
+
+</html>
